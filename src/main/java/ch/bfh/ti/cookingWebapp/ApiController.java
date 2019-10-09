@@ -23,4 +23,9 @@ public class ApiController {
     public List<Recipe> getAllRecipes(){
         return this.recipeService.getAllRecipes();
     }
+
+    @GetMapping("/mainPage")
+    public String mainPage() {
+        return "mainPage";
+    }
 }

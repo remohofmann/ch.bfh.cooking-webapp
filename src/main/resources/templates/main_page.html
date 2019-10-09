@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>title</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="..\static\css\main_page.css">
+  <link th:href="@{/css/main_page.css}" rel="stylesheet"/>
 </head>
 <body>
   <header>cookit</header>
   <section class = "headerContainer">
-    <img class="headerContent" id="logo" src="pfanne.jpg" alt="logo"/>
+    <img src="../static/images/pfanne.jpg" class="headerContent" id="logo" th:src="@{images/pfanne.jpg}" alt="logo"/>
     <section class="headerContent" id="search">search</section>
     <section class="headerContent" id="login">login</section>
     <section class="headerContent" id="compare">compare</section>
