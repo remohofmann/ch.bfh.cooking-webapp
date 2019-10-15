@@ -10,7 +10,8 @@
   <section class = "headerContainer">
     <img src="../static/images/pfanne.jpg" class="headerContent" id="logo" th:src="@{images/pfanne.jpg}" alt="logo"/>
     <section class="headerContent" id="search">search</section>
-    <section class="headerContent" id="login">login</section>
+    <section th:href="@{login.html}" class="headerContent" id="login">login</section>
+    <section th:href="@{signup.html}" class="headerContent" id="signup">sign up</section>
     <section class="headerContent" id="compare">compare</section>
   </section>
   <section id="middleSection">

@@ -14,4 +14,9 @@ public class MainController {
         return "main_page";
     }
 
+    @RequestMapping("/userlogin")
+    public String userlogin() { return "login"; }
+
+    @RequestMapping("/signup")
+    public String signup() { return "signup"; }
 }
