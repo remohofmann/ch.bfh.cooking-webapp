@@ -1,21 +1,38 @@
 package ch.bfh.ti.cookingWebapp;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="recipes")
 public class Recipe {
+    @Id
+    @Column(name="id")
+    @GeneratedValue
     private long id;
-    private String name;
-    private String number;
-    private String info;
+    @Column(name="recipe_name")
+    private String recipe_name;
+    @Column(name="recipe_tag")
+    private String recipe_tag;
+    @Column(name="recipe_description")
+    private String recipe_description;
+    @Column(name="recipe_duration")
+    private int recipe_duration;
 
     public Recipe() {
         super();
     }
 
-    public Recipe(long id, String name, String number, String info) {
+    public Recipe(long id, String recipe_name, String recipe_tag, String recipe_description, int recipe_duration) {
         super();
         this.id = id;
-        this.name = name;
-        this.number = number;
-        this.info = info;
+        this.recipe_name = recipe_name;
+        this.recipe_tag = recipe_tag;
+        this.recipe_description = recipe_description;
+        this.recipe_duration = recipe_duration;
     }
 
     public long getId() {
@@ -26,27 +43,36 @@ public class Recipe {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getRecipe_name() {
+        return recipe_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRecipe_name(String recipe_name) {
+        this.recipe_name = recipe_name;
     }
 
-    public String getNumber() {
-        return number;
+    public String getRecipe_tag() {
+        return recipe_tag;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setRecipe_tag(String recipe_tag) {
+        this.recipe_tag = recipe_tag;
     }
 
-    public String getInfo() {
-        return info;
+    public String getRecipe_description() {
+        return recipe_description;
     }
 
-    public void setInfo(String info) {
-        this.info = info;
+    public void setRecipe_description(String recipe_description) {
+        this.recipe_description = recipe_description;
+    }
+
+    public int getRecipe_duration() {
+        return recipe_duration;
+    }
+
+    public void setRecipe_duration(int recipe_duration) {
+        this.recipe_duration = recipe_duration;
     }
 }
+

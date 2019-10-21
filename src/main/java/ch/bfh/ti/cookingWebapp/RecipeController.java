@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/recipes")
 public class RecipeController {
-    private RecipeService recipeService;
+    private RecipeServices recipeServices;
 
     @Autowired
-    public RecipeController(RecipeService recipeService){
+    public RecipeController(RecipeServices recipeServices){
         super();
-        this.recipeService = recipeService;
+        this.recipeServices = recipeServices;
     }
 
     @GetMapping
     public String getAllRecipes(Model model){
-        model.addAttribute("recipes", this.recipeService.getAllRecipes());
+        model.addAttribute("recipes", this.recipeServices.getAllRecipes());
         return "recipes";
     }
 }

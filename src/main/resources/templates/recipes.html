@@ -14,9 +14,10 @@
         <th>Other Info</th>
     </tr>
     <tr th:each="recipe:${recipes}">
-        <td th:text="${recipe.number}"></td>
-        <td th:text="${recipe.name}"></td>
-        <td th:text="${recipe.info}"></td>
+        <td th:text="${recipe.recipe_name}"></td>
+        <td th:text="${recipe.recipe_tag}"></td>
+        <td th:text="${recipe.recipe_description}"></td>
+        <td th:text="${recipe.recipe_duration}"}></td>
     </tr>
 </table>
 

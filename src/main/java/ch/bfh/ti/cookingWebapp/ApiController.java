@@ -11,17 +11,17 @@ import java.util.List;
 @RequestMapping("/api")
 public class ApiController {
 
-    private RecipeService recipeService;
+    private RecipeServices recipeServices;
 
     @Autowired
-    public ApiController(RecipeService recipeService){
+    public ApiController(RecipeServices recipeServices){
         super();
-        this.recipeService = recipeService;
+        this.recipeServices = recipeServices;
     }
 
     @GetMapping("/recipes")
     public List<Recipe> getAllRecipes(){
-        return this.recipeService.getAllRecipes();
+        return this.recipeServices.getAllRecipes();
     }
 
     @GetMapping("/mainPage")
