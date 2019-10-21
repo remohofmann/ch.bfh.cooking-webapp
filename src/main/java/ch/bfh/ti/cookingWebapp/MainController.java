@@ -19,4 +19,7 @@ public class MainController {
 
     @RequestMapping("/signup")
     public String signup() { return "signup"; }
+
+    @RequestMapping("/searchRecipes")
+    public String searchRecipes() {return "searchRecipes"; }
 }

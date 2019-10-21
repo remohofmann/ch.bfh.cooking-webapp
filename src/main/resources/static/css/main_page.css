@@ -63,6 +63,10 @@ nav {color:blue;}
   background-color: #ddd;
 }
 
+input:focus {
+    color: yellowgreen;
+}
+
 .show {
   display: block;
 }
