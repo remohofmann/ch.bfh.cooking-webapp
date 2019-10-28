@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class RecipeServices
-{
+public class RecipeServices {
     private RecipeRepository recipeRepository;
 
     @Autowired
@@ -19,8 +18,21 @@ public class RecipeServices
     }
 
     public List<Recipe> getAllRecipes(){
-        List<Recipe> rooms = new ArrayList<>();
-        this.recipeRepository.findAll().forEach(rooms::add);
-        return rooms;
+        List<Recipe> recipes = new ArrayList<>();
+        this.recipeRepository.findAll().forEach(recipes::add);
+        return recipes;
+    }
+
+    //Searches for Recipes by tag.
+    public List<Recipe> getRecipeByTag(String tag){
+        List<Recipe> allRecipes = getAllRecipes();
+        List<Recipe> recipes = new ArrayList<>();
+        for (Recipe r:allRecipes){
+            System.out.println(r.getRecipe_tag());
+            if (r.getRecipe_tag().equals(tag)){
+                recipes.add(r);
+            }
+        }
+        return recipes;
     }
 }

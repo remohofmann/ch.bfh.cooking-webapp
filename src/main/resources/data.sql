@@ -1,4 +1,4 @@
-INSERT INTO recipes (recipe_name, recipe_tag, recipe_description, recipe_duration) VALUES
+INSERT INTO recipe (recipe_name, recipe_tag, recipe_description, recipe_duration) VALUES
   ('Rösti', 'Kartoffeln', 'Raffeln, anbraten', 30),
   ('Zürcher Geschnetzeltes', 'Reis', 'Raffeln, anbraten', 60),
   ('Spaghetti Bolognese', 'Nudeln', 'Hackfleisch anbraten, mit Zwiebeln, Gemüse und Tomaten 2h kochen lassen, 10 minuten vor Schluss Nudeln kochen.', 120),
