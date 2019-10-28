@@ -1,5 +1,6 @@
 <?php
 
+function createComparisonTable(){
 // We need 8 rows for: picture, rating, name, time, calories, difficulty, ingredients, preparation
 // Column number is dependent from number of recipes to compare, plus 1 for column description
 $rowTitle = ["Picture", "Rating", "Name", "Preparation time", "Calories", "Difficulty", "Ingredients", "Preparation"];
@@ -12,4 +13,5 @@ for ($colindex = 1; $colindex <= recipeNumber; $colindex++) {
 		echo "<td align = right>$colindex/$rowIndex</td>";
 		}
 	echo "</tr>";
+}
 }

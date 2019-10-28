@@ -15,7 +15,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="ch.bfh.cooking-webapp" options="-parameters" />
+      <module name="ch.bfh.cooking-webapp" options="" />
     </option>
   </component>
 </project>

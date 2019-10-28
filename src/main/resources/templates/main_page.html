@@ -9,16 +9,16 @@
   <header>cookit</header>
   <section class = "headerContainer">
     <img src="../static/images/pfanne.jpg" class="headerContent" id="logo" th:src="@{images/pfanne.jpg}" alt="logo"/>
-    <section class="headerContent" id="search">search</section>
-    <section th:href="@{login}" class="headerContent" id="login">login</section>
-    <section th:href="@{signup}" class="headerContent" id="signup">sign up</section>
-    <section class="headerContent" id="compare">compare</section>
+    <a th:href="@{searchRecipes}" class="headerContent" id="search">search</a>
+    <a th:href="@{login}" class="headerContent" id="login">login</a>
+    <a th:href="@{signup}" class="headerContent" id="signup">sign up</a>
+    <a class="headerContent" id="compare">compare</a>
   </section>
   <section id="middleSection">
     <nav id="navigation">
       <ul>
         <li>Main ingredient</li>
-          <a th:href="@{searchRecipes}">Meat</a>
+          <a href="">Meat</a>
           <a href="">Vegetables</a>
           <a href="">Pulses</a>
           <a href="">Milk</a>
@@ -34,7 +34,7 @@
         <li>Cuisine</li>
       </ul>
     </nav>
-    <section id="container"><?php include "compareRecipes.php"  ?></section>
+    <section id="container">"Container"<?php include "compareRecipes.php"  ?></section>
   </section>
   <footer>@ Remo Hofmann, Lukas Zoller</footer>
 
