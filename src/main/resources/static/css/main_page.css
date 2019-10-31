@@ -1,26 +1,77 @@
 /* CSS for main Page */
+@import url('https://fonts.googleapis.com/css?family=Staatliches');
 
-* {box-sizing:border-box;margin:0.2em;float: left;}
+* {
+    font-family: "Roboto Condensed", sans-serif;
+}
+:root {
+--blueColor: #00BFFF;
+--pinkColor: #FF00FF;
+}
 
-header, footer, .headerContainer  {
-	background-color: black; 
-	color:white;
+header, footer{
+    width: 100%;
 	text-align:center;
-	font-size:0.8em;
-	padding:0.2em;
-	width: 100%;}
-header, .headerContainer * {
-	color:white; 
-	font-size: 1.5em}
-nav {color:blue;}
-.headerContainer > .headerContent {color:red;}
+    font-family: "Staatliches", sans-serif;
+    font-size: 2em;
+    background-color: var(--blueColor);
+    border: 1px solid black;
+    border-radius: 0.2em;
+    color: var(--pinkColor);
+}
 
-#navigation {width: 20%; background-color: grey;}
-#search {width: 60%;}
-#login {width: 15%;}
-#compare {width: 5%;}
-#logo {max-height: 1.5em;}
-    
+.menu {
+    width: 100%;
+    display:flex;       /*flex code from: https://stackoverflow.com/questions/53004512/align-divs-horizontally-and-perfectly-fit-the-width-of-parent*/
+    flex-wrap:wrap;
+    flex-direction: row;
+}
+
+.menuContent {
+    flex: 0 25%;
+    border-radius: 0.5em;
+    color: white;
+    align: center;
+    text-align: center;
+    background-color: var(--pinkColor);
+    box-sizing: border-box;
+    border: 2px solid white;
+}
+
+.menuContent:hover {
+    transform: scale(1.1);
+}
+
+a {
+    text-align: center;
+    color: white;
+}
+
+
+h1 {
+    font-family: "Staatliches", sans-serif;
+}
+
+middleSection {
+    height: 100%;
+    float: left;
+}
+
+#navigation {
+    padding: 1em;
+    background-color: var(--blueColor);
+    width: 20%;
+    border: 1px solid black;
+    border-radius: 0.2em;
+    color: var(--pinkColor);
+}
+
+footer {
+    font-size: 0.8em;
+}
+
+
+
     
 /* CSS for main Search Recipes Page */
 
