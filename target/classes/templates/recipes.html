@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Cooking Webapp</title>
+    <link th:href="@{/css/site.css}" rel="stylesheet"/>
+</head>
+<body>
+<a th:href="@{main_page}"/>
+<table>
+    <tr>
+        <th>Recipe Number</th>
+        <th>Name</th>
+        <th>Other Info</th>
+    </tr>
+    <tr th:each="recipe:${recipes}">
+        <td th:text="${recipe.recipe_name}"></td>
+        <td th:text="${recipe.recipe_tag}"></td>
+        <td th:text="${recipe.recipe_description}"></td>
+        <td th:text="${recipe.recipe_duration}"}></td>
+    </tr>
+</table>
+
+</body>
+</html>

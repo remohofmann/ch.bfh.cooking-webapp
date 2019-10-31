@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>title</title>
+  <meta charset="utf-8">
+  <link th:href="@{/css/main_page.css}" rel="stylesheet"/>
+</head>
+<body>
+  <header>cookit</header>
+  <section class = "menu">
+      <div class="menuContent"><a th:href="@{searchRecipes}" id="search">search</a></div>
+      <div class="menuContent"><a th:href="@{login}" id="login">login</a></div>
+      <div class="menuContent"><a th:href="@{signup}" id="signup">sign up</a></div>
+      <div class="menuContent"><a id="compare">compare</a></div>
+  </section>
+  <section id="middleSection">
+    <div id="navigation">
+        <h4>Main ingredient</h4>
+          <a href="">Meat</a>
+          <a href="">Vegetables</a>
+          <a href="">Pulses</a>
+          <a href="">Milk</a>
+        <h4>Special diet</h4>
+          <a href="">Gluten free</a>
+          <a href="">Vegetarian</a>
+          <a href="">Paleo</a>
+          <a href="">Vegan</a>
+        <h4>Meal type / course</h4>
+          <a href="">Breakfast</a>
+          <a href="">Lunch</a>
+          <a href="">Dinner</a>
+        <h4>Cuisine</h4>
+    </div>
+    <section id="subPageContainer">"Container"</section>
+  </section>
+  <footer>@ Remo Hofmann, Lukas Zoller</footer>
+
+</body>
+
+</html>
