@@ -9,6 +9,8 @@
 --pinkColor: #FF00FF;
 }
 
+
+
 header, footer{
     width: 100%;
 	text-align:center;
@@ -52,9 +54,8 @@ h1 {
     font-family: "Staatliches", sans-serif;
 }
 
-middleSection {
-    height: 100%;
-    float: left;
+#middleSection {
+    dislay: table;
 }
 
 #navigation {
@@ -64,10 +65,18 @@ middleSection {
     border: 1px solid black;
     border-radius: 0.2em;
     color: var(--pinkColor);
+    display: table-cell;
 }
+
+#subPageContainer {
+    display: table-cell;
+    padding: 1em;
+}
+
 
 footer {
     font-size: 0.8em;
+    margin-top: 1px;
 }
 
 

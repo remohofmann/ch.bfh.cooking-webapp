@@ -11,7 +11,7 @@
   <header>cookit</header>
   <section class = "menu">
       <div class="menuContent"><a th:href="@{searchRecipes}" id="search">search</a></div>
-      <div class="menuContent"><a th:href="@{login}" id="login">login</a></div>
+      <div class="menuContent"><a th:href="@{userlogin}" id="userlogin">login</a></div>
       <div class="menuContent"><a th:href="@{signup}" id="signup">sign up</a></div>
       <div class="menuContent"><a id="compare">compare</a></div>
   </section>
@@ -33,7 +33,7 @@
           <a href="">Dinner</a>
         <h4>Cuisine</h4>
     </div>
-    <section id="subPageContainer">"Container"</section>
+    <div id="subPageContainer" th:insert="login.html"> </div>
   </section>
   <footer>@ Remo Hofmann, Lukas Zoller</footer>
 
