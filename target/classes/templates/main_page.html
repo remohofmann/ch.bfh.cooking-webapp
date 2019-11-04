@@ -9,34 +9,31 @@
 </head>
 <body>
   <header>cookit</header>
-  <section class = "headerContainer">
-    <img src="../static/images/pfanne.jpg" class="headerContent" id="logo" th:src="@{images/pfanne.jpg}" alt="logo"/>
-    <a th:href="@{searchRecipes}" class="headerContent" id="search">search</a>
-    <a th:href="@{login}" class="headerContent" id="login">login</a>
-    <a th:href="@{signup}" class="headerContent" id="signup">sign up</a>
-    <a class="headerContent" id="compare">compare</a>
+  <section class = "menu">
+      <div class="menuContent"><a th:href="@{searchRecipes}" id="search">search</a></div>
+      <div class="menuContent"><a th:href="@{userlogin}" id="userlogin">login</a></div>
+      <div class="menuContent"><a th:href="@{signup}" id="signup">sign up</a></div>
+      <div class="menuContent"><a id="compare">compare</a></div>
   </section>
   <section id="middleSection">
-    <nav id="navigation">
-      <ul>
-        <li>Main ingredient</li>
+    <div id="navigation">
+        <h4>Main ingredient</h4>
           <a href="">Meat</a>
           <a href="">Vegetables</a>
           <a href="">Pulses</a>
           <a href="">Milk</a>
-        <li>Special diet</li>           
+        <h4>Special diet</h4>
           <a href="">Gluten free</a>
           <a href="">Vegetarian</a>
           <a href="">Paleo</a>
           <a href="">Vegan</a>
-        <li>Meal type / course</li>
+        <h4>Meal type / course</h4>
           <a href="">Breakfast</a>
           <a href="">Lunch</a>
           <a href="">Dinner</a>
-        <li>Cuisine</li>
-      </ul>
-    </nav>
-    <section id="container">"Container"<?php include "compareRecipes.php"  ?></section>
+        <h4>Cuisine</h4>
+    </div>
+    <div id="subPageContainer" th:insert="login.html"> </div>
   </section>
   <footer>@ Remo Hofmann, Lukas Zoller</footer>
 
