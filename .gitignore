@@ -1,6 +1,5 @@
 .gradle
 /build/
-**/misc.xml
 
 ### STS ###
 .apt_generated
