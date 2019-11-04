@@ -1,6 +1,6 @@
 .gradle
 /build/
-/classes
+**/misc.xml
 
 ### STS ###
 .apt_generated
@@ -31,3 +31,4 @@ nbdist/
 ### Env specific bosh templates ###
 **/sc1-**.yml
 !/broker/build.gradle
+/src/main/java/ch/bfh/ti/cookingWebapp/
