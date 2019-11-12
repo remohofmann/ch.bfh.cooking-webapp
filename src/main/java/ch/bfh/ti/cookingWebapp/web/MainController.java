@@ -12,5 +12,7 @@ public class MainController {
     }
 
     @RequestMapping("/searchRecipes")
-    public String searchRecipes() {return "searchRecipes"; }
+    public String searchRecipes() {
+        return "searchRecipes";
+    }
 }
