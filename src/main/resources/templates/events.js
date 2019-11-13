@@ -1,11 +1,11 @@
 function init() {
     // Add eventhandlers to dropdownbuttons
-    var el = document.getElementById("cuisineDropdownFunction");
-    el.addEventListener("click", toggleDropdownContent);
-    var el = document.getElementById("courseDropdownFunction");
-    el.addEventListener("click", toggleDropdownContent);
-    var el = document.getElementById("ingredientDropdownFunction");
-    el.addEventListener("click", toggleDropdownContent);
+    var cuisineElement = document.getElementById("cuisineDropdownFunction");
+    cuisineElement.addEventListener("click", cuisineDropdownFunction);
+    var courseElement = document.getElementById("courseDropdownFunction");
+    courseElement.addEventListener("click", courseDropdownFunction);
+    var ingredientElement = document.getElementById("ingredientDropdownFunction");
+    ingredientElement.addEventListener("click", ingredientDropdownFunction);
 
     // Close the dropdown if the user clicks outside of it
     window.onclick = function(e) {

@@ -1,7 +1,7 @@
-ch\bfh\ti\cookingWebapp\ApiController.class
-ch\bfh\ti\cookingWebapp\RecipeServices.class
-ch\bfh\ti\cookingWebapp\CookingWebappApplication.class
-ch\bfh\ti\cookingWebapp\RecipeRepository.class
-ch\bfh\ti\cookingWebapp\Recipe.class
-ch\bfh\ti\cookingWebapp\MainController.class
-ch\bfh\ti\cookingWebapp\RecipeController.class
+ch/bfh/ti/cookingWebapp/CookingWebappApplication.class
+ch/bfh/ti/cookingWebapp/RecipeServices.class
+ch/bfh/ti/cookingWebapp/MainController.class
+ch/bfh/ti/cookingWebapp/RecipeRepository.class
+ch/bfh/ti/cookingWebapp/ApiController.class
+ch/bfh/ti/cookingWebapp/RecipeController.class
+ch/bfh/ti/cookingWebapp/Recipe.class
