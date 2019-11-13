@@ -4,9 +4,6 @@
   <title>title</title>
   <meta charset="utf-8">
   <link th:href="@{/css/main_page.css}" rel="stylesheet"/>
-  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="jquery-3.4.1.min.js"></script>
-    <script src="events.js"></script>
 </head>
 <body>
   <header>cookit</header>
@@ -38,7 +35,8 @@
     <div id="subPageContainer">Container content</div>
   </section>
   <footer>@ Remo Hofmann, Lukas Zoller</footer>
-  <a id="testLink" href="javascript:ReplaceContentInContainer3('subPageContainer', 'searchRecipes.html')">TestButton</a>
+  <a id="testLink" href="javascript:hideContainer()">Hide Container</a>
+  <button id="testButton" onclick="javascript:ReplaceContentInContainer3()">Fill Container</button>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script type="text/javascript">
@@ -48,13 +46,16 @@ var container = document.getElementById(id);
 container.innerHTML = content;
 }
 function ReplaceContentInContainer2(id,content) {
-    $('#subPageContainer').load( content );
     var container = document.getElementById("subPageContainer");
     container.innerHTML = "Static content";
     container.innerHTML ='<iframe src="searchRecipes.html" ></iframe>';
 }
-function ReplaceContentInContainer3(id,content) {
-$('#subPageContainer').innerHTML = "New content loaded";
+function hideContainer() {
+    $('#subPageContainer').hide();
+}
+
+function ReplaceContentInContainer3() {
+    $('#subPageContainer').load("http://examplepage.com/forum/showthread.php?tid=NN #pid_NN");
 }
 </script>
 
