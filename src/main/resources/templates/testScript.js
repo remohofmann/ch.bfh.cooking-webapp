@@ -1,10 +1,3 @@
-/* This code is from https://code-maven.com/slides/javascript-programming/solution-hello-world*/
-
-"use strict";
-
-function helloWorldFunction() {
-    document.getElementById('subPageContainer').innerHTML = 'Hello World';
-    return false;
+function hideContainerFromFile() {
+    $('#subPageContainer').hide();
 }
-
-document.getElementById('testButton').addEventListener('click', helloWorldFunction);

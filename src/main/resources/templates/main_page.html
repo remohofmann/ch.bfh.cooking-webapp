@@ -4,8 +4,11 @@
   <title>title</title>
   <meta charset="utf-8">
   <link th:href="@{/css/main_page.css}" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="testScript.js" type="text/javascript"></script>
 </head>
 <body>
+
   <header>cookit</header>
   <section class = "menu">
    <!--   <div class="menuContent"><a th:href="@{searchRecipes}" id="search">search</a></div> -->
@@ -40,10 +43,9 @@
     <div id="subPageContainer">Container content</div>
   </section>
   <footer>@ Remo Hofmann, Lukas Zoller</footer>
-  <a id="testLink" href="javascript:hideContainer()">Hide Container</a>
+  <a id="testLink" href="javascript:hideContainerFromFile()">Hide Container</a>
   <button id="testButton" onclick="javascript:ReplaceContentInContainer3()">Fill Container</button>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script type="text/javascript">
 
 function ReplaceContentInContainer(id,content) {
@@ -60,10 +62,9 @@ function hideContainer() {
 }
 
 function ReplaceContentInContainer3() {
-    $('#subPageContainer').load('testText.txt', alert('Load function executed'));
+    $('#subPageContainer').load('userlogin');
 }
 </script>
-
 
 
 </body>
