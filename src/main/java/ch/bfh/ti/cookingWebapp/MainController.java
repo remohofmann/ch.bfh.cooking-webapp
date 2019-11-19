@@ -21,8 +21,8 @@ public class MainController {
     public String signup() { return "signup"; }
 
     @RequestMapping("/searchRecipes")
-    public String searchRecipes() { return "searchRecipes"; }
+    public String searchRecipes() {return "searchRecipes"; }
 
-    @RequestMapping("/locale")
-    public String locale() { return "locale"; }
+    @RequestMapping("/compareRecipes")
+    public String compareRecipes() {return "compareRecipes"; }
 }

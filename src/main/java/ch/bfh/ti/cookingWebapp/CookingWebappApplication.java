@@ -10,5 +10,4 @@ public class CookingWebappApplication {
 		SpringApplication.run(CookingWebappApplication.class, args);
 	}
 
-
 }

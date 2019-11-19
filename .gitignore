@@ -27,3 +27,7 @@ nbdist/
 **/application-secrets.yml
 **/application-secrets.properties
 
+### Env specific bosh templates ###
+**/sc1-**.yml
+!/broker/build.gradle
+/src/main/java/ch/bfh/ti/cookingWebapp/

@@ -30,7 +30,7 @@ header, footer{
 }
 
 .menuContent {
-    flex: 0 25%;
+    flex: 0 20%;
     border-radius: 0.5em;
     color: white;
     align: center;
@@ -79,9 +79,7 @@ footer {
     margin-top: 1px;
 }
 
-#testLink {
-    color: black;
-}
+
 
     
 /* CSS for main Search Recipes Page */
@@ -115,7 +113,7 @@ footer {
   position: absolute;
   background-color: #f1f1f1;
   min-width: 16em;
-  vertical-align: left
+  vertical-align: left;
   box-shadow: 0px 1em 2em 0px rgba(0,0,0,0.2);
   z-index: 1;
 }

@@ -28,6 +28,4 @@ public class ApiController {
     public String mainPage() {
         return "mainPage";
     }
-
-
 }

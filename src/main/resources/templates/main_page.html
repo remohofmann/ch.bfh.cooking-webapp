@@ -12,9 +12,9 @@
   <header>cookit</header>
   <section class = "menu">
    <!--   <div class="menuContent"><a th:href="@{searchRecipes}" id="search">search</a></div> -->
-      <div class="menuContent"><a id="search">search</a></div>
-      <div class="menuContent"><a th:href="@{userlogin}" id="userlogin">login</a></div>
-      <div class="menuContent"><a th:href="@{signup}" id="signup">sign up</a></div>
+      <div class="menuContent"><a id="searchRecipes" onclick="javascript:ReplaceContentInContainer('searchRecipes')">search recipes</a></div>
+      <div class="menuContent"><a id="userlogin" onclick="javascript:ReplaceContentInContainer('userlogin')">login</a></div>
+      <div class="menuContent"><a id="signup" onclick="javascript:ReplaceContentInContainer('signup')">sign up</a></div>
       <div class="menuContent"><a id="compare">compare</a></div>
       <div class="menuContent">
           <a id="DE">DE</a>
@@ -43,28 +43,14 @@
     <div id="subPageContainer">Container content</div>
   </section>
   <footer>@ Remo Hofmann, Lukas Zoller</footer>
-  <a id="testLink" href="javascript:hideContainerFromFile()">Hide Container</a>
-  <button id="testButton" onclick="javascript:ReplaceContentInContainer3()">Fill Container</button>
 
   <script type="text/javascript">
 
-function ReplaceContentInContainer(id,content) {
-var container = document.getElementById(id);
-container.innerHTML = content;
-}
-function ReplaceContentInContainer2(id,content) {
-    var container = document.getElementById("subPageContainer");
-    container.innerHTML = "Static content";
-    container.innerHTML ='<iframe src="searchRecipes.html" ></iframe>';
-}
-function hideContainer() {
-    $('#subPageContainer').hide();
-}
+    function ReplaceContentInContainer(subpageUrl) {
+        $('#subPageContainer').load(subpageUrl);
+    }
 
-function ReplaceContentInContainer3() {
-    $('#subPageContainer').load('userlogin');
-}
-</script>
+  </script>
 
 
 </body>
