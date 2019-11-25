@@ -45,7 +45,20 @@
       <p>Mustard</p>
 
     </div>
-
+  <header>Search results</header>
+    <table>
+      <tr>
+        <th>Recipe Number</th>
+        <th>Name</th>
+        <th>Other Info</th>
+      </tr>
+      <tr th:each="recipe:${recipes}">
+        <td th:text="${recipe.recipe_name}"></td>
+        <td th:text="${recipe.recipe_tag}"></td>
+        <td th:text="${recipe.recipe_description}"></td>
+        <td th:text="${recipe.recipe_duration}"}></td>
+      </tr>
+    </table>
 
 
     

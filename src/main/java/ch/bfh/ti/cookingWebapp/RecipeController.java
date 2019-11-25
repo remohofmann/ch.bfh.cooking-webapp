@@ -17,16 +17,22 @@ public class RecipeController {
         super();
         this.recipeServices = recipeServices;
     }
-/*
-    @GetMapping
+
+    @GetMapping("/all")
     public String getAllRecipes(Model model){
         model.addAttribute("recipes", this.recipeServices.getAllRecipes());
         return "recipes";
     }
-*/
-    @GetMapping
+
+    @GetMapping("/rice")
     public String getRecipeByTag(Model model){
         model.addAttribute("recipes", this.recipeServices.getRecipeByTag("Reis"));
         return "recipes";
+    }
+
+    @GetMapping("/searchRecipes") // has to be like url
+    public String getRiceRecipes(Model model){
+        model.addAttribute("recipes", this.recipeServices.getRecipeByTag("Reis"));
+        return "searchRecipes"; // has to be like html
     }
 }
