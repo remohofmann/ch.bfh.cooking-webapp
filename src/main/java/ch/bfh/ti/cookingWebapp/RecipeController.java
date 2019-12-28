@@ -1,6 +1,7 @@
 package ch.bfh.ti.cookingWebapp;
 
 import ch.bfh.ti.cookingWebapp.persistence.RecipeServices;
+import ch.bfh.ti.cookingWebapp.persistence.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,13 +27,13 @@ public class RecipeController {
 
     @GetMapping("/rice")
     public String getRecipeByTag(Model model){
-        model.addAttribute("recipes", this.recipeServices.getRecipeByTag("Reis"));
+        model.addAttribute("recipes", this.recipeServices.getRecipesByTag(new Tag("Reis")));
         return "recipes";
     }
 
     @GetMapping("/searchRecipes") // has to be like url
     public String getRiceRecipes(Model model){
-        model.addAttribute("recipes", this.recipeServices.getRecipeByTag("Reis"));
+        model.addAttribute("recipes", this.recipeServices.getRecipesByTag(new Tag("Reis")));
         return "searchRecipes"; // has to be like html
     }
 }

@@ -10,16 +10,15 @@ public class Unit {
     @GeneratedValue
     private long id;
 
-    @Column(name="unitName")
+    @Column(name="unit_name")
     private String unitName;
 
     public Unit() {
         super();
     }
 
-    public Unit(long id, String unitName) {
+    public Unit(String unitName) {
         super();
-        this.id = id;
         this.unitName = unitName;
     }
 

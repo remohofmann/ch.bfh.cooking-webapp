@@ -16,7 +16,7 @@ public class TagServices {
         this.tagRepository = tagRepository;
     }
 
-    public List<Tag> getAllRecipes(){
+    public List<Tag> getAllTags(){
         List<Tag> tags = new ArrayList<>();
         this.tagRepository.findAll().forEach(tags::add);
         return tags;

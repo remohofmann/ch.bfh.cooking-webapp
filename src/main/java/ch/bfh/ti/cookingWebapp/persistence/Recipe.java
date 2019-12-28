@@ -12,7 +12,7 @@ public class Recipe {
     @Id
     @Column(name="id")
     @GeneratedValue
-    private long id;
+    private Long id;
     @Column(name="recipe_name")
     private String recipeName;
     @Column(name="recipe_tag")
@@ -26,9 +26,8 @@ public class Recipe {
         super();
     }
 
-    public Recipe(long id, String recipeName, String recipeTag, String recipeDescription, int recipeDuration) {
+    public Recipe(String recipeName, String recipeTag, String recipeDescription, int recipeDuration) {
         super();
-        this.id = id;
         this.recipeName = recipeName;
         this.recipeTag = recipeTag;
         this.recipeDescription = recipeDescription;
@@ -39,7 +38,7 @@ public class Recipe {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
