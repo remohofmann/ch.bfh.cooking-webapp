@@ -1,33 +1,9 @@
 .gradle
 /build/
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
+.idea/*
 
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
-
-### NetBeans ###
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
-
-### App secrets ###
-**/application-secrets.yml
-**/application-secrets.properties
-
-### Env specific bosh templates ###
-**/sc1-**.yml
-!/broker/build.gradle
-/src/main/java/ch/bfh/ti/cookingWebapp/

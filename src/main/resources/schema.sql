@@ -25,5 +25,22 @@ CREATE TABLE unit (
 CREATE TABLE ingredient (
                         id LONG AUTO_INCREMENT PRIMARY KEY,
                         ingredient_name VARCHAR(64) NOT NULL,
-                        ingredient_unit VARCHAR
+                        ingredient_unit LONG,
+                        FOREIGN KEY (ingredient_unit) REFERENCES unit(id)
 );
+
+CREATE TABLE recipe_ingredients (
+                        recipe_id LONG NOT NULL,
+                        ingredient_id LONG NOT NULL,
+                        FOREIGN KEY (recipe_id) REFERENCES recipe(id),
+                        FOREIGN KEY (ingredient_id) REFERENCES ingredient(id),
+                        PRIMARY KEY (recipe_id,ingredient_id)
+);
+
+CREATE TABLE recipe_tags (
+                        recipe_id LONG NOT NULL,
+                        tag_id LONG NOT NULL,
+                        FOREIGN KEY (recipe_id) REFERENCES recipe(id),
+                        FOREIGN KEY (tag_id) REFERENCES tag(id),
+                        PRIMARY KEY (recipe_id,tag_id)
+)

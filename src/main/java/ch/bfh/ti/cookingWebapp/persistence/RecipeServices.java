@@ -1,4 +1,4 @@
-package ch.bfh.ti.cookingWebapp;
+package ch.bfh.ti.cookingWebapp.persistence;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +28,8 @@ public class RecipeServices {
         List<Recipe> allRecipes = getAllRecipes();
         List<Recipe> recipes = new ArrayList<>();
         for (Recipe r:allRecipes){
-            System.out.println(r.getRecipe_tag());
-            if (r.getRecipe_tag().equals(tag)){
+            System.out.println(r.getRecipeTag());
+            if (r.getRecipeTag().equals(tag)){
                 recipes.add(r);
             }
         }
