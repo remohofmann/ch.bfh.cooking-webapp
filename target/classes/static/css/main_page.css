@@ -9,8 +9,6 @@
 --pinkColor: #FF00FF;
 }
 
-
-
 header, footer{
     width: 100%;
 	text-align:center;
@@ -132,4 +130,10 @@ input:focus {
 
 .show {
   display: block;
+}
+
+/* Recipes */
+#recipeTileFragment {
+    color: var(--pinkColor);
+
 }

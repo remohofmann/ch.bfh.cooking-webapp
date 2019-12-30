@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Cooking Webapp</title>
-    <link th:href="@{/css/site.css}" rel="stylesheet"/>
+    <link th:href="@{/css/main_page.css}" rel="stylesheet"/>
 </head>
 <body>
 <table>
@@ -12,11 +12,20 @@
         <th>Name</th>
         <th>Other Info</th>
     </tr>
+    <!--
     <tr th:each="recipe:${recipes}">
         <td th:text="${recipe.recipeName}"></td>
         <td th:text="${recipe.recipeDescription}"></td>
         <td th:text="${recipe.recipeDuration}"></td>
     </tr>
+    -->
+    <tr th:each="recipe:${recipes}">
+        <div th:replace="thFragments.html :: recipeTileFragment(
+        name=${recipe.recipeName},
+        description=${recipe.recipeDescription},
+        duration=${recipe.recipeDuration})"></div>
+    </tr>
+
 </table>
 
 </body>
