@@ -26,7 +26,7 @@ public class MainController {
     @RequestMapping("/compareRecipes")
     public String compareRecipes() {return "compareRecipes"; }
 
-    @RequestMapping("/recipes")
-    public String recipes() {return "recipes"; }
+    @RequestMapping("/locale")
+    public String locale() {return "locale"; }
 
 }
