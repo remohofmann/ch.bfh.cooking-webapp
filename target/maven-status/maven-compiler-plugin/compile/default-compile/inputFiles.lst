@@ -1,8 +1,21 @@
-C:\Users\hrkun\MagentaCLOUD\Weiterbildung\BFH Informatik\5. Semester\web\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\CookingWebappApplication.java
-C:\Users\hrkun\MagentaCLOUD\Weiterbildung\BFH Informatik\5. Semester\web\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\RecipeRepository.java
-C:\Users\hrkun\MagentaCLOUD\Weiterbildung\BFH Informatik\5. Semester\web\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\Recipe.java
-C:\Users\hrkun\MagentaCLOUD\Weiterbildung\BFH Informatik\5. Semester\web\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\RecipeController.java
-C:\Users\hrkun\MagentaCLOUD\Weiterbildung\BFH Informatik\5. Semester\web\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\Internationalization.java
-C:\Users\hrkun\MagentaCLOUD\Weiterbildung\BFH Informatik\5. Semester\web\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\RecipeServices.java
-C:\Users\hrkun\MagentaCLOUD\Weiterbildung\BFH Informatik\5. Semester\web\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\MainController.java
-C:\Users\hrkun\MagentaCLOUD\Weiterbildung\BFH Informatik\5. Semester\web\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\ApiController.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\persistence\RecipeIngredientRepository.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\persistence\UnitServices.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\persistence\Ingredient.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\persistence\RecipeTagCombination.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\CookingWebappApplication.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\MainController.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\persistence\TagRepository.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\persistence\RecipeServices.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\persistence\RecipeTagRepository.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\persistence\IngredientServices.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\Internationalization.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\persistence\Unit.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\ApiController.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\RecipeController.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\persistence\RecipeRepository.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\persistence\Tag.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\persistence\RecipeIngredientCombination.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\persistence\IngredientRepository.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\persistence\UnitRepository.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\persistence\Recipe.java
+C:\Users\hrkun\Documents\gitCooking\src\main\java\ch\bfh\ti\cookingWebapp\persistence\TagServices.java
