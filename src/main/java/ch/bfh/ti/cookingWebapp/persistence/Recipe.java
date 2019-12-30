@@ -15,8 +15,6 @@ public class Recipe {
     private Long id;
     @Column(name="recipe_name")
     private String recipeName;
-    @Column(name="recipe_tag")
-    private String recipeTag;
     @Column(name="recipe_description")
     private String recipeDescription;
     @Column(name="recipe_duration")
@@ -26,10 +24,9 @@ public class Recipe {
         super();
     }
 
-    public Recipe(String recipeName, String recipeTag, String recipeDescription, int recipeDuration) {
+    public Recipe(String recipeName, String recipeDescription, int recipeDuration) {
         super();
         this.recipeName = recipeName;
-        this.recipeTag = recipeTag;
         this.recipeDescription = recipeDescription;
         this.recipeDuration = recipeDuration;
     }
@@ -48,14 +45,6 @@ public class Recipe {
 
     public void setRecipeName(String recipe_name) {
         this.recipeName = recipe_name;
-    }
-
-    public String getRecipeTag() {
-        return recipeTag;
-    }
-
-    public void setRecipeTag(String recipe_tag) {
-        this.recipeTag = recipe_tag;
     }
 
     public String getRecipeDescription() {

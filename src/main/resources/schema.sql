@@ -9,7 +9,6 @@ DROP TABLE IF EXISTS recipe_tag;
 CREATE TABLE recipe (
                          id LONG AUTO_INCREMENT  PRIMARY KEY,
                          recipe_name VARCHAR(250) NOT NULL,
-                         recipe_tag VARCHAR(250) NOT NULL,
                          recipe_description VARCHAR(5000) NOT NULL,
                          recipe_duration INT NOT NULL
 );
@@ -32,17 +31,17 @@ CREATE TABLE ingredient (
 );
 
 CREATE TABLE recipe_ingredient (
+                        id LONG AUTO_INCREMENT PRIMARY KEY,
                         recipe_id LONG NOT NULL,
                         ingredient_id LONG NOT NULL,
                         FOREIGN KEY (recipe_id) REFERENCES recipe(id),
-                        FOREIGN KEY (ingredient_id) REFERENCES ingredient(id),
-                        PRIMARY KEY (recipe_id,ingredient_id)
+                        FOREIGN KEY (ingredient_id) REFERENCES ingredient(id)
 );
 
 CREATE TABLE recipe_tag (
+                        id LONG AUTO_INCREMENT PRIMARY KEY,
                         recipe_id LONG NOT NULL,
                         tag_id LONG NOT NULL,
                         FOREIGN KEY (recipe_id) REFERENCES recipe(id),
-                        FOREIGN KEY (tag_id) REFERENCES tag(id),
-                        PRIMARY KEY (recipe_id,tag_id)
+                        FOREIGN KEY (tag_id) REFERENCES tag(id)
 );

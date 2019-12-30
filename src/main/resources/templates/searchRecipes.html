@@ -54,9 +54,8 @@
       </tr>
       <tr th:each="recipe:${recipes}">
         <td th:text="${recipe.recipeName}"></td>
-        <td th:text="${recipe.recipeTag}"></td>
         <td th:text="${recipe.recipeDescription}"></td>
-        <td th:text="${recipe.recipeDuration}" }></td>
+        <td th:text="${recipe.recipeDuration}"></td>
       </tr>
     </table>
 

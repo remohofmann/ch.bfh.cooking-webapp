@@ -2,13 +2,16 @@ package ch.bfh.ti.cookingWebapp.persistence;
 
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.Column;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-@Repository
+@Entity
 @Table(name = "recipe_tag")
 public class RecipeTagCombination {
 
+    @Id
+    @Column(name="id")
+    @GeneratedValue
+    private Long id;
     @Column(name="recipe_id")
     private Long recipeId;
     @Column(name="tag_id")
@@ -20,6 +23,14 @@ public class RecipeTagCombination {
         super();
         this.recipeId = recipeId;
         this.tagId = tagId;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getRecipeId() {

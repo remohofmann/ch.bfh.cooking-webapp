@@ -4,7 +4,7 @@
   <title>title</title>
   <meta charset="utf-8">
   <link rel="stylesheet" th:href="@{/css/main_page.css}">
-    <script src="events.js"></script>
+    <script th:src="@{/events.js}"></script>
 </head>
 <body onload="init();">
 
@@ -20,7 +20,7 @@
       <p>French</p>
       <p>Japanese</p>
       <p>American</p>
-      <p>Chinese</p>
+      <p>Chinese</p>l
     </div>
     <button class="dropbtn" onclick="courseDropdownFunction()" id="courseDropBtn">Course
       <i class="fa fa-caret-down"></i>
@@ -45,7 +45,19 @@
       <p>Mustard</p>
 
     </div>
-
+  <header>Search results</header>
+    <table>
+      <tr>
+        <th>Recipe Number</th>
+        <th>Name</th>
+        <th>Other Info</th>
+      </tr>
+      <tr th:each="recipe:${recipes}">
+        <td th:text="${recipe.recipeName}"></td>
+        <td th:text="${recipe.recipeDescription}"></td>
+        <td th:text="${recipe.recipeDuration}"></td>
+      </tr>
+    </table>
 
 
     
