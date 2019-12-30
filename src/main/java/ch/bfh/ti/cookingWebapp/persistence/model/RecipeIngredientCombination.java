@@ -1,12 +1,12 @@
-package ch.bfh.ti.cookingWebapp.persistence;
+package ch.bfh.ti.cookingWebapp.persistence.model;
 
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "recipe_tag")
-public class RecipeTagCombination {
+@Table(name = "recipe_ingredient")
+public class RecipeIngredientCombination {
 
     @Id
     @Column(name="id")
@@ -14,15 +14,15 @@ public class RecipeTagCombination {
     private Long id;
     @Column(name="recipe_id")
     private Long recipeId;
-    @Column(name="tag_id")
-    private Long tagId;
+    @Column(name="ingredient_id")
+    private Long ingredientId;
 
-    public RecipeTagCombination(){super();}
+    public RecipeIngredientCombination(){super();}
 
-    public RecipeTagCombination(Long recipeId, Long tagId){
+    public RecipeIngredientCombination(Long recipeId, Long ingredientId){
         super();
         this.recipeId = recipeId;
-        this.tagId = tagId;
+        this.ingredientId = ingredientId;
     }
 
     public Long getId() {
@@ -41,11 +41,11 @@ public class RecipeTagCombination {
         this.recipeId = recipeId;
     }
 
-    public Long getTagId() {
-        return tagId;
+    public Long getIngredientId() {
+        return ingredientId;
     }
 
-    public void setTagId(Long tagId) {
-        this.tagId = tagId;
+    public void setIngredientId(Long ingredientId) {
+        this.ingredientId = ingredientId;
     }
 }

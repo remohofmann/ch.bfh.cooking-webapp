@@ -1,4 +1,4 @@
-package ch.bfh.ti.cookingWebapp.persistence;
+package ch.bfh.ti.cookingWebapp.persistence.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

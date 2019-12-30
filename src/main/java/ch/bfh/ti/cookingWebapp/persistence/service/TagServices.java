@@ -1,5 +1,7 @@
-package ch.bfh.ti.cookingWebapp.persistence;
+package ch.bfh.ti.cookingWebapp.persistence.service;
 
+import ch.bfh.ti.cookingWebapp.persistence.model.Tag;
+import ch.bfh.ti.cookingWebapp.persistence.repository.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

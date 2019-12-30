@@ -1,5 +1,8 @@
-package ch.bfh.ti.cookingWebapp.persistence;
+package ch.bfh.ti.cookingWebapp.persistence.service;
 
+import ch.bfh.ti.cookingWebapp.persistence.model.Ingredient;
+import ch.bfh.ti.cookingWebapp.persistence.model.Unit;
+import ch.bfh.ti.cookingWebapp.persistence.repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
