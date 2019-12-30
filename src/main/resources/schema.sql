@@ -3,12 +3,11 @@ DROP TABLE IF EXISTS ingredient;
 DROP TABLE IF EXISTS tag;
 DROP TABLE IF EXISTS unit;
 DROP TABLE IF EXISTS search_category;
-DROP TABLE IF EXISTS recipe_ingredient;
-DROP TABLE IF EXISTS recipe_tag;
 
 CREATE TABLE recipe (
                          id LONG AUTO_INCREMENT  PRIMARY KEY,
                          recipe_name VARCHAR(250) NOT NULL,
+                         recipe_tag VARCHAR(250) NOT NULL,
                          recipe_description VARCHAR(5000) NOT NULL,
                          recipe_duration INT NOT NULL
 );
@@ -45,3 +44,5 @@ CREATE TABLE recipe_tag (
                         FOREIGN KEY (recipe_id) REFERENCES recipe(id),
                         FOREIGN KEY (tag_id) REFERENCES tag(id)
 );
+
+CREATE TABLE Users
