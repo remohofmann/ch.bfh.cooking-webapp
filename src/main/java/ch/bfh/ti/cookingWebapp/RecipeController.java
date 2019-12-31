@@ -31,9 +31,17 @@ public class RecipeController {
         return "recipes";
     }
 
-    @GetMapping("/searchRecipes") // has to be like url
-    public String getRiceRecipes(Model model){
-        model.addAttribute("recipes", this.recipeServices.getRecipesByTag(new Tag("Reis")));
-        return "searchRecipes"; // has to be like html
+//    @GetMapping("/searchRecipes") // has to be like url
+//    public String getRiceRecipes(Model model){
+//        model.addAttribute("recipes", this.recipeServices.getRecipesByTag(new Tag("Reis")));
+//        return "searchRecipes"; // has to be like html
+//    }
+
+    @GetMapping("/searchRecipes")
+    public String getSearchRecipes(Model model){
+        model.addAttribute("recipes", this.recipeServices.getAllRecipes());
+        return "searchRecipes";
     }
+
+
 }

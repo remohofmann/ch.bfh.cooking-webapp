@@ -8,7 +8,7 @@
 </head>
 <body onload="init();">
 
-  <header>Search for recipes</header>
+  <h1>Search for recipes</h1>
   <div id = "dropdownDivision">
     <button class="dropbtn" onclick="cuisineDropdownFunction()" id="cuisineDropBtn">Cuisine
       <i class="fa fa-caret-down"></i>
@@ -45,54 +45,27 @@
       <p>Mustard</p>
 
     </div>
-  <header>Search results</header>
-    <table>
-      <tr>
-        <th>Recipe Number</th>
-        <th>Name</th>
-        <th>Other Info</th>
-      </tr>
-      <tr th:each="recipe:${recipes}">
-        <td th:text="${recipe.recipeName}"></td>
-        <td th:text="${recipe.recipeDescription}"></td>
-        <td th:text="${recipe.recipeDuration}"></td>
-      </tr>
-    </table>
+  <h1>Search results</h1>
+    <div id="searchRecipesResults">
+      <div th:each="recipe:${recipes}">
+        <div th:replace="thFragments.html :: recipeTileFragment(
+        name=${recipe.recipeName},
+        description=${recipe.recipeDescription},
+        duration=${recipe.recipeDuration})"></div>
 
-
-    
-
+      </div>
+    </div>
 
   </div>
-  <div>Popular Recipes List</div>
 
-  <!--<script>-->
-    <!--// Sourcecode for this function from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_dropdown_navbar_click-->
-
-    <!--function cuisineDropdownFunction() {-->
-      <!--document.getElementById("cuisineDropdownContent").classList.toggle("show");-->
-    <!--}-->
-    <!--function courseDropdownFunction() {-->
-      <!--document.getElementById("courseDropdownContent").classList.toggle("show");-->
-    <!--}-->
-    <!--function ingredientDropdownFunction() {-->
-      <!--document.getElementById("ingredientDropdownContent").classList.toggle("show");-->
-    <!--}-->
-    <!--// Close the dropdown if the user clicks outside of it-->
-    <!--window.onclick = function(e) {-->
-    <!--if (!e.target.matches('.dropbtn')) {-->
-    <!--var myDropdown = document.getElementById("myDropdown");-->
-      <!--if (myDropdown.classList.contains('show')) {-->
-        <!--myDropdown.classList.remove('show');-->
-      <!--}-->
-  <!--}-->
-<!--}-->
-
-  <!--</script>-->
-
-
-
-
+  <script>
+    $(document).ready(function(){
+      $(".recipeInformation").hide();
+      $(".recipeTileFragment").click(function(){
+        jQuery(this).children("div").toggle();    // code from: https://www.geeksforgeeks.org/jquery-children-with-examples/
+      });
+    });
+  </script>
 </body>
 
 </html>
