@@ -8,43 +8,81 @@
 </head>
 <body onload="init();">
 
+
+  <h1>Search for recipes</h1>
+  <div id="selectionDiv">
+    <label>Cuisine</label>
+    <select multiple size="6">
+      <option value="American">American flamingo</option>
+      <option value="Andean">Andean flamingo</option>
+      <option value="Chilean">Chilean flamingo</option>
+      <option value="Greater">Greater flamingo</option>
+      <option value="James's">James's flamingo</option>
+      <option value="Lesser">Lesser flamingo</option>
+    </select>
+    <label>Course</label>
+    <select multiple size="6">
+      <option value="Breakfast">Breakfast</option>
+      <option value="Lunch">Lunch</option>
+      <option value="Dinner">Dinner</option>
+    </select>
+    <label>Ingredient</label>
+    <select multiple size="6">
+      <option value="Milk">Milk</option>
+      <option value="Eggs">Eggs</option>
+      <option value="Chicken">Chicken</option>
+      <option value="Celery">Celery</option>
+      <option value="Apples">Apples</option>
+      <option value="Oranges">Oranges</option>
+      <option value="Rice">Rice</option>
+      <option value="Noodles">Noodles</option>
+      <option value="Mustard">Mustard</option>
+    </select>
+
+  </div>
+
+  <!--
   <h1>Search for recipes</h1>
   <div id = "dropdownDivision">
-    <button class="dropbtn" onclick="cuisineDropdownFunction()" id="cuisineDropBtn">Cuisine
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div id="cuisineDropdownContent" class="dropdown-content">
-      <p>Indian</p>
-      <p>Swiss</p>
-      <p>Austrian</p>
-      <p>French</p>
-      <p>Japanese</p>
-      <p>American</p>
-      <p>Chinese</p>l
-    </div>
-    <button class="dropbtn" onclick="courseDropdownFunction()" id="courseDropBtn">Course
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div id="courseDropdownContent" class="dropdown-content">
-      <p>Breakfast</p>
-      <p>Lunch</p>
-      <p>Dinner</p>
-    </div>
-    <button class="dropbtn" onclick="ingredientDropdownFunction()" id="ingredientDropBtn">Ingredient
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div id="ingredientDropdownContent" class="dropdown-content">
-      <p>Milk</p>
-      <p>Eggs</p>
-      <p>Chicken</p>
-      <p>Celery</p>
-      <p>Apples</p>
-      <p>Oranges</p>
-      <p>Rice</p>
-      <p>Noodles</p>
-      <p>Mustard</p>
 
+    <div id="cuisineDropDiv">
+      <button class="dropbtn" onclick="showCuisineContent('cuisineDropdownContent')" id="cuisineDropBtn">Cuisine</button>
+      <div id="cuisineDropdownContent" class="dropdown-content">
+        <p>Indian</p>
+        <p>Swiss</p>
+        <p>Austrian</p>
+        <p>French</p>
+        <p>Japanese</p>
+        <p>American</p>
+        <p>Chinese</p>
+      </div>
     </div>
+
+    <div id="courseDropDiv">
+      <button class="dropbtn" onclick="showDropContent('courseDropdownContent')" id="courseDropBtn">Course</button>
+      <div id="courseDropdownContent" class="dropdown-content">
+        <p>Breakfast</p>
+        <p>Lunch</p>
+        <p>Dinner</p>
+      </div>
+    </div>
+    <div id="ingredientDropDiv">
+      <button class="dropbtn" onclick="showDropContent('ingredientDropdownContent')" id="ingredientDropBtn">Ingredient</button>
+      <div id="ingredientDropdownContent" class="dropdown-content">
+        <p>Milk</p>
+        <p>Eggs</p>
+        <p>Chicken</p>
+        <p>Celery</p>
+        <p>Apples</p>
+        <p>Oranges</p>
+        <p>Rice</p>
+        <p>Noodles</p>
+        <p>Mustard</p>
+      </div>
+    </div>
+  </div>
+  -->
+
   <h1>Search results</h1>
     <div id="searchRecipesResults">
       <div th:each="recipe:${recipes}">
@@ -65,6 +103,29 @@
         jQuery(this).children("div").toggle();    // code from: https://www.geeksforgeeks.org/jquery-children-with-examples/
       });
     });
+
+
+
+    function showDropContent(dropDownBtnID) {   // code from: https://www.w3schools.com/howto/howto_js_dropdown.asp
+      // alert(dropDownBtnID);
+      document.getElementById(dropDownBtnID).classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {      // code from: https://www.w3schools.com/howto/howto_js_dropdown.asp
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+
+
   </script>
 </body>
 

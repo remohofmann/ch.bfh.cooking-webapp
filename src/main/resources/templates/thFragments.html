@@ -10,7 +10,7 @@
 
     <!-- Fragment for recipe tile -->
     <div th:fragment="recipeTileFragment(name, description, duration)" class="recipeTileFragment">
-        <h4 th:text="${name}">Name as header</h4>
+        <h4 th:text="${name}" class="recipeName">Name as header</h4>
         <div class="recipeInformation">
             <label>Duration: </label>
             </label><label th:text="${duration}">Duration</label>
@@ -20,9 +20,15 @@
                 <div th:text="${description}">Description</div>
             </div>
         </div>
+        <label>Compare: </label>
+        <input type="checkbox" name="compareCheckBox"/>
 
     </div>
 
+    <!-- Fragment for dropdown -->
+    <div th:fragment="dropDown(name, values)" class="dropbtnFragmen">
+        <button onclick="courseDropdownFunction()" >name</button>
+    </div>
 
 </body>
 </html>
