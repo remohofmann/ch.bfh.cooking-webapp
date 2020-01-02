@@ -30,6 +30,18 @@ public class RecipeServices {
         return recipes;
     }
 
+    public List<Recipe> getFirstThreeRecipes() {
+        List<Recipe> allRecipes = new ArrayList<>();
+        this.recipeRepository.findAll().forEach(allRecipes::add);
+        List<Recipe> recipes = new ArrayList<>();
+
+        recipes.add(allRecipes.get(0));
+        recipes.add(allRecipes.get(1));
+        recipes.add(allRecipes.get(2));
+
+        return recipes;
+    }
+
     public List<RecipeTagCombination> getAllRecipeTagCombinations() {
         List<RecipeTagCombination> recipeTags = new ArrayList<>();
         this.recipeTagRepository.findAll().forEach(recipeTags::add);

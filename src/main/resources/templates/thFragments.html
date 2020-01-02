@@ -25,6 +25,35 @@
 
     </div>
 
+    <!-- Fragment for recipe comparison -->
+    <div th:fragment="recipeCompareFirstRowFragment()"
+         class="recipeCompareFragment" id="recipeCompareFirstRow">
+        <div class="comparisonRecipeTitle">
+            <label>Recipe Name</label>
+        </div>
+        <div class="comparisonRecipeDuration">Duration</div>
+        <div class="comparisonRecipeInstruction">Description</div>
+        <div class="comparisonRecipeIngredients">Ingredients</div>
+        <div class="comparisonRecipeDiet">Diet</div>
+        <div class="comparisonRecipeCourse">Course</div>
+    </div>
+
+    <div th:fragment="recipeCompareFragment(name, duration, description, ingredients, specialDiet, course)"
+         class="recipeCompareFragment">
+        <div class="comparisonRecipeTitle">
+            <label th:text="${name}">Name as header</label>
+        </div>
+        <br/>
+        <div class="comparisonRecipeDuration">
+            <label th:text="${duration}">Duration</label>
+            <label> min</label>        </div>
+        <div th:text="${description}" class="comparisonRecipeInstruction">Description</div>
+        <div th:text="${ingredients}" class="comparisonRecipeIngredients">Ingredients</div>
+        <div th:text="${specialDiet}" class="comparisonRecipeDiet">Diet</div>
+        <div th:text="${course}" class="comparisonRecipeCourse">Course</div>
+    </div>
+
+
     <!-- Fragment for dropdown -->
     <div th:fragment="dropDown(name, values)" class="dropbtnFragmen">
         <button onclick="courseDropdownFunction()" >name</button>

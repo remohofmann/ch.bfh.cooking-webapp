@@ -43,5 +43,9 @@ public class RecipeController {
         return "searchRecipes";
     }
 
-
+    @GetMapping("/compareRecipes")
+    public String getCompareRecipes(Model model){
+        model.addAttribute("recipes", this.recipeServices.getFirstThreeRecipes());
+        return "compareRecipes";
+    }
 }

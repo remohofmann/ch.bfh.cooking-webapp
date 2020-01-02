@@ -13,12 +13,20 @@
   <div id="selectionDiv">
     <label>Cuisine</label>
     <select multiple size="6">
-      <option value="American">American flamingo</option>
-      <option value="Andean">Andean flamingo</option>
-      <option value="Chilean">Chilean flamingo</option>
-      <option value="Greater">Greater flamingo</option>
-      <option value="James's">James's flamingo</option>
-      <option value="Lesser">Lesser flamingo</option>
+      <option value="Indian">Indian</option>
+      <option value="Swiss">Swiss</option>
+      <option value="Austrian">Austrian</option>
+      <option value="French">French</option>
+      <option value="Japanese">Japanese</option>
+      <option value="Chinese">Chinese</option>
+      <option value="American">American</option>
+    </select>
+    <label>Special diet</label>
+    <select multiple size="6">
+      <option value="Gluten free">Gluten free</option>
+      <option value="Vegetarian">Vegetarian</option>
+      <option value="Vegan">Vegan</option>
+      <option value="Paleo">Paleo</option>
     </select>
     <label>Course</label>
     <select multiple size="6">
@@ -38,50 +46,10 @@
       <option value="Noodles">Noodles</option>
       <option value="Mustard">Mustard</option>
     </select>
+    <br/>
+    <button id="filterRecipesButton">Filter recipes</button>
 
   </div>
-
-  <!--
-  <h1>Search for recipes</h1>
-  <div id = "dropdownDivision">
-
-    <div id="cuisineDropDiv">
-      <button class="dropbtn" onclick="showCuisineContent('cuisineDropdownContent')" id="cuisineDropBtn">Cuisine</button>
-      <div id="cuisineDropdownContent" class="dropdown-content">
-        <p>Indian</p>
-        <p>Swiss</p>
-        <p>Austrian</p>
-        <p>French</p>
-        <p>Japanese</p>
-        <p>American</p>
-        <p>Chinese</p>
-      </div>
-    </div>
-
-    <div id="courseDropDiv">
-      <button class="dropbtn" onclick="showDropContent('courseDropdownContent')" id="courseDropBtn">Course</button>
-      <div id="courseDropdownContent" class="dropdown-content">
-        <p>Breakfast</p>
-        <p>Lunch</p>
-        <p>Dinner</p>
-      </div>
-    </div>
-    <div id="ingredientDropDiv">
-      <button class="dropbtn" onclick="showDropContent('ingredientDropdownContent')" id="ingredientDropBtn">Ingredient</button>
-      <div id="ingredientDropdownContent" class="dropdown-content">
-        <p>Milk</p>
-        <p>Eggs</p>
-        <p>Chicken</p>
-        <p>Celery</p>
-        <p>Apples</p>
-        <p>Oranges</p>
-        <p>Rice</p>
-        <p>Noodles</p>
-        <p>Mustard</p>
-      </div>
-    </div>
-  </div>
-  -->
 
   <h1>Search results</h1>
     <div id="searchRecipesResults">
