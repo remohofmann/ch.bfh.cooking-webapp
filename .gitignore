@@ -1,6 +1,5 @@
 .gradle
 .idea/*
-target/*
 
 ### IntelliJ IDEA ###
 .idea
