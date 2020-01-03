@@ -1,32 +1,30 @@
 package ch.bfh.ti.cookingWebapp.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {
 
     @RequestMapping("/main_page")
-    public String mainPage() {
+    public String mainPage(Model model) {
         return "main_page";
     }
 
     @RequestMapping("/userlogin")
-    public String userlogin() { return "login"; }
+    public String userlogin(Model model) { return "login"; }
 
     @RequestMapping("/signup")
-    public String signup() { return "signup"; }
+    public String signup(Model model) { return "signup"; }
 
     @RequestMapping("/searchRecipes")
-    public String searchRecipes() {return "searchRecipes"; }
+    public String searchRecipes(Model model) {return "searchRecipes"; }
 
     @RequestMapping("/compareRecipes")
-    public String compareRecipes() {return "compareRecipes"; }
+    public String compareRecipes(Model model) {return "compareRecipes"; }
 
     @RequestMapping("/locale")
-    public String locale() {return "locale"; }
+    public String locale(Model model) {return "locale"; }
 
 }

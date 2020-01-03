@@ -23,7 +23,6 @@
 /home/scis-taahore2/IdeaProjects/ch.bfh.cooking-webapp/src/main/java/ch/bfh/ti/cookingWebapp/auth/service/SecurityServiceImpl.java
 /home/scis-taahore2/IdeaProjects/ch.bfh.cooking-webapp/src/main/java/ch/bfh/ti/cookingWebapp/auth/model/Role.java
 /home/scis-taahore2/IdeaProjects/ch.bfh.cooking-webapp/src/main/java/ch/bfh/ti/cookingWebapp/WebSecurityConfig.java
-/home/scis-taahore2/IdeaProjects/ch.bfh.cooking-webapp/src/main/java/ch/bfh/ti/cookingWebapp/MainController.java
 /home/scis-taahore2/IdeaProjects/ch.bfh.cooking-webapp/src/main/java/ch/bfh/ti/cookingWebapp/persistence/service/TagServices.java
 /home/scis-taahore2/IdeaProjects/ch.bfh.cooking-webapp/src/main/java/ch/bfh/ti/cookingWebapp/persistence/repository/TagRepository.java
 /home/scis-taahore2/IdeaProjects/ch.bfh.cooking-webapp/src/main/java/ch/bfh/ti/cookingWebapp/auth/service/UserDetailsServiceImpl.java
@@ -32,3 +31,4 @@
 /home/scis-taahore2/IdeaProjects/ch.bfh.cooking-webapp/src/main/java/ch/bfh/ti/cookingWebapp/persistence/model/Ingredient.java
 /home/scis-taahore2/IdeaProjects/ch.bfh.cooking-webapp/src/main/java/ch/bfh/ti/cookingWebapp/auth/validator/UserValidator.java
 /home/scis-taahore2/IdeaProjects/ch.bfh.cooking-webapp/src/main/java/ch/bfh/ti/cookingWebapp/persistence/repository/IngredientRepository.java
+/home/scis-taahore2/IdeaProjects/ch.bfh.cooking-webapp/src/main/java/ch/bfh/ti/cookingWebapp/web/WebConfiguration.java
