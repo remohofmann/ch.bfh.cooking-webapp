@@ -54,4 +54,6 @@ public class RecipeController {
         model.addAttribute("recipe", this.recipeServices.getSingleRecipe());
         return "singleRecipe";
     }
+
+
 }

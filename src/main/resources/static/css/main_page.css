@@ -184,7 +184,7 @@ select {
     grid-template-columns: repeat(auto-fit, 20em);
 }
 
-.recipeTileFragment:hover {
+.recipeTileFragment:hover, #addIngredientButton:hover, #addNewRecipeButton:hover, .goToRecipeButton:hover{
     background-color: var(--lightPinkColor);
 }
 .recipeTileFragment {
@@ -196,7 +196,24 @@ select {
 }
 
 
-/* searchRecipes */
+/* new recipes */
 .newRecipeInput {
     padding: 1em;
+}
+
+input, textarea {
+    border-radius: 0.5em;
+    border: 1px solid black;
+    padding: 0.5em;
+}
+
+input:focus {
+    background-color: var(--lightPinkColor);
+}
+
+#addIngredientButton, #addNewRecipeButton, .goToRecipeButton{
+    border-radius: 0.5em;
+    border: 1px solid black;
+    padding: 0.5em;
+    background-color: white;
 }

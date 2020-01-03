@@ -11,15 +11,14 @@
   <div id="addNewRecipeContent">
     <div class="newRecipeInput">
       <label>Recipe name</label>
-      <input id="nameIput">
+      <input id="nameIput" pattern="[A-Za-z]{1,20}">
     </div>
     <div class="newRecipeInput">
-      <label>Duration</label>
-      <input id="durationInput">
+      <label>Duration in minutes</label>
+      <input id="durationInput" type="number" min="1">
     </div>
     <div class="newRecipeInput">
-      <label>Description</label>
-      <input id="descriptionInput">
+      <textarea pattern=".{1,500}">Recipe description</textarea>
     </div>
     <div id="searchDropdownDiv">
       <div th:replace="thFragments.html :: cuisineDropdown"></div>
@@ -27,8 +26,14 @@
       <div th:replace="thFragments.html :: courseDropdown"></div>
       <div th:replace="thFragments.html :: ingredientDropdown"></div>
     </div>
+    <div class="newRecipeInput">
+      <label>Add new ingredient</label>
+      <input id="newIngredientInput" pattern="[A-Za-z]{1,20}">
+      <button id="addIngredientButton">Add ingredient</button>
+    </div>
   </div>
 
+  <button id="addNewRecipeButton">Add new recipe</button>
 
 
 </body>

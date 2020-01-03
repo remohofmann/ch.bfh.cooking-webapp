@@ -13,6 +13,10 @@ public class Tag {
     @Column(name="tag_name")
     private String tagName;
 
+    @Column(name="tag_type")
+    @GeneratedValue
+    private long tag_type;
+
     public Tag() {
         super();
     }
@@ -28,6 +32,14 @@ public class Tag {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public long getType() {
+        return tag_type;
+    }
+
+    public void setType(long tag_type) {
+        this.tag_type = tag_type;
     }
 
     public String getTagName() {
