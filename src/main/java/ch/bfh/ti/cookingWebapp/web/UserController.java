@@ -3,6 +3,7 @@ package ch.bfh.ti.cookingWebapp.web;
 import ch.bfh.ti.cookingWebapp.auth.model.User;
 import ch.bfh.ti.cookingWebapp.auth.service.SecurityService;
 import ch.bfh.ti.cookingWebapp.auth.service.UserService;
+import ch.bfh.ti.cookingWebapp.auth.validator.UserLoginDto;
 import ch.bfh.ti.cookingWebapp.auth.validator.UserRegistrationDto;
 import ch.bfh.ti.cookingWebapp.auth.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,54 +23,57 @@ public class UserController {
     @Autowired
     private SecurityService securityService;
 
-    @Autowired
-    private UserValidator userValidator;
-
     @GetMapping("/signup")
-    public String registration(Model model) {
+    public String signup(Model model) {
         model.addAttribute("user", new UserRegistrationDto());
 
         return "signup";
     }
 
     @PostMapping("/signup")
-    public String registration(@ModelAttribute("user") @Valid UserRegistrationDto user, BindingResult bindingResult) {
+    public String registration(@ModelAttribute("user") @Valid UserRegistrationDto userDto, BindingResult bindingResult) {
 
-        User existing = userService.findByUsername(user.getUserName());
+        User existing = userService.findByUsername(userDto.getUserName());
         if (existing != null){
             bindingResult.rejectValue("userName", null, "There is already an account registered with that username.");
         }
 
         if (bindingResult.hasErrors()){
-            return "registration";
+            return "signup";
         }
 
-        User newUser = new User();
-        newUser.setUsername(user.getUserName());
-        newUser.setPassword(user.getPassword());
-        newUser.setMail(user.getEmail());
-        newUser.setFirstName(user.getFirstName());
-        newUser.setLastName((user.getLastName()));
-        userService.save(newUser);
+        userService.save(userDto);
 
-        securityService.autoLogin(user.getUserName(), user.getConfirmPassword());
+        securityService.autoLogin(userDto.getUserName(), userDto.getPassword());
 
-        return "redirect:/signup?success";
+        return "redirect:main_page/signup?success";
     }
 
-    @GetMapping("/login")
-    public String login(Model model, String error, String logout) {
-        if (error != null)
-            model.addAttribute("error", "Your username and password is invalid.");
-
-        if (logout != null)
-            model.addAttribute("message", "You have been logged out successfully.");
+    @RequestMapping("/login")
+    public String login(Model model){
+        //model.addAttribute("login", new UserLoginDto());
 
         return "login";
     }
 
+//    # Only used when a redirect after login has to happen.
+//    @PostMapping("/login")
+//    public String login(@ModelAttribute("login") @Valid UserLoginDto loginDto,
+//                        BindingResult bindingResult,
+//                        String logout) {
+//        if ((userService.findByUsername(loginDto.getUserNameOrMail()) == null) && ) {
+//
+//        }
+//            model.addAttribute("error", "Your username and password is invalid.");
+//
+//        if (logout != null)
+//            model.addAttribute("message", "You have been logged out successfully.");
+//
+//        return "redirect:admin";
+//    }
+
     @GetMapping({"/", "/welcome"})
     public String welcome(Model model) {
-        return "welcome";
+        return "main_page";
     }
 }

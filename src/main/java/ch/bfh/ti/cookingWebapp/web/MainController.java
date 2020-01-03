@@ -12,12 +12,6 @@ public class MainController {
         return "main_page";
     }
 
-    @RequestMapping("/userlogin")
-    public String userlogin(Model model) { return "login"; }
-
-    @RequestMapping("/signup")
-    public String signup(Model model) { return "signup"; }
-
     @RequestMapping("/searchRecipes")
     public String searchRecipes(Model model) {return "searchRecipes"; }
 
