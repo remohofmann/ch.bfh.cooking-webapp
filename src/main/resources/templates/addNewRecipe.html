@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <title>title</title>
+  <meta charset="utf-8">
+  <link th:href="@{/css/main_page.css}" rel="stylesheet"/>
+</head>
+<body>
+  <h1>Add new recipe</h1>
+  <div id="addNewRecipeContent">
+    <div class="newRecipeInput">
+      <label>Recipe name</label>
+      <input id="nameIput">
+    </div>
+    <div class="newRecipeInput">
+      <label>Duration</label>
+      <input id="durationInput">
+    </div>
+    <div class="newRecipeInput">
+      <label>Description</label>
+      <input id="descriptionInput">
+    </div>
+    <div id="searchDropdownDiv">
+      <div th:replace="thFragments.html :: cuisineDropdown"></div>
+      <div th:replace="thFragments.html :: dietDropdown"></div>
+      <div th:replace="thFragments.html :: courseDropdown"></div>
+      <div th:replace="thFragments.html :: ingredientDropdown"></div>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>

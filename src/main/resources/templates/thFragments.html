@@ -25,6 +25,61 @@
         <button onclick="javascript:ReplaceContentInContainer('recipes/singleRecipe')">Go to recipe</button>
     </div>
 
+    <!-- Fragments for dropDowns (for search and new recipes) -->
+    <div th:fragment="courseDropdown()" class="dropdown" id="courseDropdown">
+        <label>Course</label>
+        <select multiple size="6">
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+        </select>
+    </div>
+    <div th:fragment="dietDropdown()" class="dropdown" id="dietDropdown">
+        <label>Special diet</label>
+        <select multiple size="6">
+            <option value="Gluten free">Gluten free</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Vegan">Vegan</option>
+            <option value="Paleo">Paleo</option>
+        </select>
+    </div>
+
+    <div th:fragment="cuisineDropdown()" class="dropdown" id="cuisineDropdown">
+        <label>Cuisine</label>
+        <select multiple size="6">
+            <option value="Indian">Indian</option>
+            <option value="Swiss">Swiss</option>
+            <option value="Austrian">Austrian</option>
+            <option value="French">French</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Chinese">Chinese</option>
+            <option value="American">American</option>
+        </select>
+    </div>
+
+    <div th:fragment="ingredientDropdown()" class="dropdown" id="ingredientDropdown">
+        <label>Ingredient</label>
+        <select multiple size="6">
+            <option value="Milk">Milk</option>
+            <option value="Eggs">Eggs</option>
+            <option value="Chicken">Chicken</option>
+            <option value="Celery">Celery</option>
+            <option value="Apples">Apples</option>
+            <option value="Oranges">Oranges</option>
+            <option value="Rice">Rice</option>
+            <option value="Noodles">Noodles</option>
+            <option value="Mustard">Mustard</option>
+        </select>
+    </div>
+
+
+
+
+
+
+
+
+
     <!-- Fragment for recipe comparison -->
     <div th:fragment="recipeCompareFirstRowFragment()"
          class="recipeCompareFragment" id="recipeCompareFirstRow">

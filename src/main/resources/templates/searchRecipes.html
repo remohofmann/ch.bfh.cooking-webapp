@@ -10,46 +10,14 @@
 
 
   <h1>Search for recipes</h1>
-  <div id="selectionDiv">
-    <label>Cuisine</label>
-    <select multiple size="6">
-      <option value="Indian">Indian</option>
-      <option value="Swiss">Swiss</option>
-      <option value="Austrian">Austrian</option>
-      <option value="French">French</option>
-      <option value="Japanese">Japanese</option>
-      <option value="Chinese">Chinese</option>
-      <option value="American">American</option>
-    </select>
-    <label>Special diet</label>
-    <select multiple size="6">
-      <option value="Gluten free">Gluten free</option>
-      <option value="Vegetarian">Vegetarian</option>
-      <option value="Vegan">Vegan</option>
-      <option value="Paleo">Paleo</option>
-    </select>
-    <label>Course</label>
-    <select multiple size="6">
-      <option value="Breakfast">Breakfast</option>
-      <option value="Lunch">Lunch</option>
-      <option value="Dinner">Dinner</option>
-    </select>
-    <label>Ingredient</label>
-    <select multiple size="6">
-      <option value="Milk">Milk</option>
-      <option value="Eggs">Eggs</option>
-      <option value="Chicken">Chicken</option>
-      <option value="Celery">Celery</option>
-      <option value="Apples">Apples</option>
-      <option value="Oranges">Oranges</option>
-      <option value="Rice">Rice</option>
-      <option value="Noodles">Noodles</option>
-      <option value="Mustard">Mustard</option>
-    </select>
-    <br/>
-    <button id="filterRecipesButton">Filter recipes</button>
-
+  <div id="searchDropdownDiv">
+    <div th:replace="thFragments.html :: cuisineDropdown"></div>
+    <div th:replace="thFragments.html :: dietDropdown"></div>
+    <div th:replace="thFragments.html :: courseDropdown"></div>
+    <div th:replace="thFragments.html :: ingredientDropdown"></div>
   </div>
+    <br/>
+    <button class="filterAddButton" id="filterRecipesButton">Filter recipes</button>
 
   <h1>Search results</h1>
     <div id="searchRecipesResults">

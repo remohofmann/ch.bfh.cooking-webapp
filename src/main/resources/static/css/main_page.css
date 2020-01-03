@@ -70,9 +70,14 @@ h1 {
     display: table-cell;
 }
 
+#addNewRecipeDiv {
+    margin-top: 2em;
+}
+
 #subPageContainer {
     display: table-cell;
     padding: 1em;
+    width: 100%;
 }
 
 
@@ -82,29 +87,6 @@ footer {
 }
 
 
-/* search recipes selectors*/
-select {
-    background-color: white;
-    color: black;
-    padding: 1em;
-    font-size: 1em;
-    border: 1px solid black;
-    border-radius: 0.2em;
-}
-
-#filterRecipesButton:hover {
-    background-color: var(--pinkColor);
-}
-
-#filterRecipesButton {
-    margin-top: 1em;
-    background-color: white;
-    color: black;
-    padding: 1em;
-    font-size: 1em;
-    border: 1px solid black;
-    border-radius: 0.2em;
-}
 
 /* Compare Recipes */
 #compareRecipesContainer {      /* code from: https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6*/
@@ -161,6 +143,41 @@ select {
 
 
 /* searchRecipes */
+
+.dropdown {
+    float:left;
+    padding-right: 1em;
+}
+
+#searchDropdownDiv {
+    overflow: hidden;
+}
+
+
+select {
+    background-color: white;
+    color: black;
+    padding: 1em;
+    font-size: 1em;
+    border: 1px solid black;
+    border-radius: 0.2em;
+}
+
+.filterAddButton:hover {
+    background-color: var(--pinkColor);
+}
+
+.filterAddButton {
+    margin-top: 1em;
+    background-color: white;
+    color: black;
+    padding: 1em;
+    font-size: 1em;
+    border: 1px solid black;
+    border-radius: 0.2em;
+}
+
+
 #searchRecipesResults {
     display: grid;
     grid-gap: 0.5em;
@@ -176,4 +193,10 @@ select {
     border: 1px solid black;
     padding: 0.5em;
     padding-top: 0em;
+}
+
+
+/* searchRecipes */
+.newRecipeInput {
+    padding: 1em;
 }

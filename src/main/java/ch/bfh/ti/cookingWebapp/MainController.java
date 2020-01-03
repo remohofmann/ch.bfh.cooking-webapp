@@ -29,4 +29,6 @@ public class MainController {
     @RequestMapping("/locale")
     public String locale() {return "locale"; }
 
+    @RequestMapping("/addNewRecipe")
+    public String addNewRecipe() {return "addNewRecipe"; }
 }
