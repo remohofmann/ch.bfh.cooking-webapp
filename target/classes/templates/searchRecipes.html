@@ -39,29 +39,6 @@
         jQuery(this).children("div").toggle();    // code from: https://www.geeksforgeeks.org/jquery-children-with-examples/
       });
     });
-
-
-
-    function showDropContent(dropDownBtnID) {   // code from: https://www.w3schools.com/howto/howto_js_dropdown.asp
-      // alert(dropDownBtnID);
-      document.getElementById(dropDownBtnID).classList.toggle("show");
-    }
-
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function(event) {      // code from: https://www.w3schools.com/howto/howto_js_dropdown.asp
-      if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          }
-        }
-      }
-    }
-
-
   </script>
 </body>
 

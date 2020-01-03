@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <link th:href="@{/css/main_page.css}" rel="stylesheet"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script th:src="@{/events.js}"></script>
 </head>
 <body>
 
@@ -23,11 +24,6 @@
   </section>
   <section id="middleSection">
     <div id="navigation" >
-        <h4>Comparison list</h4>
-          <a href="">Meat</a>
-          <a href="">Vegetables</a>
-          <a href="">Pulses</a>
-          <a href="">Milk</a>
         <h4>Special diet</h4>
           <a href="">Gluten free</a>
           <a href="">Vegetarian</a>
@@ -41,6 +37,9 @@
             <a href="">Indian</a>
             <a href="">Swiss</a>
             <a href="">Chinese</a>
+        <h4>Comparison list</h4>
+            <a href="">Recipe 1</a>
+            <a href="">Recipe 2</a>
         <div id="addNewRecipeDiv">
             <button class="filterAddButton" onclick="javascript:ReplaceContentInContainer('addNewRecipe')">Add new recipe</button>
         </div>
@@ -51,10 +50,14 @@
 
   <script type="text/javascript">
 
-    function ReplaceContentInContainer(subpageUrl) {
-        $('#subPageContainer').load(subpageUrl);
-    }
 
+      function ReplaceContentInContainer(subpageUrl) {
+          $('#subPageContainer').load(subpageUrl);
+      }
+
+      function goToRecipe(subpageUrl) {
+          $('#subPageContainer').load(subpageUrl);
+      }
   </script>
 
 

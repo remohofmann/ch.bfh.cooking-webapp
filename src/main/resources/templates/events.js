@@ -17,13 +17,3 @@ function init() {
         }
     }
 }
-
-    function cuisineDropdownFunction() {
-      document.getElementById("cuisineDropdownContent").classList.toggle("show");
-    }
-    function courseDropdownFunction() {
-      document.getElementById("courseDropdownContent").classList.toggle("show");
-    }
-    function ingredientDropdownFunction() {
-      document.getElementById("ingredientDropdownContent").classList.toggle("show");
-    }
