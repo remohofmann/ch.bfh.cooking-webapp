@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sign up</title>
+    <meta charset="utf-8">
+    <link th:href="@{/css/main_page.css}" rel="stylesheet"/>
+</head>
+<body>
+    <h1>Login</h1>
+    <h2>Username or email-address</h2>
+    <form>
+        Please provide your username or mail address:<br>
+        <input type="text" name="username">
+    </form>
+    <h2>Password</h2>
+    <form>
+        Please enter your password:<br>
+        <input type="password" name="password">
+    </form>
+    <a href="">Forgot Password?</a>
+    <form>
+        <input type="submit" name="Submit">
+    </form>
+</body>
+</html>
+
+<!-- gibt auch Textfelder <textarea></textarea>, Radiobuttons: type="radio" (als Einzelauswahl)
+oder aber Checkboxen: type="checkbox" (für Mehrfachauswahl) -->
+
+<form>
+    <input type="radio" value="blue" name="blue">
+    <input type="radio" value="yellow" name="yellow">
+</form>
+
+<form>
+    <input type="checkbox" value="mem[]" name="Bob">
+    <input type="checkbox" value="mem[]" name="Alice">
+</form>
+
+
+<!--File Upload -->
+<form action="upload" method="post" enctype="multipart/form-data">
+    Select a file to upload:
+    <input type="file" name="upload" />
+    <input type="submit" value="Upload File" />
+</form>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <title>title</title>
+  <meta charset="utf-8">
+  <link th:href="@{/css/main_page.css}" rel="stylesheet"/>
+</head>
+<body>
+  <h1>Vergleich Rezepte</h1>
+  <div id="compareRecipesContainer">
+    <div th:replace="thFragments.html :: recipeCompareFirstRowFragment"></div>
+    <div th:each="recipe:${recipes}">
+      <div th:replace="thFragments.html :: recipeCompareFragment(
+        name=${recipe.recipeName},
+        duration=${recipe.recipeDuration},
+        description=${recipe.recipeDescription},
+        ingredients=${recipe.recipeName},
+        specialDiet=${recipe.recipeName},
+        course=${recipe.recipeName})">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

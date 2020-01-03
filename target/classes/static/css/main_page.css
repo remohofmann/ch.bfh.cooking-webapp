@@ -1,0 +1,219 @@
+/* CSS for main Page */
+@import url('https://fonts.googleapis.com/css?family=Staatliches');
+
+* {
+    font-family: "Roboto Condensed", sans-serif;
+}
+:root {
+--blueColor: #00BFFF;
+--pinkColor: #FF00FF;
+--lightPinkColor: #FFC8FF;
+}
+
+header, footer{
+    width: 100%;
+	text-align:center;
+    font-family: "Staatliches", sans-serif;
+    font-size: 2em;
+    background-color: var(--blueColor);
+    border: 1px solid black;
+    border-radius: 0.2em;
+    color: var(--pinkColor);
+}
+
+.menu {
+    width: 100%;
+    display:flex;       /*flex code from: https://stackoverflow.com/questions/53004512/align-divs-horizontally-and-perfectly-fit-the-width-of-parent*/
+    flex-wrap:wrap;
+    flex-direction: row;
+}
+
+.menuContent {
+    flex: 0 20%;
+    border-radius: 0.5em;
+    color: white;
+    align: center;
+    text-align: center;
+    background-color: var(--pinkColor);
+    box-sizing: border-box;
+    border: 2px solid white;
+}
+
+.menuContent:hover {
+    transform: scale(1.1);
+}
+
+a {
+    text-align: center;
+    color: white;
+}
+
+
+h1 {
+    font-family: "Staatliches", sans-serif;
+    border-radius: 0.2em;
+    border: 1px solid black;
+    padding-left: 0.2em;
+}
+
+#middleSection {
+    dislay: table;
+}
+
+#navigation {
+    padding: 1em;
+    background-color: var(--blueColor);
+    width: 20%;
+    border: 1px solid black;
+    border-radius: 0.2em;
+    color: var(--pinkColor);
+    display: table-cell;
+}
+
+#addNewRecipeDiv {
+    margin-top: 2em;
+}
+
+#subPageContainer {
+    display: table-cell;
+    padding: 1em;
+    width: 100%;
+}
+
+
+footer {
+    font-size: 0.8em;
+    margin-top: 1px;
+}
+
+
+
+/* Compare Recipes */
+#compareRecipesContainer {      /* code from: https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6*/
+    width: 50em;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.recipeCompareFragment {
+    width: 15%;
+    height: 50em;
+    border-radius: 0.5em;
+    border: 1px solid black;
+    padding: 0.5em;
+    padding-top: 0em;
+    margin: 2px;
+    float: left;
+}
+
+.comparisonRecipeTitle {
+    padding-top: 1em;
+    font-weight: bold;
+    height: 3em;
+}
+
+.comparisonRecipeDuration {
+    height: 3em;
+}
+
+.comparisonRecipeInstruction {
+    height: 20em;
+}
+
+.comparisonRecipeIngredients {
+    height: 3em;
+}
+
+.comparisonRecipeDiet {
+    height: 3em;
+}
+
+.comparisonRecipeCourse {
+    height: 3em;
+}
+
+#recipeCompareFirstRow {
+    width: 15%;
+    border-radius: 0.5em;
+    background-color: var(--lightPinkColor);
+    border: 1px solid var(--lightPinkColor);
+    padding: 0.5em;
+    padding-top: 0em;
+}
+
+
+/* searchRecipes */
+
+.dropdown {
+    float:left;
+    padding-right: 1em;
+}
+
+#searchDropdownDiv {
+    overflow: hidden;
+}
+
+
+select {
+    background-color: white;
+    color: black;
+    padding: 1em;
+    font-size: 1em;
+    border: 1px solid black;
+    border-radius: 0.2em;
+}
+
+.filterAddButton:hover {
+    background-color: var(--pinkColor);
+}
+
+.filterAddButton {
+    margin-top: 1em;
+    background-color: white;
+    color: black;
+    padding: 1em;
+    font-size: 1em;
+    border: 1px solid black;
+    border-radius: 0.2em;
+}
+
+
+#searchRecipesResults {
+    display: grid;
+    grid-gap: 0.5em;
+    grid-template-columns: repeat(auto-fit, 20em);
+}
+
+.recipeTileFragment:hover, #addIngredientButton:hover, #addNewRecipeButton:hover, .goToRecipeButton:hover{
+    background-color: var(--lightPinkColor);
+}
+.recipeTileFragment {
+    color: var(--pinkColor);
+    border-radius: 0.5em;
+    border: 1px solid black;
+    padding: 0.5em;
+    padding-top: 0em;
+}
+
+
+/* new recipes */
+.newRecipeInput {
+    padding: 1em;
+}
+
+input, textarea {
+    border-radius: 0.5em;
+    border: 1px solid black;
+    padding: 0.5em;
+}
+
+input:focus {
+    background-color: var(--lightPinkColor);
+}
+
+#addIngredientButton, #addNewRecipeButton, .goToRecipeButton{
+    border-radius: 0.5em;
+    border: 1px solid black;
+    padding: 0.5em;
+    background-color: white;
+}
