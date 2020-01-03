@@ -3,8 +3,6 @@ DROP TABLE IF EXISTS ingredient;
 DROP TABLE IF EXISTS tag;
 DROP TABLE IF EXISTS unit;
 DROP TABLE IF EXISTS search_category;
-DROP TABLE IF EXISTS recipe_ingredient;
-DROP TABLE IF EXISTS recipe_tag;
 
 CREATE TABLE recipe (
                          id LONG AUTO_INCREMENT  PRIMARY KEY,
@@ -28,8 +26,8 @@ CREATE TABLE unit (
 CREATE TABLE ingredient (
                         id LONG AUTO_INCREMENT PRIMARY KEY,
                         ingredient_name VARCHAR(64) NOT NULL,
-                        ingredient_unit LONG,
-                        FOREIGN KEY (ingredient_unit) REFERENCES unit(id)
+                        ingredient_unit_id LONG,
+                        FOREIGN KEY (ingredient_unit_id) REFERENCES unit(id)
 );
 
 CREATE TABLE recipe_ingredient (

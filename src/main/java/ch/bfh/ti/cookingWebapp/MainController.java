@@ -1,3 +1,4 @@
+
 package ch.bfh.ti.cookingWebapp;
 
 import ch.bfh.ti.cookingWebapp.persistence.RecipeServices;
@@ -17,11 +18,8 @@ public class MainController {
         return "main_page";
     }
 
-    @RequestMapping("/userlogin")
+    @RequestMapping("/login")
     public String userlogin() { return "login"; }
-
-    @RequestMapping("/signup")
-    public String signup() { return "signup"; }
 
     @RequestMapping("/searchRecipes")
     public String searchRecipes() {return "searchRecipes"; }

@@ -1,7 +1,7 @@
 package ch.bfh.ti.cookingWebapp;
 
-import ch.bfh.ti.cookingWebapp.persistence.Recipe;
-import ch.bfh.ti.cookingWebapp.persistence.RecipeServices;
+import ch.bfh.ti.cookingWebapp.persistence.model.Recipe;
+import ch.bfh.ti.cookingWebapp.persistence.service.RecipeServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

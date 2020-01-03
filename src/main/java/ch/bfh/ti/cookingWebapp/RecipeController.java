@@ -1,7 +1,7 @@
 package ch.bfh.ti.cookingWebapp;
 
-import ch.bfh.ti.cookingWebapp.persistence.RecipeServices;
-import ch.bfh.ti.cookingWebapp.persistence.Tag;
+import ch.bfh.ti.cookingWebapp.persistence.service.RecipeServices;
+import ch.bfh.ti.cookingWebapp.persistence.model.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
