@@ -48,4 +48,10 @@ public class RecipeController {
         model.addAttribute("recipes", this.recipeServices.getFirstThreeRecipes());
         return "compareRecipes";
     }
+
+    @GetMapping("/singleRecipe")
+    public String getSingleRecipe(Model model){
+        model.addAttribute("recipe", this.recipeServices.getSingleRecipe());
+        return "singleRecipe";
+    }
 }

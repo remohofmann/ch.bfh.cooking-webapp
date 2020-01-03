@@ -8,13 +8,19 @@
 </head>
 <body>
   <h1>Vergleich Rezepte</h1>
-  <table>
-    
-
-
-    
-  </table>
-
+  <div id="compareRecipesContainer">
+    <div th:replace="thFragments.html :: recipeCompareFirstRowFragment"></div>
+    <div th:each="recipe:${recipes}">
+      <div th:replace="thFragments.html :: recipeCompareFragment(
+        name=${recipe.recipeName},
+        duration=${recipe.recipeDuration},
+        description=${recipe.recipeDescription},
+        ingredients=${recipe.recipeName},
+        specialDiet=${recipe.recipeName},
+        course=${recipe.recipeName})">
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

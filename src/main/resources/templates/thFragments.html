@@ -22,7 +22,7 @@
         </div>
         <label>Compare: </label>
         <input type="checkbox" name="compareCheckBox"/>
-
+        <button onclick="javascript:ReplaceContentInContainer('recipes/singleRecipe')">Go to recipe</button>
     </div>
 
     <!-- Fragment for recipe comparison -->
@@ -54,9 +54,19 @@
     </div>
 
 
-    <!-- Fragment for dropdown -->
-    <div th:fragment="dropDown(name, values)" class="dropbtnFragmen">
-        <button onclick="courseDropdownFunction()" >name</button>
+    <!-- Fragment for singleRecipe -->
+    <div th:fragment="singleRecipe(name, duration, description, ingredients, specialDiet, course)"
+         class="singleRecipeFragment">
+        <h1 th:text="${name}">Name as header</h1>
+        <label>Duration: </label><label th:text="${duration}">Duration</label><label> min</label>
+        <h3>Description</h3>
+        <div th:text="${description}">Description</div>
+        <h3>Ingredients</h3>
+        <div th:text="${ingredients}">Ingredients</div>
+        <h3>Special Diet</h3>
+        <div th:text="${specialDiet}">Diet</div>
+        <h3>Course</h3>
+        <div th:text="${course}">Course</div>
     </div>
 
 </body>
