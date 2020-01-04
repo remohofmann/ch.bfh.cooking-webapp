@@ -47,8 +47,8 @@
                 <a href="">Recipe 1</a>
                 <a href="">Recipe 2</a>
             <div id="addNewRecipeDiv">
-                <a class="filterAddButton" href="/recipes/addNewRecipe">Add new recipe</a>
-                <a class="filterAddButton" href="/recipes/adminArea">Go to admin page</a>
+                <a class="filterAddButton" href="/user/addNewRecipe">Add new recipe</a>
+                <a class="filterAddButton" href="/admin/adminArea">Go to admin page</a>
             </div>
         </div>
     </div>
@@ -122,12 +122,12 @@
             <div th:replace="thFragments.html :: recipeCompareFirstRowFragment"></div>
             <div th:each="recipe:${recipes}">
                 <div th:replace="thFragments.html :: recipeCompareFragment(
-        name=${recipe.recipeName},
-        duration=${recipe.recipeDuration},
-        description=${recipe.recipeDescription},
-        ingredients=${recipe.recipeName},
-        specialDiet=${recipe.recipeName},
-        course=${recipe.recipeName})">
+                    name=${recipe.recipeName},
+                    duration=${recipe.recipeDuration},
+                    description=${recipe.recipeDescription},
+                    ingredients=${recipe.recipeName},
+                    specialDiet=${recipe.recipeName},
+                    course=${recipe.recipeName})">
                 </div>
             </div>
         </div>
