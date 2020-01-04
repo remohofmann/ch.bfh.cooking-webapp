@@ -27,6 +27,16 @@ public class TagServices {
         return tags;
     }
 
+    public Tag getTagByName(String tagName) {
+        List<Tag> tags = getAllTags();
+        for (Tag t: tags){
+            if (t.getTagName().equals(tagName)) {
+                return t;
+            }
+        }
+        return null;
+    }
+
     public Tag getTagById(Long tagId){
         Optional<Tag> tag = tagRepository.findById(tagId);
         return tag.orElse(null);

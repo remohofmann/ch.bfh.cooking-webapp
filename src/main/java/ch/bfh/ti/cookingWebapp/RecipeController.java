@@ -44,24 +44,14 @@ public class RecipeController {
         return "recipes";
     }
 
-    @GetMapping("/rice")
-    public String getRecipeByTag(Model model){
-        model.addAttribute("recipes", this.recipeServices.getRecipesByTag(new Tag("Reis")));
-        return "recipes";
-    }
-
-
     @GetMapping("/searchRecipes")
     public String getSearchRecipes(Model model){
         model.addAttribute("recipes", this.recipeServices.getAllRecipes());
-        model.addAttribute("tagDiet", this.tagServices.getTagsByType(TagType.DIET));
-        model.addAttribute("tagCuisine", this.tagServices.getTagsByType(TagType.CUISINE));
-        model.addAttribute("tagCourse", this.tagServices.getTagsByType(TagType.COURSE));
-//        System.out.println(this.tagServices.getTagsByType(TagType.COURSE));
-//        for (Tag t : this.tagServices.getAllTags()) {
-//            System.out.println(t.getType());
-//        }
-        model.addAttribute("ingredients", this.ingredientServices.getAllIngredients());
+        model = addSearchRecipeAttributes(model);
+//        model.addAttribute("tagDiet", this.tagServices.getTagsByType(TagType.DIET));
+//        model.addAttribute("tagCuisine", this.tagServices.getTagsByType(TagType.CUISINE));
+//        model.addAttribute("tagCourse", this.tagServices.getTagsByType(TagType.COURSE));
+//        model.addAttribute("ingredients", this.ingredientServices.getAllIngredients());
         return "searchRecipes";
     }
 
@@ -86,10 +76,98 @@ public class RecipeController {
         return "singleRecipe";
     }
 
+    @GetMapping("/glutenFree")
+    public String getGlutenFreeRecipes(Model model){
+        Tag tag = this.tagServices.getTagByName("Gluten free");
+        model.addAttribute("recipes", this.recipeServices.getRecipesByTag(tag));
+        model = addSearchRecipeAttributes(model);
+        return "searchRecipes";
+    }
+
+    @GetMapping("/vegetarian")
+    public String getVegetarianRecipes(Model model){
+        Tag tag = this.tagServices.getTagByName("Vegetarian");
+        model.addAttribute("recipes", this.recipeServices.getRecipesByTag(tag));
+        model = addSearchRecipeAttributes(model);
+        return "searchRecipes";
+    }
+
+    @GetMapping("/paleo")
+    public String getPaleoRecipes(Model model){
+        Tag tag = this.tagServices.getTagByName("Paleo");
+        model.addAttribute("recipes", this.recipeServices.getRecipesByTag(tag));
+        model = addSearchRecipeAttributes(model);
+        return "searchRecipes";
+    }
+
+    @GetMapping("/vegan")
+    public String getVeganRecipes(Model model){
+        Tag tag = this.tagServices.getTagByName("Vegan");
+        model.addAttribute("recipes", this.recipeServices.getRecipesByTag(tag));
+        model = addSearchRecipeAttributes(model);
+        return "searchRecipes";
+    }
+
+    @GetMapping("/breakfast")
+    public String getBreakfastRecipes(Model model){
+        Tag tag = this.tagServices.getTagByName("Breakfast");
+        model.addAttribute("recipes", this.recipeServices.getRecipesByTag(tag));
+        model = addSearchRecipeAttributes(model);
+        return "searchRecipes";
+    }
+
+    @GetMapping("/lunch")
+    public String getLunchRecipes(Model model){
+        Tag tag = this.tagServices.getTagByName("Lunch");
+        model.addAttribute("recipes", this.recipeServices.getRecipesByTag(tag));
+        model = addSearchRecipeAttributes(model);
+        return "searchRecipes";
+    }
+
+    @GetMapping("/dinner")
+    public String getDinnerRecipes(Model model){
+        Tag tag = this.tagServices.getTagByName("Dinner");
+        model.addAttribute("recipes", this.recipeServices.getRecipesByTag(tag));
+        model = addSearchRecipeAttributes(model);
+        return "searchRecipes";
+    }
+
+    @GetMapping("/indian")
+    public String getIndianRecipes(Model model){
+        Tag tag = this.tagServices.getTagByName("Indian");
+        model.addAttribute("recipes", this.recipeServices.getRecipesByTag(tag));
+        model = addSearchRecipeAttributes(model);
+        return "searchRecipes";
+    }
+
+    @GetMapping("/swiss")
+    public String getSwissRecipes(Model model){
+        Tag tag = this.tagServices.getTagByName("Swiss");
+        model.addAttribute("recipes", this.recipeServices.getRecipesByTag(tag));
+        model = addSearchRecipeAttributes(model);
+        return "searchRecipes";
+    }
+
+    @GetMapping("/chinese")
+    public String getChineseRecipes(Model model){
+        Tag tag = this.tagServices.getTagByName("Chinese");
+        model.addAttribute("recipes", this.recipeServices.getRecipesByTag(tag));
+        model = addSearchRecipeAttributes(model);
+        return "searchRecipes";
+    }
+
     @GetMapping("/adminArea")
     public String adminArea(Model model){
         model.addAttribute("recipe", this.recipeServices.getAllRecipes());
         return "recipes";
+    }
+
+    public Model addSearchRecipeAttributes(Model model){
+        model.addAttribute("tagDiet", this.tagServices.getTagsByType(TagType.DIET));
+        model.addAttribute("tagCuisine", this.tagServices.getTagsByType(TagType.CUISINE));
+        model.addAttribute("tagCourse", this.tagServices.getTagsByType(TagType.COURSE));
+        model.addAttribute("ingredients", this.ingredientServices.getAllIngredients());
+        return model;
     }
 
 }
