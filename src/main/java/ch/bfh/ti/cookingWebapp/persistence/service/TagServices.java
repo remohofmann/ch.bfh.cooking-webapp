@@ -1,5 +1,6 @@
 package ch.bfh.ti.cookingWebapp.persistence.service;
 
+import ch.bfh.ti.cookingWebapp.persistence.model.Recipe;
 import ch.bfh.ti.cookingWebapp.persistence.model.Tag;
 import ch.bfh.ti.cookingWebapp.persistence.model.TagType;
 import ch.bfh.ti.cookingWebapp.persistence.repository.TagRepository;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TagServices {
@@ -23,6 +25,11 @@ public class TagServices {
         List<Tag> tags = new ArrayList<>();
         this.tagRepository.findAll().forEach(tags::add);
         return tags;
+    }
+
+    public Tag getTagById(Long tagId){
+        Optional<Tag> tag = tagRepository.findById(tagId);
+        return tag.orElse(null);
     }
 
     public void addTag(String tagName) {

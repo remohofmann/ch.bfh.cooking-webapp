@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /* USAGE:
 //    @GetMapping("/searchRecipes") // has to be like url
@@ -72,6 +74,15 @@ public class RecipeController {
     @GetMapping("/singleRecipe")
     public String getSingleRecipe(Model model){
         model.addAttribute("recipe", this.recipeServices.getSingleRecipe());
+        return "singleRecipe";
+    }
+
+    @PostMapping("/singleRecipe")
+    public String postSingleRecipe(@RequestParam(value = "recipeId") Long id,
+                                   Model model){
+        model.addAttribute("recipe", this.recipeServices.getRecipeById(id));
+        model.addAttribute("ingredients", this.recipeServices.getIngredientsForRecipeId(id));
+        model.addAttribute("tags", this.recipeServices.getTagsForRecipeId(id));
         return "singleRecipe";
     }
 

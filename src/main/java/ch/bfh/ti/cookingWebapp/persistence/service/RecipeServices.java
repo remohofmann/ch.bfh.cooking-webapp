@@ -21,15 +21,21 @@ public class RecipeServices {
     private RecipeRepository recipeRepository;
     private RecipeTagRepository recipeTagRepository;
     private RecipeIngredientRepository recipeIngredientRepository;
+    private IngredientServices ingredientServices;
+    private TagServices tagServices;
 
     @Autowired
     public RecipeServices(RecipeRepository recipeRepository,
                           RecipeTagRepository recipeTagRepository,
-                          RecipeIngredientRepository recipeIngredientRepository) {
+                          RecipeIngredientRepository recipeIngredientRepository,
+                          IngredientServices ingredientServices,
+                          TagServices tagServices) {
         super();
         this.recipeRepository = recipeRepository;
         this.recipeTagRepository = recipeTagRepository;
         this.recipeIngredientRepository = recipeIngredientRepository;
+        this.ingredientServices = ingredientServices;
+        this.tagServices = tagServices;
     }
 
     public List<Recipe> getAllRecipes() {
@@ -72,6 +78,28 @@ public class RecipeServices {
     public Recipe getRecipeById(Long recipeId){
         Optional<Recipe> recipe = recipeRepository.findById(recipeId);
         return recipe.orElse(null);
+    }
+
+    //Searches ingredients for recipe ID
+    public List<Ingredient> getIngredientsForRecipeId(Long recipeId){
+        List<RecipeIngredientCombination> recipeIngredients = getAllRecipeIngredientCombinations();
+        recipeIngredients.removeIf(c -> !(c.getRecipeId().equals(recipeId)));
+        List<Ingredient> ingredients = new ArrayList<>();
+        for (RecipeIngredientCombination i: recipeIngredients) {
+            ingredients.add(ingredientServices.getIngredientById(i.getIngredientId()));
+        }
+        return ingredients;
+    }
+
+    //Searches tags for recipe ID
+    public List<Tag> getTagsForRecipeId(Long recipeId){
+        List<RecipeTagCombination> recipeTags = getAllRecipeTagCombinations();
+        recipeTags.removeIf(t -> !(t.getRecipeId().equals(recipeId)));
+        List<Tag> tags = new ArrayList<>();
+        for (RecipeTagCombination c: recipeTags) {
+            tags.add(tagServices.getTagById(c.getTagId()));
+        }
+        return tags;
     }
 
     //Searches for Recipes by tag.
