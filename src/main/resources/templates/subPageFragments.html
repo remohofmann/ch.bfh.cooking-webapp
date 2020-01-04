@@ -93,7 +93,6 @@
 
     </div>
 
-
     <!-- adminArea -->
     <div th:fragment="adminAreaFragment()" class="adminAreaFragment">
         <div class="adminArea">
@@ -102,7 +101,7 @@
             <div class="adminDiv">
                 <button class="goToRecipeButton">Delete recipe</button>
                 <select name="Recipes" multiple size="6">
-                    <option th:each="recipe:${recipes}" th:value="${recipe.recipe_name}" th:text="${recipe.recipe_name}"/>
+                    <option th:each="recipe:${recipes}" th:value="${recipe.recipeName}" th:text="${recipe.recipeName}"/>
                 </select>
             </div>
 

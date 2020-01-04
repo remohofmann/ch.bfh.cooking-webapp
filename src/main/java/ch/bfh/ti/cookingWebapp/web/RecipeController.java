@@ -44,6 +44,12 @@ public class RecipeController {
         return "recipes";
     }
 
+    @GetMapping("/adminArea")
+    public String getAllRecipesForAdminArea(Model model){
+        model.addAttribute("recipes", this.recipeServices.getAllRecipes());
+        return "adminArea";
+    }
+
     @GetMapping("/searchRecipes")
     public String getSearchRecipes(Model model){
         model.addAttribute("recipes", this.recipeServices.getAllRecipes());
