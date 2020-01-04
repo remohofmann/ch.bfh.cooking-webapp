@@ -7,15 +7,17 @@
   <link th:href="@{/css/main_page.css}" rel="stylesheet"/>
 </head>
 <body>
-  <div th:replace="thFragments.html :: singleRecipe(
-    name=${recipe.recipeName},
-    duration=${recipe.recipeDuration},
-    description=${recipe.recipeDescription},
-    ingredients=${ingredients},
-    specialDiet=${recipe.recipeName},
-    course=${recipe.recipeName},
-    tags=${tags})">
-  </div>
+  <div th:replace="subPageFragments.html :: mainPageUpperFragment"></div>
+
+  <section class="middleSection">
+    <div th:replace="subPageFragments.html :: navigationMainPageFragment"></div>
+    <div class="subPageContainer" th:replace="subPageFragments.html :: singleRecipeFragment"></div>
+  </section>
+  <div th:replace="subPageFragments.html :: mainPageFooterFragment"></div>
+
+
+
+
 </body>
 
 </html>

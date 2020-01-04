@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset = "utf-8"/>
+    <title>Internationalization</title>
+</head>
+<body>
+<div class="adminArea">
+    <h1>Admin Area</h1>
+    <h2>Delete recipe</h2>
+    <div class="adminDiv">
+        <button class="goToRecipeButton">Delete recipe</button>
+        <select name="Recipes" multiple size="6">
+            <option th:each="recipe:${recipes}" th:value="${recipe.recipe_name}" th:text="${recipe.recipe_name}"/>
+        </select>
+    </div>
+
+    <h2>Add tag</h2>
+    <div class="adminDiv">
+        <label>Enter new tag</label>
+        <input type="text" name="Enter new tag">
+        <button class="goToRecipeButton">Add new tag</button>
+    </div>
+</div>
+
+</body>
+</html>

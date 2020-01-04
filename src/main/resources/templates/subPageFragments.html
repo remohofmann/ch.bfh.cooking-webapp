@@ -1,0 +1,300 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+    <meta charset="UTF-8" />
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <!-- Upper fragment for mainPage -->
+    <div th:fragment="mainPageUpperFragment()" class="mainPageUpperFragment">
+
+        <header>cookit</header>
+        <section class = "menu">
+            <!--   <div class="menuContent"><a th:href="@{searchRecipes}" id="search">search</a></div> -->
+            <div class="menuContent"><a id="searchRecipes" onclick="javascript:ReplaceContentInContainer('recipes/searchRecipes')">search recipes</a></div>
+            <div class="menuContent"><a id="userlogin" onclick="javascript:ReplaceContentInContainer('login')">login</a></div>
+            <div class="menuContent"><a id="signup" onclick="javascript:ReplaceContentInContainer('signup')">sign up</a></div>
+            <div class="menuContent"><a id="compare" onclick="javascript:ReplaceContentInContainer('recipes/compareRecipes')">compare</a></div>
+            <div class="menuContent">
+                <a id="DE">DE</a>
+                <a id="FR">FR</a>
+                <a id="EN">EN</a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- navigation fragment for mainPage -->
+    <div th:fragment="navigationMainPageFragment()" class="navigationMainPageFragment">
+        <div id="navigation">
+            <h4>Special diet</h4>
+            <a href="">Gluten free</a>
+            <a href="">Vegetarian</a>
+            <a href="">Paleo</a>
+            <a href="">Vegan</a>
+            <h4>Meal type / course</h4>
+            <a href="">Breakfast</a>
+            <a href="">Lunch</a>
+            <a href="">Dinner</a>
+            <h4>Cuisine</h4>
+            <a href="">Indian</a>
+            <a href="">Swiss</a>
+            <a href="">Chinese</a>
+            <h4>Comparison list</h4>
+            <a href="">Recipe 1</a>
+            <a href="">Recipe 2</a>
+            <div id="addNewRecipeDiv">
+                <button class="filterAddButton" onclick="javascript:ReplaceContentInContainer('recipes/addNewRecipe')">Add new recipe</button>
+                <button onclick="javascript:ReplaceContentInContainer('recipes/adminArea')">Go to admin page</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- navigation fragment for mainPage -->
+    <div th:fragment="mainPageFooterFragment()" class="mainPageFooterFragment">
+        <footer>@ Remo Hofmann, Lukas Zoller</footer>
+    </div>
+    <!--------------- end of main page fragments ---------------------------------------------------------------------->
+
+    <!-- addNewRecipeFragment -->
+    <div th:fragment="addNewRecipeFragment()" class="addNewRecipeFragment">
+        <h1>Add new recipe</h1>
+        <div id="addNewRecipeContent">
+            <div class="newRecipeInput">
+                <label>Recipe name</label>
+                <input id="nameIput" pattern="[A-Za-z]{1,20}" required>
+            </div>
+            <div class="newRecipeInput">
+                <label>Duration in minutes</label>
+                <input id="durationInput" type="number" min="1" required>
+            </div>
+            <div class="newRecipeInput">
+                <textarea pattern=".{1,500}" required>Recipe description</textarea>
+            </div>
+            <div id="searchDropdownDiv">
+                <div th:replace="thFragments.html :: cuisineDropdown(tags=${tagCuisine})"></div>
+                <div th:replace="thFragments.html :: dietDropdown(tags=${tagDiet})"></div>
+                <div th:replace="thFragments.html :: courseDropdown(tags=${tagCourse})"></div>
+                <div th:replace="thFragments.html :: ingredientDropdown(ingredients=${ingredients})"></div>
+            </div>
+            <div class="newRecipeInput">
+                <label>Add new ingredient</label>
+                <input id="newIngredientInput" pattern="[A-Za-z]{1,20}">
+                <button id="addIngredientButton">Add ingredient</button>
+            </div>
+        </div>
+
+        <button id="addNewRecipeButton">Add new recipe</button>
+
+
+
+    </div>
+
+
+    <!-- adminArea -->
+    <div th:fragment="adminAreaFragment()" class="adminAreaFragment">
+        <div class="adminArea">
+            <h1>Admin Area</h1>
+            <h2>Delete recipe</h2>
+            <div class="adminDiv">
+                <button class="goToRecipeButton">Delete recipe</button>
+                <select name="Recipes" multiple size="6">
+                    <option th:each="recipe:${recipes}" th:value="${recipe.recipe_name}" th:text="${recipe.recipe_name}"/>
+                </select>
+            </div>
+
+            <h2>Add tag</h2>
+            <div class="adminDiv">
+                <label>Enter new tag</label>
+                <input type="text" name="Enter new tag">
+                <button class="goToRecipeButton">Add new tag</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- compareRecipesFragment -->
+    <div th:fragment="compareRecipesFragment()" class="compareRecipesFragment">
+        <h1>Vergleich Rezepte</h1>
+        <div id="compareRecipesContainer">
+            <div th:replace="thFragments.html :: recipeCompareFirstRowFragment"></div>
+            <div th:each="recipe:${recipes}">
+                <div th:replace="thFragments.html :: recipeCompareFragment(
+        name=${recipe.recipeName},
+        duration=${recipe.recipeDuration},
+        description=${recipe.recipeDescription},
+        ingredients=${recipe.recipeName},
+        specialDiet=${recipe.recipeName},
+        course=${recipe.recipeName})">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- landingPageFragment -->
+    <div th:fragment="landingPageFragment()" class="landingPageFragment">
+        <div class="container">
+            <h1>Welcome to CookIt!</h1>
+        </div>
+    </div>
+
+    <!-- loginFragment -->
+    <div th:fragment="loginFragment()" class="loginFragment">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h1>Login page</h1>
+                    <form th:action="@{/login}" method="post">
+                        <div th:if="${param.error}">
+                            <div class="alert alert-danger">Invalid username or
+                                password.</div>
+                        </div>
+                        <div th:if="${param.logout}">
+                            <div class="alert alert-info">You have been logged out.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>: <input type="text"
+                                                                           id="username" name="username" class="form-control"
+                                                                           autofocus="autofocus" placeholder="Username" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>: <input type="password"
+                                                                           id="password" name="password" class="form-control"
+                                                                           placeholder="Password" />
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-3">
+                                    <input type="submit" name="login-submit" id="login-submit"
+                                           class="form-control btn btn-primary" value="Log In" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+						<span>New user? <a href="/" th:href="@{/signup}">Register
+								here</a></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- searchRecipesFragment -->
+    <div th:fragment="searchRecipesFragment()" class="searchRecipesFragment">
+
+
+        <h1>Search for recipes</h1>
+        <div id="searchDropdownDiv">
+            <div th:replace="thFragments.html :: cuisineDropdown(tags=${tagCuisine})"></div>
+            <div th:replace="thFragments.html :: dietDropdown(tags=${tagDiet})"></div>
+            <div th:replace="thFragments.html :: courseDropdown(tags=${tagCourse})"></div>
+            <div th:replace="thFragments.html :: ingredientDropdown(ingredients=${ingredients})"></div>
+        </div>
+        <br/>
+        <button class="filterAddButton" id="filterRecipesButton">Filter recipes</button>
+
+        <h1>Search results</h1>
+        <div id="searchRecipesResults">
+            <div th:each="recipe:${recipes}">
+                <div th:replace="thFragments.html :: recipeTileFragment(
+        name=${recipe.recipeName},
+        description=${recipe.recipeDescription},
+        duration=${recipe.recipeDuration},
+        id=${recipe.id})"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- signupFragment -->
+    <div th:fragment="signupFragment()" class="signupFragment">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+
+                    <div th:if="${param.success}">
+                        <div class="alert alert-info">You've successfully registered CookIt!</div>
+                    </div>
+
+                    <h1>Registration</h1>
+
+                    <form th:action="@{/signup}" th:object="${user}" method="post">
+
+                        <p class="error-message" th:if="${#fields.hasGlobalErrors()}" th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation error
+                        </p>
+
+                        <div class="form-group" th:classappend="${#fields.hasErrors('userName')}? 'has-error':''">
+                            <label for="userName" class="control-label">Username</label> <input id="userName" class="form-control" th:field="*{userName}" />
+                            <p class="error-message" th:each="error: ${#fields.errors('userName')}" th:text="${error}">Validation error</p>
+                        </div>
+                        <div class="form-group" th:classappend="${#fields.hasErrors('firstName')}? 'has-error':''">
+                            <label for="firstName" class="control-label">First name</label> <input id="firstName" class="form-control" th:field="*{firstName}" />
+                            <p class="error-message" th:each="error: ${#fields.errors('firstName')}" th:text="${error}">Validation error</p>
+                        </div>
+                        <div class="form-group" th:classappend="${#fields.hasErrors('lastName')}? 'has-error':''">
+                            <label for="lastName" class="control-label">Last name</label> <input id="lastName" class="form-control" th:field="*{lastName}" />
+                            <p class="error-message" th:each="error : ${#fields.errors('lastName')}" th:text="${error}">Validation error</p>
+                        </div>
+                        <div class="form-group" th:classappend="${#fields.hasErrors('email')}? 'has-error':''">
+                            <label for="email" class="control-label">E-mail</label> <input id="email" class="form-control" th:field="*{email}" />
+                            <p class="error-message" th:each="error : ${#fields.errors('email')}" th:text="${error}">Validation error
+                            </p>
+                        </div>
+                        <div class="form-group" th:classappend="${#fields.hasErrors('confirmEmail')}? 'has-error':''">
+                            <label for="confirmEmail" class="control-label">Confirm
+                                e-mail</label> <input id="confirmEmail" class="form-control" th:field="*{confirmEmail}" />
+                            <p class="error-message" th:each="error : ${#fields.errors('confirmEmail')}" th:text="${error}">Validation error</p>
+                        </div>
+                        <div class="form-group" th:classappend="${#fields.hasErrors('password')}? 'has-error':''">
+                            <label for="password" class="control-label">Password</label> <input id="password" class="form-control" type="password" th:field="*{password}" />
+                            <p class="error-message" th:each="error : ${#fields.errors('password')}" th:text="${error}">Validation error</p>
+                        </div>
+                        <div class="form-group" th:classappend="${#fields.hasErrors('confirmPassword')}? 'has-error':''">
+                            <label for="confirmPassword" class="control-label">Confirm
+                                password</label> <input id="confirmPassword" class="form-control" type="password" th:field="*{confirmPassword}" />
+                            <p class="error-message" th:each="error : ${#fields.errors('confirmPassword')}" th:text="${error}">Validation error</p>
+                        </div>
+                        <div class="form-group" th:classappend="${#fields.hasErrors('terms')}? 'has-error':''">
+                            <input id="terms" type="checkbox" th:field="*{terms}" /> <label class="control-label" for="terms"> I agree with the <a
+                                href="#">terms and conditions</a> for Registration.
+                        </label>
+                            <p class="error-message" th:each="error : ${#fields.errors('terms')}" th:text="${error}">Validation error
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Register</button>
+                            <span>Already registered? <a href="/" th:href="@{/login}">Login
+        here</a></span>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- singleRecipeFragment -->
+    <div th:fragment="singleRecipeFragment()" class="singleRecipeFragment">
+        <div th:replace="thFragments.html :: singleRecipe(
+            name=${recipe.recipeName},
+            duration=${recipe.recipeDuration},
+            description=${recipe.recipeDescription},
+            ingredients=${ingredients},
+            specialDiet=${recipe.recipeName},
+            course=${recipe.recipeName},
+            tags=${tags})">
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>CookIt</title>
+  <meta charset="utf-8">
+    <link href="/static/css/main_page.css" th:href="@{/css/main_page.css}" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script th:src="@{/events.js}"></script>
+</head>
+
+<body>
+
+  <header>cookit</header>
+  <section class = "menu">
+   <!--   <div class="menuContent"><a th:href="@{searchRecipes}" id="search">search</a></div> -->
+      <div class="menuContent"><a id="searchRecipes" onclick="javascript:ReplaceContentInContainer('recipes/searchRecipes')">search recipes</a></div>
+      <div class="menuContent"><a id="userlogin" onclick="javascript:ReplaceContentInContainer('login')">login</a></div>
+      <div class="menuContent"><a id="signup" onclick="javascript:ReplaceContentInContainer('signup')">sign up</a></div>
+      <div class="menuContent"><a id="compare" onclick="javascript:ReplaceContentInContainer('recipes/compareRecipes')">compare</a></div>
+      <div class="menuContent">
+          <a id="DE">DE</a>
+          <a id="FR">FR</a>
+          <a id="EN">EN</a>
+      </div>
+  </section>
+  <section id="middleSection">
+    <div id="navigation" >
+        <h4>Special diet</h4>
+          <a href="/recipes/glutenFree">Gluten free</a>
+          <a href="/recipes/vegetarian">Vegetarian</a>
+          <a href="/recipes/paleo">Paleo</a>
+          <a href="/recipes/vegan">Vegan</a>
+        <h4>Meal type / course</h4>
+          <a href="/recipes/breakfast">Breakfast</a>
+          <a href="/recipes/lunch">Lunch</a>
+          <a href="/recipes/dinner">Dinner</a>
+        <h4>Cuisine</h4>
+          <a href="/recipes/indian">Indian</a>
+          <a href="/recipes/swiss">Swiss</a>
+          <a href="/recipes/chinese">Chinese</a>
+        <h4>Comparison list</h4>
+            <a href="">Recipe 1</a>
+            <a href="">Recipe 2</a>
+        <div id="addNewRecipeDiv">
+            <button class="filterAddButton" onclick="javascript:ReplaceContentInContainer('recipes/addNewRecipe')">Add new recipe</button>
+            <button onclick="javascript:ReplaceContentInContainer('recipes/adminArea')">Go to admin page</button>
+        </div>
+    </div>
+    <div id="subPageContainer" th:insert="landingPage.html"> </div>
+  </section>
+  <footer>@ Remo Hofmann, Lukas Zoller</footer>
+
+  <script type="text/javascript">
+      function ReplaceContentInContainer(subpageUrl) {
+          $('#subPageContainer').load(subpageUrl);
+      }
+
+
+  </script>
+
+
+</body>
+
+</html>

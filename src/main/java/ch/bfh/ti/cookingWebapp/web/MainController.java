@@ -32,10 +32,10 @@ public class MainController {
     @RequestMapping("/locale")
     public String locale(Model model) {return "locale"; }
 
-    @RequestMapping("/addNewRecipe")
-    public String addNewRecipe() {return "addNewRecipe"; }
 
-    @RequestMapping("/adminArea")
-    public String adminArea() {return "adminArea"; }
+    @RequestMapping("/testsubPageFragments")
+    public String testsubPageFragments(Model model) {return "testsubPageFragments"; }
+
+
 
 }
