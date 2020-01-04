@@ -9,28 +9,16 @@
 <body onload="init();">
 
 
-  <h1>Search for recipes</h1>
-  <div id="searchDropdownDiv">
-    <div th:replace="thFragments.html :: cuisineDropdown(tags=${tagCuisine})"></div>
-    <div th:replace="thFragments.html :: dietDropdown(tags=${tagDiet})"></div>
-    <div th:replace="thFragments.html :: courseDropdown(tags=${tagCourse})"></div>
-    <div th:replace="thFragments.html :: ingredientDropdown(ingredients=${ingredients})"></div>
-  </div>
-    <br/>
-    <button class="filterAddButton" id="filterRecipesButton">Filter recipes</button>
+  <div th:replace="subPageFragments.html :: mainPageUpperFragment"></div>
 
-  <h1>Search results</h1>
-    <div id="searchRecipesResults">
-      <div th:each="recipe:${recipes}">
-        <div th:replace="thFragments.html :: recipeTileFragment(
-        name=${recipe.recipeName},
-        description=${recipe.recipeDescription},
-        duration=${recipe.recipeDuration},
-        id=${recipe.id})"></div>
-      </div>
-    </div>
+  <section class="middleSection">
+    <div th:replace="subPageFragments.html :: navigationMainPageFragment"></div>
+    <div class="subPageContainer" th:replace="subPageFragments.html :: searchRecipesFragment"></div>
+  </section>
+  <div th:replace="subPageFragments.html :: mainPageFooterFragment"></div>
 
-  </div>
+
+
 
   <script>
     $(document).ready(function(){

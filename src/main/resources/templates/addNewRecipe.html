@@ -11,36 +11,15 @@
   </script>
 </head>
 <body>
-  <h1>Add new recipe</h1>
-  <div id="addNewRecipeContent">
-    <div class="newRecipeInput">
-      <label>Recipe name</label>
-      <input id="nameIput" pattern="[A-Za-z]{1,20}" required>
-    </div>
-    <div class="newRecipeInput">
-      <label>Duration in minutes</label>
-      <input id="durationInput" type="number" min="1" required>
-    </div>
-    <div class="newRecipeInput">
-      <textarea id="recipeDescription" pattern=".{1,500}" required>Recipe description</textarea>
-    </div>
-    <div id="searchDropdownDiv">
-      <div th:replace="thFragments.html :: cuisineDropdown(tags=${tagCuisine})"></div>
-      <div th:replace="thFragments.html :: dietDropdown(tags=${tagDiet})"></div>
-      <div th:replace="thFragments.html :: courseDropdown(tags=${tagCourse})"></div>
-      <div th:replace="thFragments.html :: ingredientDropdown(ingredients=${ingredients})"></div>
-    </div>
-    <div class="newRecipeInput">
-      <label>Add new ingredient</label>
-      <input id="newIngredientInput" pattern="[A-Za-z]{1,20}">
-      <button id="addIngredientButton">Add ingredient</button>
-    </div>
-  </div>
-
-  <button id="addNewRecipeButton">Add new recipe</button>
 
 
+  <div th:replace="subPageFragments.html :: mainPageUpperFragment"></div>
 
+  <section class="middleSection">
+    <div th:replace="subPageFragments.html :: navigationMainPageFragment"></div>
+    <div class="subPageContainer" th:replace="subPageFragments.html :: addNewRecipeFragment"></div>
+  </section>
+  <div th:replace="subPageFragments.html :: mainPageFooterFragment"></div>
 
 </body>
 

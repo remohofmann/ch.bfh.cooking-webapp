@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>title</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" th:href="@{/static/css/main_page.css}">
+    <script th:src="@{/events.js}"></script>
+</head>
+<body onload="init();">
+  <div th:replace="subPageFragments.html :: landingPageFragment"></div>
+
+
+
+</body>
+
+</html>
