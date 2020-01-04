@@ -23,6 +23,7 @@ public class RecipeServices {
     private RecipeIngredientRepository recipeIngredientRepository;
     private IngredientServices ingredientServices;
     private TagServices tagServices;
+    private long lastId;
 
     @Autowired
     public RecipeServices(RecipeRepository recipeRepository,
@@ -192,11 +193,12 @@ public class RecipeServices {
     //Add new Recipe to database
     public void addRecipe(String recipeName, int recipeDuration, String recipeDescription) {
         Recipe recipe = new Recipe(recipeName, recipeDescription, recipeDuration);
-        this.recipeRepository.save(recipe);
+        recipe = this.recipeRepository.save(recipe);
+        this.lastId = recipe.getId();
     }
 
     public long getLastId() {
-        return null;
+        return this.lastId;
     }
 
     //Connect Tags to new recipe

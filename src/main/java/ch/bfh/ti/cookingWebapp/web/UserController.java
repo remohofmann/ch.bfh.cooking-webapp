@@ -1,6 +1,5 @@
 package ch.bfh.ti.cookingWebapp.web;
 
-import ch.bfh.ti.cookingWebapp.auth.validator.UserRegistrationDto;
 import ch.bfh.ti.cookingWebapp.persistence.model.Ingredient;
 import ch.bfh.ti.cookingWebapp.persistence.model.TagType;
 import ch.bfh.ti.cookingWebapp.persistence.service.IngredientServices;
@@ -65,7 +64,6 @@ public class UserController {
     public String postAddNewRecipe(@ModelAttribute("newRecipe") @Valid RecipeDto recipeDto,
                                    BindingResult bindingResult,
                                    Model model) {
-        model.addAttribute("recipes", this.recipeServices.getAllRecipes());
         model.addAttribute("tagDiet", this.tagServices.getTagsByType(TagType.DIET));
         model.addAttribute("tagCuisine", this.tagServices.getTagsByType(TagType.CUISINE));
         model.addAttribute("tagCourse", this.tagServices.getTagsByType(TagType.COURSE));
@@ -80,6 +78,8 @@ public class UserController {
         long id = this.recipeServices.getLastId();
         this.recipeServices.addRecipeTags(id, recipeDto.getTags());
         this.recipeServices.addRecipeIngredients(id, recipeDto.getIngredients());
+
+        model.addAttribute("recipes", this.recipeServices.getAllRecipes());
 
         return "redirect:addNewRecipe?success";
     }
