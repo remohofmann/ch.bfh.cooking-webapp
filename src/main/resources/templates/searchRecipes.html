@@ -11,10 +11,10 @@
 
   <h1>Search for recipes</h1>
   <div id="searchDropdownDiv">
-    <div th:replace="thFragments.html :: cuisineDropdown"></div>
-    <div th:replace="thFragments.html :: dietDropdown"></div>
-    <div th:replace="thFragments.html :: courseDropdown"></div>
-    <div th:replace="thFragments.html :: ingredientDropdown"></div>
+    <div th:replace="thFragments.html :: cuisineDropdown(tags=${tagCuisine})"></div>
+    <div th:replace="thFragments.html :: dietDropdown(tags=${tagDiet})"></div>
+    <div th:replace="thFragments.html :: courseDropdown(tags=${tagCourse})"></div>
+    <div th:replace="thFragments.html :: ingredientDropdown(ingredients=${ingredients})"></div>
   </div>
     <br/>
     <button class="filterAddButton" id="filterRecipesButton">Filter recipes</button>

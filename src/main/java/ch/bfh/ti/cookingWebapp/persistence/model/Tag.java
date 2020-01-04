@@ -15,7 +15,7 @@ public class Tag {
 
     @Column(name="tag_type")
     @GeneratedValue
-    private long tag_type;
+    private long tagType;
 
     public Tag() {
         super();
@@ -35,11 +35,11 @@ public class Tag {
     }
 
     public long getType() {
-        return tag_type;
+        return tagType;
     }
 
     public void setType(long tag_type) {
-        this.tag_type = tag_type;
+        this.tagType = tag_type;
     }
 
     public String getTagName() {

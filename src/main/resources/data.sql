@@ -10,7 +10,8 @@ INSERT INTO recipe (recipe_name, recipe_description, recipe_duration) VALUES
   ('Kartoffelgratin', 'Schneiden, kochen, backen', 30),
   ('Käsespätzle', 'Anbraten, Käse drüber, kochen lassen', 30),
   ('Stroganoff', 'Reis vorkochen, Fleisch anbraten, Gemüse dazu und 20 minuten weiterkochen', 50),
-  ('Rindssteak', 'Reis vorkochen, Fleisch anbraten', 30);
+  ('Rindssteak', 'Reis vorkochen, Fleisch anbraten', 30),
+  ('Pürierte Gemüsesuppe', 'Saisongemüse grob schneiden, 30 Minuten in Bouillon kochen, pürieren', 35);
 
 INSERT  INTO tag (id, tag_name, tag_type) VALUES
     ('1', 'Indian', 'cuisine'),
@@ -71,12 +72,15 @@ INSERT INTO recipe_tag (recipe_id, tag_id) VALUES
     ('11', '14'),
 
     ('12', '11'),
-    ('12', '14');
+    ('12', '14'),
+
+    ('13', '9'),
+    ('13', '10');
 
 INSERT INTO unit (id, unit_name) VALUES
     (1, 'Tablespoon');
 
-INSERT INTO ingredient (ingredient_name, ingredient_unit) VALUES
+INSERT INTO ingredient (ingredient_name, ingredient_unit_id) VALUES
     ('Milk', 1),
     ('Eggs', 1),
     ('Chicken', 1),
