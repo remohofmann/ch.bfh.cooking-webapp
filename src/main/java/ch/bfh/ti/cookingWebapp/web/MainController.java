@@ -24,4 +24,7 @@ public class MainController {
     @RequestMapping("/addNewRecipe")
     public String addNewRecipe() {return "addNewRecipe"; }
 
+    @RequestMapping("/adminArea")
+    public String adminArea() {return "adminArea"; }
+
 }

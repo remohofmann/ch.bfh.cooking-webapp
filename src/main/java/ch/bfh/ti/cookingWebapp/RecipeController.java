@@ -75,5 +75,10 @@ public class RecipeController {
         return "singleRecipe";
     }
 
+    @GetMapping("/adminArea")
+    public String adminArea(Model model){
+        model.addAttribute("recipe", this.recipeServices.getAllRecipes());
+        return "recipes";
+    }
 
 }
