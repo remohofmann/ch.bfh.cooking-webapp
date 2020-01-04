@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
 <head>
   <title>title</title>
   <meta charset="utf-8">
@@ -26,10 +25,10 @@
       <textarea pattern=".{1,500}" required>Recipe description</textarea>
     </div>
     <div id="searchDropdownDiv">
-      <div th:replace="thFragments.html :: cuisineDropdown"></div>
-      <div th:replace="thFragments.html :: dietDropdown"></div>
-      <div th:replace="thFragments.html :: courseDropdown"></div>
-      <div th:replace="thFragments.html :: ingredientDropdown"></div>
+      <div th:replace="thFragments.html :: cuisineDropdown(tags=${tagCuisine})"></div>
+      <div th:replace="thFragments.html :: dietDropdown(tags=${tagDiet})"></div>
+      <div th:replace="thFragments.html :: courseDropdown(tags=${tagCourse})"></div>
+      <div th:replace="thFragments.html :: ingredientDropdown(ingredients=${ingredients})"></div>
     </div>
     <div class="newRecipeInput">
       <label>Add new ingredient</label>
@@ -40,13 +39,6 @@
 
   <button id="addNewRecipeButton">Add new recipe</button>
 
-
-<script>
-  function validateNewRecipeInput() {
-
-  }
-
-</script>
 
 
 

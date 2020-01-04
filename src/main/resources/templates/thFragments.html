@@ -23,9 +23,9 @@
         <label>Compare: </label>
         <input type="checkbox" name="compareCheckBox"/>
         <form th:action="@{/recipes/singleRecipe}" method="post">
-            <button type="submit" th:name="recipeId" th:value="${id}">Show Recipe</button>
+            <button class="goToRecipeButton" type="submit" th:name="recipeId" th:value="${id}">Show Recipe</button>
         </form>
-        <button class="goToRecipeButton" onclick="javascript:goToRecipe('recipes/singleRecipe')">Go to recipe</button>
+        <button class="goToRecipeButton" onclick="javascript:ReplaceContentInContainer('adminArea')">Go to recipe</button>
     </div>
 
     <!-- Fragments for dropDowns (for search and new recipes) -->
