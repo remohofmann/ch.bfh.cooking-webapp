@@ -48,6 +48,10 @@ a {
     color: white;
 }
 
+#subPageContainer a {
+    color: var(--pinkColor);
+}
+
 
 h1 {
     font-family: "Staatliches", sans-serif;
@@ -219,6 +223,8 @@ input:focus {
 }
 
 /* Admin Area
+
+
 .adminArea {
 }
 

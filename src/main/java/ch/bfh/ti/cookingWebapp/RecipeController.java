@@ -65,17 +65,32 @@ public class RecipeController {
         return "searchRecipes";
     }
 
+    @GetMapping("/addNewRecipe")
+    public String getAddNewRecipe(Model model){
+        model.addAttribute("recipes", this.recipeServices.getAllRecipes());
+        model.addAttribute("tagDiet", this.tagServices.getTagsByType(TagType.DIET));
+        model.addAttribute("tagCuisine", this.tagServices.getTagsByType(TagType.CUISINE));
+        model.addAttribute("tagCourse", this.tagServices.getTagsByType(TagType.COURSE));
+//        System.out.println(this.tagServices.getTagsByType(TagType.COURSE));
+//        for (Tag t : this.tagServices.getAllTags()) {
+//            System.out.println(t.getType());
+//        }
+        model.addAttribute("ingredients", this.ingredientServices.getAllIngredients());
+        return "addNewRecipe";
+    }
+
+
     @GetMapping("/compareRecipes")
     public String getCompareRecipes(Model model){
         model.addAttribute("recipes", this.recipeServices.getFirstThreeRecipes());
         return "compareRecipes";
     }
 
-    @GetMapping("/singleRecipe")
-    public String getSingleRecipe(Model model){
-        model.addAttribute("recipe", this.recipeServices.getSingleRecipe());
-        return "singleRecipe";
-    }
+//    @GetMapping("/singleRecipe")
+//    public String getSingleRecipe(Model model){
+//        model.addAttribute("recipe", this.recipeServices.getSingleRecipe());
+//        return "singleRecipe";
+//    }
 
     @PostMapping("/singleRecipe")
     public String postSingleRecipe(@RequestParam(value = "recipeId") Long id,
@@ -88,8 +103,8 @@ public class RecipeController {
 
     @GetMapping("/adminArea")
     public String adminArea(Model model){
-        model.addAttribute("recipe", this.recipeServices.getAllRecipes());
-        return "recipes";
+        model.addAttribute("recipes", this.recipeServices.getAllRecipes());
+        return "adminArea";
     }
 
 }
