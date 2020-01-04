@@ -3,6 +3,12 @@ DROP TABLE IF EXISTS ingredient;
 DROP TABLE IF EXISTS tag;
 DROP TABLE IF EXISTS unit;
 DROP TABLE IF EXISTS search_category;
+DROP TABLE IF EXISTS role;
+
+CREATE TABLE role (
+                        id LONG  AUTO_INCREMENT  PRIMARY KEY,
+                        name VARCHAR  NOT NULL
+);
 
 CREATE TABLE recipe (
                          id LONG AUTO_INCREMENT  PRIMARY KEY,
