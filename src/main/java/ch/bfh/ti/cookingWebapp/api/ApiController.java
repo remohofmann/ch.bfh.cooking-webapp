@@ -1,4 +1,4 @@
-package ch.bfh.ti.cookingWebapp;
+package ch.bfh.ti.cookingWebapp.api;
 
 import ch.bfh.ti.cookingWebapp.persistence.model.Recipe;
 import ch.bfh.ti.cookingWebapp.persistence.service.RecipeServices;

@@ -2,6 +2,7 @@ package ch.bfh.ti.cookingWebapp.persistence.service;
 
 import ch.bfh.ti.cookingWebapp.persistence.model.Ingredient;
 import ch.bfh.ti.cookingWebapp.persistence.model.Recipe;
+import ch.bfh.ti.cookingWebapp.persistence.model.Tag;
 import ch.bfh.ti.cookingWebapp.persistence.model.Unit;
 import ch.bfh.ti.cookingWebapp.persistence.repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +22,23 @@ public class IngredientServices {
         this.ingredientRepository = ingredientRepository;
     }
 
+    public Ingredient getIngredientByName(String ingredientName) {
+        List<Ingredient> ingredients = getAllIngredients();
+        for (Ingredient i: ingredients){
+            if (i.getIngredientName().equals(ingredientName)) {
+                return i;
+            }
+        }
+        return null;
+    }
+
     public List<Ingredient> getAllIngredients() {
         List<Ingredient> ingredients = new ArrayList<>();
         this.ingredientRepository.findAll().forEach(ingredients::add);
         return ingredients;
     }
 
-    public void addIngredient(String ingredientName, Unit unit) {
+    public void addIngredient(String ingredientName, long unit) {
         Ingredient ingredient = new Ingredient(ingredientName, unit);
         this.ingredientRepository.save(ingredient);
     }

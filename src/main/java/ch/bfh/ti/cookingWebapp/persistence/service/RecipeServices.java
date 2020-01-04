@@ -188,4 +188,30 @@ public class RecipeServices {
         }
         return recipes;
     }
+
+    //Add new Recipe to database
+    public void addRecipe(String recipeName, int recipeDuration, String recipeDescription) {
+        Recipe recipe = new Recipe(recipeName, recipeDescription, recipeDuration);
+        this.recipeRepository.save(recipe);
+    }
+
+    public long getLastId() {
+        return null;
+    }
+
+    //Connect Tags to new recipe
+    public void addRecipeTags(long recipeId, List<Tag> tags) {
+        for(Tag t: tags){
+            RecipeTagCombination combination = new RecipeTagCombination(recipeId, t.getId());
+            recipeTagRepository.save(combination);
+        }
+    }
+
+    //Connect Ingredients to new recipe
+    public void addRecipeIngredients(long recipeId, List<Ingredient> ingredients) {
+        for(Ingredient i: ingredients){
+            RecipeIngredientCombination combination = new RecipeIngredientCombination(recipeId, i.getId());
+            recipeIngredientRepository.save(combination);
+        }
+    }
 }

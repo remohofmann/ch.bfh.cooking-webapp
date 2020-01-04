@@ -1,4 +1,4 @@
-package ch.bfh.ti.cookingWebapp;
+package ch.bfh.ti.cookingWebapp.web;
 
 import ch.bfh.ti.cookingWebapp.persistence.model.TagType;
 import ch.bfh.ti.cookingWebapp.persistence.service.IngredientServices;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 //        model.addAttribute("recipes", this.recipeServices.getRecipesByTag(new Tag("Reis")));
 //        return "searchRecipes"; // has to be like html
 //    }
- */
+*/
 
 @Controller
 @RequestMapping("/recipes")
@@ -48,10 +48,6 @@ public class RecipeController {
     public String getSearchRecipes(Model model){
         model.addAttribute("recipes", this.recipeServices.getAllRecipes());
         model = addSearchRecipeAttributes(model);
-//        model.addAttribute("tagDiet", this.tagServices.getTagsByType(TagType.DIET));
-//        model.addAttribute("tagCuisine", this.tagServices.getTagsByType(TagType.CUISINE));
-//        model.addAttribute("tagCourse", this.tagServices.getTagsByType(TagType.COURSE));
-//        model.addAttribute("ingredients", this.ingredientServices.getAllIngredients());
         return "searchRecipes";
     }
 
@@ -169,12 +165,6 @@ public class RecipeController {
         model.addAttribute("recipes", this.recipeServices.getRecipesByTag(tag));
         model = addSearchRecipeAttributes(model);
         return "searchRecipes";
-    }
-
-    @GetMapping("/adminArea")
-    public String adminArea(Model model){
-        model.addAttribute("recipes", this.recipeServices.getAllRecipes());
-        return "adminArea";
     }
 
     public Model addSearchRecipeAttributes(Model model){

@@ -20,10 +20,10 @@ public class Ingredient {
         super();
     }
 
-    public Ingredient(String ingredientName, Unit ingredientUnit) {
+    public Ingredient(String ingredientName, long ingredientUnit) {
         super();
         this.ingredientName = ingredientName;
-        this.ingredientUnit = ingredientUnit.getId();
+        this.ingredientUnit = ingredientUnit;
     }
 
     public long getId() {

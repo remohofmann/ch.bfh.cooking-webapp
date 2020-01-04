@@ -22,7 +22,7 @@
       <input id="durationInput" type="number" min="1" required>
     </div>
     <div class="newRecipeInput">
-      <textarea pattern=".{1,500}" required>Recipe description</textarea>
+      <textarea id="recipeDescription" pattern=".{1,500}" required>Recipe description</textarea>
     </div>
     <div id="searchDropdownDiv">
       <div th:replace="thFragments.html :: cuisineDropdown(tags=${tagCuisine})"></div>
