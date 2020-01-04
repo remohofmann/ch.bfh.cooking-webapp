@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>title</title>
+  <title>Search recipes</title>
   <meta charset="utf-8">
   <link rel="stylesheet" th:href="@{/css/main_page.css}">
     <script th:src="@{/events.js}"></script>
@@ -11,10 +11,10 @@
 
   <div th:replace="subPageFragments.html :: mainPageUpperFragment"></div>
 
-  <section class="middleSection">
+  <div class="middleSection">
     <div th:replace="subPageFragments.html :: navigationMainPageFragment"></div>
     <div class="subPageContainer" th:replace="subPageFragments.html :: searchRecipesFragment"></div>
-  </section>
+  </div>
   <div th:replace="subPageFragments.html :: mainPageFooterFragment"></div>
 
 

@@ -1,19 +1,25 @@
+
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta charset = "utf-8"/>
-    <title>Internationalization</title>
+    <title>Admin area</title>
+    <meta charset="utf-8">
+    <link href="/static/css/main_page.css" th:href="@{/css/main_page.css}" rel="stylesheet"/>
 </head>
 <body>
 
-    <div th:replace="subPageFragments.html :: mainPageUpperFragment"></div>
+<div th:replace="subPageFragments.html :: mainPageUpperFragment"></div>
 
-    <section class="middleSection">
-        <div th:replace="subPageFragments.html :: navigationMainPageFragment"></div>
-        <div class="subPageContainer" th:replace="subPageFragments.html :: adminAreaFragment"></div>
-    </section>
-    <div th:replace="subPageFragments.html :: mainPageFooterFragment"></div>
+<div class="middleSection">
+    <div th:replace="subPageFragments.html :: navigationMainPageFragment"></div>
+    <div class="subPageContainer" th:replace="subPageFragments.html :: adminAreaFragment"></div>
+</div>
+<div th:replace="subPageFragments.html :: mainPageFooterFragment"></div>
+
 
 
 </body>
+
 </html>
