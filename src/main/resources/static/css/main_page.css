@@ -64,7 +64,7 @@ h1 {
     dislay: table;
 }
 
-#navigation {
+.navigation {
     padding: 1em;
     background-color: var(--blueColor);
     width: 20%;

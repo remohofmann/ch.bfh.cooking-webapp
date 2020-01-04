@@ -14,10 +14,10 @@
         <header>cookit</header>
         <section class = "menu">
             <!--   <div class="menuContent"><a th:href="@{searchRecipes}" id="search">search</a></div> -->
-            <div class="menuContent"><a id="searchRecipes" onclick="javascript:ReplaceContentInContainer('recipes/searchRecipes')">search recipes</a></div>
-            <div class="menuContent"><a id="userlogin" onclick="javascript:ReplaceContentInContainer('login')">login</a></div>
-            <div class="menuContent"><a id="signup" onclick="javascript:ReplaceContentInContainer('signup')">sign up</a></div>
-            <div class="menuContent"><a id="compare" onclick="javascript:ReplaceContentInContainer('recipes/compareRecipes')">compare</a></div>
+            <div class="menuContent"><a id="searchRecipes" href="/recipes/searchRecipes">search recipes</a></div>
+            <div class="menuContent"><a id="userlogin" href="/login">login</a></div>
+            <div class="menuContent"><a id="signup" href="/signup">sign up</a></div>
+            <div class="menuContent"><a id="compare" href="/recipes/compareRecipes">compare</a></div>
             <div class="menuContent">
                 <a id="DE">DE</a>
                 <a id="FR">FR</a>
@@ -29,26 +29,26 @@
 
     <!-- navigation fragment for mainPage -->
     <div th:fragment="navigationMainPageFragment()" class="navigationMainPageFragment">
-        <div id="navigation">
+        <div class="navigation">
             <h4>Special diet</h4>
-            <a href="">Gluten free</a>
-            <a href="">Vegetarian</a>
-            <a href="">Paleo</a>
-            <a href="">Vegan</a>
+                <a href="/recipes/glutenFree">Gluten free</a>
+                <a href="/recipes/vegetarian">Vegetarian</a>
+                <a href="/recipes/paleo">Paleo</a>
+                <a href="/recipes/vegan">Vegan</a>
             <h4>Meal type / course</h4>
-            <a href="">Breakfast</a>
-            <a href="">Lunch</a>
-            <a href="">Dinner</a>
+                <a href="/recipes/breakfast">Breakfast</a>
+                <a href="/recipes/lunch">Lunch</a>
+                <a href="/recipes/dinner">Dinner</a>
             <h4>Cuisine</h4>
-            <a href="">Indian</a>
-            <a href="">Swiss</a>
-            <a href="">Chinese</a>
+                <a href="/recipes/indian">Indian</a>
+                <a href="/recipes/swiss">Swiss</a>
+                <a href="/recipes/chinese">Chinese</a>
             <h4>Comparison list</h4>
-            <a href="">Recipe 1</a>
-            <a href="">Recipe 2</a>
+                <a href="">Recipe 1</a>
+                <a href="">Recipe 2</a>
             <div id="addNewRecipeDiv">
-                <button class="filterAddButton" onclick="javascript:ReplaceContentInContainer('recipes/addNewRecipe')">Add new recipe</button>
-                <button onclick="javascript:ReplaceContentInContainer('recipes/adminArea')">Go to admin page</button>
+                <a class="filterAddButton" href="/recipes/addNewRecipe">Add new recipe</a>
+                <a class="filterAddButton" href="/recipes/adminArea">Go to admin page</a>
             </div>
         </div>
     </div>
