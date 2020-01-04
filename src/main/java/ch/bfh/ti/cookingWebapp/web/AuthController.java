@@ -46,7 +46,7 @@ public class AuthController {
 
         securityService.autoLogin(userDto.getUserName(), userDto.getPassword());
 
-        return "redirect:main_page/signup?success";
+        return "redirect:signup?success";
     }
 
     @RequestMapping("/login")
