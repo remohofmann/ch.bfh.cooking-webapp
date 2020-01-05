@@ -1,12 +1,22 @@
 package ch.bfh.ti.cookingWebapp.web;
 
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -20,18 +30,9 @@ public class MainController {
     }
 
     @RequestMapping("/")
-    public void downloadFiles(Model model,
-                                HttpServletResponse response) {
-        response.setContentType("application/zip");
-        response.addHeader("Content-Disposition", "attachment; filename=assignment.zip");
-        try {
-            String dataDirectory = ("/static/");
-            Path file = Paths.get(dataDirectory, "assignment.zip");
-            Files.copy(file, response.getOutputStream());
-            response.getOutputStream().flush();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+    @ResponseBody
+    public ModelAndView getFile() {
+        return new ModelAndView("redirect:https://1bbd085e69c44879b4aea5ce2016ffff.ds11s3ns.swisscom.com/ftp-transfer/assignment.zip");
     }
 
     @RequestMapping("/setLanguageDe")

@@ -51,8 +51,6 @@ public class AuthController {
 
     @RequestMapping("/login")
     public String login(Model model){
-        //model.addAttribute("login", new UserLoginDto());
-
         return "login";
     }
 
@@ -72,7 +70,7 @@ public class AuthController {
 //        return "redirect:admin";
 //    }
 
-    @GetMapping({"/", "/welcome"})
+    @GetMapping({"/welcome"})
     public String welcome(Model model) {
         return "main_page";
     }
