@@ -51,11 +51,43 @@
         </select>
     </div>
 
-    <div th:fragment="ingredientDropdown(ingredients)" class="dropdown" id="ingredientDropdown">
+    <div th:fragment="courseDropdownForCreation(tags)" class="dropdown" id="courseCreationDropDown">
+        <label for="courseTags" class="control-label">Course</label>
+        <select id="courseTags" name="Course" multiple size="6" th:field="*{courseTags}" required>
+            <!--/*@thymesVar id="tag" type="ch.bfh.ti.cookingWebapp.persistence.model.Tag"*/-->
+            <option th:each="tag:${tags}" th:value="${tag.id}" th:text="${tag.tagName}"/>
+        </select>
+    </div>
+
+    <div th:fragment="dietDropdownForCreation(tags)" class="dropdown" id="dietCreationDropDown">
+        <label for="dietTags" class="control-label">Diet</label>
+        <select id="dietTags" name="Diet" multiple size="6" th:field="*{dietTags}" required>
+            <!--/*@thymesVar id="tag" type="ch.bfh.ti.cookingWebapp.persistence.model.Tag"*/-->
+            <option th:each="tag:${tags}" th:value="${tag.id}" th:text="${tag.tagName}"/>
+        </select>
+    </div>
+
+    <div th:fragment="cuisineDropdownForCreation(tags)" class="dropdown" id="cuisineCreationDropdown">
+        <label for="cuisineTags" class="control-label">Cuisine</label>
+        <select id="cuisineTags" name="Cuisine" multiple size="6" th:field="*{cuisineTags}" required>
+            <!--/*@thymesVar id="tag" type="ch.bfh.ti.cookingWebapp.persistence.model.Tag"*/-->
+            <option th:each="tag:${tags}" th:value="${tag.id}" th:text="${tag.tagName}"/>
+        </select>
+    </div>
+
+    <div th:fragment="ingredientDropdown(ingredients)" class="dropdown" id="ingredientCreationDropdown">
         <label>Ingredient</label>
         <select name="Ingredient" multiple size="6">
             <!--/*@thymesVar id="ingredient" type="ch.bfh.ti.cookingWebapp.persistence.model.Ingredient"*/-->
             <option th:each="ingredient:${ingredients}" th:value="${ingredient.ingredientName}" th:text="${ingredient.ingredientName}"/>
+        </select>
+    </div>
+
+    <div th:fragment="ingredientDropdownForCreation(ingredients)" class="dropdown" id="ingredientDropdown">
+        <label for="ingredients" class="control-label">Ingredient</label>
+        <select id="ingredients" name="Ingredient" multiple size="6" th:field="*{ingredients}" required>
+            <!--/*@thymesVar id="ingredient" type="ch.bfh.ti.cookingWebapp.persistence.model.Ingredient"*/-->
+            <option th:each="ingredient:${ingredients}" th:value="${ingredient.id}" th:text="${ingredient.ingredientName}"/>
         </select>
     </div>
 

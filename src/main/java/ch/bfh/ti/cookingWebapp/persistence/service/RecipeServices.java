@@ -192,9 +192,13 @@ public class RecipeServices {
 
     //Add new Recipe to database
     public void addRecipe(String recipeName, int recipeDuration, String recipeDescription) {
-        Recipe recipe = new Recipe(recipeName, recipeDescription, recipeDuration);
-        recipe = this.recipeRepository.save(recipe);
-        this.lastId = recipe.getId();
+        Recipe recipe = new Recipe();
+        recipe.setRecipeName(recipeName);
+        recipe.setRecipeDuration(recipeDuration);
+        recipe.setRecipeDescription(recipeDescription);
+        Recipe newRecipe = this.recipeRepository.save(recipe);
+        this.lastId = newRecipe.getId();
+        System.out.println(this.lastId);
     }
 
     public long getLastId() {
@@ -202,17 +206,17 @@ public class RecipeServices {
     }
 
     //Connect Tags to new recipe
-    public void addRecipeTags(long recipeId, List<Tag> tags) {
-        for(Tag t: tags){
-            RecipeTagCombination combination = new RecipeTagCombination(recipeId, t.getId());
+    public void addRecipeTags(long recipeId, List<Long> tags) {
+        for(Long t: tags){
+            RecipeTagCombination combination = new RecipeTagCombination(recipeId, t);
             recipeTagRepository.save(combination);
         }
     }
 
     //Connect Ingredients to new recipe
-    public void addRecipeIngredients(long recipeId, List<Ingredient> ingredients) {
-        for(Ingredient i: ingredients){
-            RecipeIngredientCombination combination = new RecipeIngredientCombination(recipeId, i.getId());
+    public void addRecipeIngredients(long recipeId, List<Long> ingredients) {
+        for(Long i: ingredients){
+            RecipeIngredientCombination combination = new RecipeIngredientCombination(recipeId, i);
             recipeIngredientRepository.save(combination);
         }
     }

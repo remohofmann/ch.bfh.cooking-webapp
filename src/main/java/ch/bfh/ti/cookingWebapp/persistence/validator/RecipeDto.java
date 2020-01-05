@@ -4,6 +4,7 @@ import ch.bfh.ti.cookingWebapp.persistence.model.Ingredient;
 import ch.bfh.ti.cookingWebapp.persistence.model.Tag;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public class RecipeDto {
@@ -11,17 +12,23 @@ public class RecipeDto {
     @NotEmpty
     String nameInput;
 
-    @NotEmpty
+    @NotNull
     int durationInput;
 
     @NotEmpty
     String recipeDescription;
 
     @NotEmpty
-    List<Ingredient> ingredients;
+    List<Long> ingredients;
 
     @NotEmpty
-    List<Tag> tags;
+    List<Long> dietTags;
+
+    @NotEmpty
+    List<Long> courseTags;
+
+    @NotEmpty
+    List<Long> cuisineTags;
 
     public String getNameInput() {
         return nameInput;
@@ -47,19 +54,35 @@ public class RecipeDto {
         this.recipeDescription = recipeDescription;
     }
 
-    public List<Ingredient> getIngredients() {
+    public List<Long> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
+    public void setIngredients(List<Long> ingredients) {
         this.ingredients = ingredients;
     }
 
-    public List<Tag> getTags() {
-        return tags;
+    public List<Long> getDietTags() {
+        return dietTags;
     }
 
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
+    public void setDietTags(List<Long> dietTags) {
+        this.dietTags = dietTags;
+    }
+
+    public List<Long> getCourseTags() {
+        return courseTags;
+    }
+
+    public void setCourseTags(List<Long> courseTags) {
+        this.courseTags = courseTags;
+    }
+
+    public List<Long> getCuisineTags() {
+        return cuisineTags;
+    }
+
+    public void setCuisineTags(List<Long> cuisineTags) {
+        this.cuisineTags = cuisineTags;
     }
 }

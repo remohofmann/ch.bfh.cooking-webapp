@@ -57,21 +57,6 @@ public class RecipeController {
         return "searchRecipes";
     }
 
-    @GetMapping("/addNewRecipe")
-    public String getAddNewRecipe(Model model){
-        model.addAttribute("recipes", this.recipeServices.getAllRecipes());
-        model.addAttribute("tagDiet", this.tagServices.getTagsByType(TagType.DIET));
-        model.addAttribute("tagCuisine", this.tagServices.getTagsByType(TagType.CUISINE));
-        model.addAttribute("tagCourse", this.tagServices.getTagsByType(TagType.COURSE));
-//        System.out.println(this.tagServices.getTagsByType(TagType.COURSE));
-//        for (Tag t : this.tagServices.getAllTags()) {
-//            System.out.println(t.getType());
-//        }
-        model.addAttribute("ingredients", this.ingredientServices.getAllIngredients());
-        return "addNewRecipe";
-    }
-
-
     @GetMapping("/compareRecipes")
     public String getCompareRecipes(Model model){
         model.addAttribute("recipes", this.recipeServices.getFirstThreeRecipes());

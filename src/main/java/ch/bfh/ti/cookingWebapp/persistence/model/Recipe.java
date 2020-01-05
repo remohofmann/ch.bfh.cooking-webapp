@@ -1,18 +1,15 @@
 package ch.bfh.ti.cookingWebapp.persistence.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="recipe")
+@SequenceGenerator(name="recipeSeq", initialValue = 50, allocationSize = 1)
 public class Recipe {
     @Id
     @Column(name="id")
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "recipeSeq")
+    private long id;
     @Column(name="recipe_name")
     private String recipeName;
     @Column(name="recipe_description")
@@ -35,7 +32,7 @@ public class Recipe {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

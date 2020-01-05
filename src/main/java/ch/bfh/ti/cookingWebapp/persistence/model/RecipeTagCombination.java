@@ -6,11 +6,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "recipe_tag")
+@SequenceGenerator(name="recipeTagSeq", initialValue = 50, allocationSize = 100)
 public class RecipeTagCombination {
 
     @Id
     @Column(name="id")
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "recipeTagSeq")
     private Long id;
     @Column(name="recipe_id")
     private Long recipeId;

@@ -32,10 +32,7 @@ public class MainController {
     @RequestMapping("/locale")
     public String locale(Model model) {return "locale"; }
 
-
     @RequestMapping("/testsubPageFragments")
     public String testsubPageFragments(Model model) {return "testsubPageFragments"; }
-
-
 
 }

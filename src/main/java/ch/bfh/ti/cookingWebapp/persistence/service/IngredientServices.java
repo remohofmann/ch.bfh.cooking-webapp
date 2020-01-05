@@ -39,7 +39,9 @@ public class IngredientServices {
     }
 
     public void addIngredient(String ingredientName, long unit) {
-        Ingredient ingredient = new Ingredient(ingredientName, unit);
+        Ingredient ingredient = new Ingredient();
+        ingredient.setIngredientName(ingredientName);
+        ingredient.setIngredientUnit(unit);
         this.ingredientRepository.save(ingredient);
     }
 

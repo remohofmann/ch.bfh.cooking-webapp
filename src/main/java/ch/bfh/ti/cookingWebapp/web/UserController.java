@@ -5,6 +5,7 @@ import ch.bfh.ti.cookingWebapp.persistence.model.TagType;
 import ch.bfh.ti.cookingWebapp.persistence.service.IngredientServices;
 import ch.bfh.ti.cookingWebapp.persistence.service.RecipeServices;
 import ch.bfh.ti.cookingWebapp.persistence.service.TagServices;
+import ch.bfh.ti.cookingWebapp.persistence.validator.IngredientDto;
 import ch.bfh.ti.cookingWebapp.persistence.validator.RecipeDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,25 +40,28 @@ public class UserController {
         model.addAttribute("tagCourse", this.tagServices.getTagsByType(TagType.COURSE));
         model.addAttribute("ingredients", this.ingredientServices.getAllIngredients());
         model.addAttribute("newRecipe", new RecipeDto());
+        model.addAttribute("newIngredient", new IngredientDto());
         return "addNewRecipe";
     }
 
     @PostMapping("/addNewIngredient")
-    public String postAddNewIngredient(@RequestParam(value = "newIngredientInput") String ingredientInput,
+    public String postAddNewIngredient(@ModelAttribute("newIngredient") @Valid IngredientDto ingredientDto,
+                                       BindingResult bindingResult,
                                        Model model) {
         model.addAttribute("recipes", this.recipeServices.getAllRecipes());
         model.addAttribute("tagDiet", this.tagServices.getTagsByType(TagType.DIET));
         model.addAttribute("tagCuisine", this.tagServices.getTagsByType(TagType.CUISINE));
         model.addAttribute("tagCourse", this.tagServices.getTagsByType(TagType.COURSE));
 
-        if (!ingredientInput.equals("")) {
-            if (this.ingredientServices.getIngredientByName(ingredientInput) == null) {
-                this.ingredientServices.addIngredient(ingredientInput, 1);
+        if (!ingredientDto.getIngredientName().equals("")) {
+            if (this.ingredientServices.getIngredientByName(ingredientDto.getIngredientName()) == null) {
+                this.ingredientServices.addIngredient(ingredientDto.getIngredientName(), 1);
             }
         }
         model.addAttribute("ingredients", this.ingredientServices.getAllIngredients());
+        model.addAttribute("newIngredient", new IngredientDto());
 
-        return "addNewRecipe";
+        return "redirect:addNewRecipe?success";
     }
 
     @PostMapping("/addNewRecipe")
@@ -76,10 +80,14 @@ public class UserController {
                 recipeDto.getDurationInput(),
                 recipeDto.getRecipeDescription());
         long id = this.recipeServices.getLastId();
-        this.recipeServices.addRecipeTags(id, recipeDto.getTags());
+        System.out.println(recipeDto.getIngredients());
+        this.recipeServices.addRecipeTags(id, recipeDto.getCourseTags());
+        this.recipeServices.addRecipeTags(id, recipeDto.getCuisineTags());
+        this.recipeServices.addRecipeTags(id, recipeDto.getDietTags());
         this.recipeServices.addRecipeIngredients(id, recipeDto.getIngredients());
 
         model.addAttribute("recipes", this.recipeServices.getAllRecipes());
+        model.addAttribute("newRecipe", new RecipeDto());
 
         return "redirect:addNewRecipe?success";
     }
