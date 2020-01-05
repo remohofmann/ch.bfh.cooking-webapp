@@ -102,22 +102,17 @@
                 <div th:replace="thFragments.html :: dietDropdownForCreation(tags=${tagDiet})"></div>
                 <p class="error-message" th:each="error: ${#fields.errors('dietTags')}" th:text="${error}">Validation error</p>
             </div>
-            <button type="submit" class="btn btn-success" id="addNewRecipeButton">Add new recipe</button>
         </form>
 
-        <div class="newRecipeInput">
-            <form th:action="@{/user/addNewIngredient}" th:object="${newIngredient}" method="post">
-                <div class="form-group" th:classappend="${#fields.hasErrors('ingredientName')}? 'has-error':''">
-                    <label for="ingredientName" class="control-label" th:text = "#{addNewIngredient.text}">Add new Ingredient</label>
-                    <input id="ingredientName" class="form-control" th:field="*{ingredientName}" pattern="[A-Za-z]{1,20}" required>
-                    <p class="error-message" th:each="error: ${#fields.errors('ingredientName')}" th:text="${error}">Validation error</p>
-                </div>
+        <form th:action="@{/user/addNewIngredient}" th:object="${newIngredient}" method="post">
+            <div id="addNewIngredientDiv" class="form-group" th:classappend="${#fields.hasErrors('ingredientName')}? 'has-error':''">
+                <label for="ingredientName" class="control-label" th:text = "#{addNewIngredient.text}">Add new Ingredient</label>
+                <input id="ingredientName" class="form-control" th:field="*{ingredientName}" pattern="[A-Za-z]{1,20}" required>
                 <button type="submit" id="addIngredientButton" th:text = "#{addNewIngredient.text}">Add ingredient</button>
-            </form>
-        </div>
-<!--        </div>-->
-
-<!--        <button id="addNewRecipeButton">Add new recipe</button>-->
+                <p class="error-message" th:each="error: ${#fields.errors('ingredientName')}" th:text="${error}">Validation error</p>
+            </div>
+        </form>
+        <button type="submit" class="btn btn-success" id="addNewRecipeButton">Add new recipe</button>
 
     </div>
 
