@@ -155,7 +155,6 @@ footer {
     padding-top: 0em;
 }
 
-
 /* searchRecipes */
 
 .dropdown {
@@ -189,7 +188,6 @@ select {
     border: 1px solid black;
     border-radius: 0.2em;
 }
-
 
 #searchRecipesResults {
     display: grid;
