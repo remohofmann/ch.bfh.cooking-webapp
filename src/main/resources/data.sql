@@ -1,7 +1,3 @@
-INSERT INTO role (id, name) VALUES
-    ('1', 'USER'),
-    ('2', 'ADMIN');
-
 INSERT INTO recipe (recipe_name, recipe_description, recipe_duration) VALUES
   ('Rösti', 'Raffeln, anbraten', 30),
   ('Zürcher Geschnetzeltes', 'Raffeln, anbraten', 60),
