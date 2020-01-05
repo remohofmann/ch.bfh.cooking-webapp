@@ -71,6 +71,15 @@ public class UserServiceImpl implements UserService {
         Set<Role> userSet = new HashSet<>();
         userSet.add(userRoleSaved);
         this.userSet = userSet;
+
+        User anyUser = new User();
+        anyUser.setUsername("dude");
+        anyUser.setMail("user@user");
+        anyUser.setFirstName("Normal");
+        anyUser.setLastName("Dude");
+        anyUser.setPassword(bCryptPasswordEncoder.encode("dude"));
+        anyUser.setRoles(userSet);
+        userRepository.save(anyUser);
     }
 
     @Override

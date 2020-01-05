@@ -17,13 +17,13 @@
             <div class="menuContent"><a id="searchRecipes" href="/recipes/searchRecipes">search recipes</a></div>
             <div class="menuContent" sec:authorize="isAnonymous()"><a id="userlogin" href="/login">login</a></div>
             <div class="menuContent" sec:authorize="isAnonymous()"><a id="signup" href="/signup">sign up</a></div>
-            <div class="menuContent" sec:authorize="isAuthenticated()"><a id="addRecipe" href="/user/addNewRecipe">Add recipe</a></div>
+            <div class="menuContent" sec:authorize="isAuthenticated()"><a id="addRecipe" href="/user/addNewRecipe">add recipe</a></div>
             <div class="menuContent"><a id="compare" href="/recipes/compareRecipes">compare</a></div>
-            <div class="menuContent" sec:authorize="hasAuthority('ADMIN')"><a id="adminPage" href="/admin/adminArea">Admin Page</a></div>
+            <div class="menuContent" sec:authorize="hasAuthority('ADMIN')"><a id="adminPage" href="/admin/adminArea">admin aage</a></div>
             <div class="menuContent">
-                <a id="DE">DE</a>
-                <a id="FR">FR</a>
-                <a id="EN">EN</a>
+                <a id="DE  " href="/setLanguageDe">DE</a>
+                <a id="FR  " href="/setLanguageFr">FR</a>
+                <a id="EN  " href="/setLanguageEn">EN</a>
             </div>
         </section>
 

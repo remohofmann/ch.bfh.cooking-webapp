@@ -5,6 +5,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 @Controller
 public class MainController {
 
@@ -14,8 +20,33 @@ public class MainController {
     }
 
     @RequestMapping("/")
-    public String landingPage(Model model) {
-        return "landingPage";
+    public void downloadFiles(Model model,
+                                HttpServletResponse response) {
+        response.setContentType("application/zip");
+        response.addHeader("Content-Disposition", "attachment; filename=assignment.zip");
+        try {
+            String dataDirectory = ("/static/");
+            Path file = Paths.get(dataDirectory, "assignment.zip");
+            Files.copy(file, response.getOutputStream());
+            response.getOutputStream().flush();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @RequestMapping("/setLanguageDe")
+    public String setLanguageDe(Model model) {
+        return "redirect:landingPage?language=de";
+    }
+
+    @RequestMapping("/setLanguageFr")
+    public String setLanguageFr(Model model) {
+        return "redirect:landingPage?language=fr";
+    }
+
+    @RequestMapping("/setLanguageEn")
+    public String setLanguageEn(Model model) {
+        return "redirect:landingPage?language=en";
     }
 
     @RequestMapping("/landingPage")
