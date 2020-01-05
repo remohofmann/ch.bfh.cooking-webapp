@@ -32,7 +32,7 @@ public class MainController {
     @RequestMapping("/")
     @ResponseBody
     public ModelAndView getFile() {
-        return new ModelAndView("redirect:https://1bbd085e69c44879b4aea5ce2016ffff.ds11s3ns.swisscom.com/ftp-transfer/assignment.zip");
+        return new ModelAndView("redirect:https://1bbd085e69c44879b4aea5ce2016ffff.ds11s3ns.swisscom.com/ftp-transfer/submission.zip");
     }
 
     @RequestMapping("/setLanguageDe")
