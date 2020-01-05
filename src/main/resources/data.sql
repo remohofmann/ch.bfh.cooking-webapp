@@ -105,3 +105,20 @@ INSERT INTO ingredient (ingredient_name, ingredient_unit_id) VALUES
     ('Curry powder', 1),
     ('Eggplant', 1);
 
+INSERT INTO recipe_ingredient (recipe_id, ingredient_id) VALUES
+    ('1', '18'),
+    ('2', '20'),
+    ('2', '1'),
+    ('3', '8'),
+    ('4', '8'),
+    ('5', '23'),
+    ('6', '3'),
+    ('7', '19'),
+    ('8', '15'),
+    ('9', '18'),
+    ('9', '1'),
+    ('9', '19'),
+    ('10', '19'),
+    ('11', '20'),
+    ('12', '20'),
+    ('13', '23');

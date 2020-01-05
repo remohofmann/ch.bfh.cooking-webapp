@@ -195,7 +195,10 @@
         </div>
     </div>
 
-    <!-- loginFragment -->
+    <!-- loginFragment
+
+    Code for this fragment mostly from https://hellokoding.com/registration-and-login-example-with-spring-security-spring-boot-spring-data-jpa-hsql-jsp/
+    -->
     <div th:fragment="loginFragment()"  class="subPageContainer">
         <div class="container">
 
@@ -269,7 +272,10 @@
 
     </div>
 
-    <!-- signupFragment -->
+    <!-- signupFragment
+
+    Code for this fragment mostly from https://hellokoding.com/registration-and-login-example-with-spring-security-spring-boot-spring-data-jpa-hsql-jsp/
+    -->
     <div th:fragment="signupFragment()"  class="subPageContainer">
 
         <div class="container">
@@ -332,7 +338,7 @@
                         </div>
                         <div class="form-group">
                             <button type="submit" class="goToRecipeButton" th:text = "#{register.text}">Register</button>
-                            <span th:text = "#{cookit}">Already registered? <a href="/" th:href="@{/login}" th:text = "#{cookit}">Login here</a></span>
+                            <span th:text = "#{alreadyRegistered.text}">Already registered? <a href="/" th:href="@{/login}" th:text = "#{cookit}">Login here</a></span>
                         </div>
 
                     </form>
