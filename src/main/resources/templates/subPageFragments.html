@@ -46,7 +46,7 @@
                 <a href="">Recipe 1</a>
                 <a href="">Recipe 2</a>
             <div id="addNewRecipeDiv">
-                <a class="filterAddButton" href="/user/addNewRecipe">Add new recipe</a>
+                <a class="filterAddButton" href="/user/addNewRecipe">Add recipe</a>
                 <a class="filterAddButton" href="/admin/adminArea">Go to admin page</a>
             </div>
     </div>
@@ -195,7 +195,9 @@
                     <h1>Login page</h1>
                     <form th:action="@{/login}" method="post">
                         <div th:if="${param.error}">
-                            <div class="alert alert-danger">Invalid username or
+                            <!-- <div class="alert alert-danger">Invalid username or
+                                password.</div> -->
+                            <div class="alert">Invalid username or
                                 password.</div>
                         </div>
                         <div th:if="${param.logout}">
@@ -214,8 +216,10 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-6 col-sm-offset-3">
+                                    <!--<input type="submit" name="login-submit" id="login-submit"
+                                           class="form-control btn btn-primary" value="Log In" /> -->
                                     <input type="submit" name="login-submit" id="login-submit"
-                                           class="form-control btn btn-primary" value="Log In" />
+                                           class="goToRecipeButton" value="Log In" />
                                 </div>
                             </div>
                         </div>
@@ -263,8 +267,9 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-
+               <!-- <div class="col-md-6 col-md-offset-3">
+-->
+                <div class="signupContent">
                     <div th:if="${param.success}">
                         <div class="alert alert-info">You've successfully registered CookIt!</div>
                     </div>
@@ -315,7 +320,7 @@
                             </p>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success">Register</button>
+                            <button type="submit" class="goToRecipeButton">Register</button>
                             <span>Already registered? <a href="/" th:href="@{/login}">Login here</a></span>
                         </div>
 

@@ -48,6 +48,7 @@ a {
     color: white;
 }
 
+
 h1 {
     font-family: "Staatliches", sans-serif;
     border-radius: 0.2em;
@@ -71,6 +72,15 @@ h1 {
     display: table-cell;
 }
 
+.navigation a:hover {
+    color:var(--lightPinkColor);
+}
+
+
+.subPageContainer *{
+    margin: .2em;
+}
+
 #addNewRecipeDiv {
     margin-top: 2em;
 }
@@ -83,6 +93,9 @@ h1 {
 
 .subPageContainer a {
     color: var(--pinkColor);
+}
+.subPageContainer a:hover {
+    color: var(--blueColor);
 }
 
 footer {
@@ -168,7 +181,7 @@ select {
 }
 
 .filterAddButton {
-    margin-top: 1em;
+    margin: .2em;
     background-color: white;
     color: black;
     padding: 1em;
@@ -217,3 +230,41 @@ input:focus {
     padding: 0.5em;
     background-color: white;
 }
+
+/* Login and Signup */
+
+.alert, .error-message{
+    color: red;
+    float: right;
+    margin: .2em;
+}
+
+
+
+/* for signup error messages: Code from: XXXXXXXXXXXXXXX
+.has-error .checkbox, .has-error .checkbox-inline, .has-error .control-label, .has-error .help-block, .has-error .radio, .has-error .radio-inline, .has-error.checkbox label, .has-error.checkbox-inline label, .has-error.radio label, .has-error.radio-inline label {
+    color: var(--lightPinkColor);
+}
+
+.has-error .form-control {
+    border-color: var(--lightPinkColor);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075)
+}
+
+.has-error .form-control:focus {
+    border-color: var(--lightPinkColor);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483
+}
+
+.has-error .input-group-addon {
+    color: var(--lightPinkColor);
+    background-color: #f2dede;
+    border-color: var(--lightPinkColor);
+}
+
+.has-error .form-control-feedback {
+    color: var(--lightPinkColor);
+}
+
