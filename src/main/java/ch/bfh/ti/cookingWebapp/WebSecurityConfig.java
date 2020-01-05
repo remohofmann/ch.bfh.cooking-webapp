@@ -36,7 +36,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/**").hasAuthority("USER")
                 .antMatchers("/signup**", "/login**", "/api/**", "/main_page**",
                         "/recipe/**", "/resources/**").permitAll()
-                .antMatchers("/h2_console/**").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -48,9 +47,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
                 .logoutSuccessUrl("/login?logout");
-
-        http.csrf().disable();
-        http.headers().frameOptions().disable();
 
     }
 
