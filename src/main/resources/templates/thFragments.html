@@ -138,10 +138,6 @@
                 <td th:text="${ingredient.ingredientName}"></td>
             </tr>
         </table>
-        <h3 th:text = "#{specialdiet.text}">Special Diet</h3>
-        <div th:text="${specialDiet}">Diet</div>
-        <h3  th:text = "#{mealtype.text}">Course</h3>
-        <div th:text="${course}">Course</div>
         <h3  th:text = "#{tags.text}">Tags</h3>
         <table>
             <tr th:each="tag:${tags}">
