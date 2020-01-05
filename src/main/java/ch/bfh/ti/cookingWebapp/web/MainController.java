@@ -35,4 +35,9 @@ public class MainController {
     @RequestMapping("/testsubPageFragments")
     public String testsubPageFragments(Model model) {return "testsubPageFragments"; }
 
+    @RequestMapping("/main_pageOld")
+    public String mainPageOld(Model model) {return "main_pageOld"; }
+
+
+
 }

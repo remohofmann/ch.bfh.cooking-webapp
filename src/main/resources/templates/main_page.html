@@ -12,20 +12,20 @@
 
     <div th:replace="subPageFragments.html :: mainPageUpperFragment"></div>
 
+
     <div class="middleSection">
-        <div th:replace="subPageFragments.html :: navigationMainPageFragment" class="navigation"></div>
-        <div class="subPageContainer"> Empty subpage container</div>
+            <div th:replace="subPageFragments.html :: navigationMainPageFragment"></div>
+            <div class="subPageContainer"> Empty subpage container</div>
     </div>
+
+
     <div th:replace="subPageFragments.html :: mainPageFooterFragment"></div>
 
-
-
+  <!-- not used at the moment-->
   <script type="text/javascript">
       function ReplaceContentInContainer(subpageUrl) {
           $('#subPageContainer').load(subpageUrl);
       }
-
-
   </script>
 
 

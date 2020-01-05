@@ -48,21 +48,18 @@ a {
     color: white;
 }
 
-.subPageContainer a {
-    color: var(--pinkColor);
-}
-
-
 h1 {
     font-family: "Staatliches", sans-serif;
     border-radius: 0.2em;
     border: 1px solid black;
     padding-left: 0.2em;
+    width: 80%;
 }
 
 .middleSection {
-    dislay: table;
+    width: 100%;
 }
+
 
 .navigation {
     padding: 1em;
@@ -81,20 +78,20 @@ h1 {
 .subPageContainer {
     display: table-cell;
     padding: 1em;
-    width: 100%;
+    width: 80%;
 }
 
+.subPageContainer a {
+    color: var(--pinkColor);
+}
 
 footer {
     font-size: 0.8em;
     margin-top: 1px;
 }
 
-
-
 /* Compare Recipes */
 #compareRecipesContainer {      /* code from: https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6*/
-    width: 50em;
     overflow-x: scroll;
     overflow-y: hidden;
 }
@@ -156,7 +153,6 @@ footer {
 #searchDropdownDiv {
     overflow: hidden;
 }
-
 
 select {
     background-color: white;
@@ -221,18 +217,3 @@ input:focus {
     padding: 0.5em;
     background-color: white;
 }
-
-/* Admin Area
-
-
-.adminArea {
-}
-
-.adminDiv {
-    padding-right: 1em;
-    text-align: center;
-    margin: auto;
-}
-
-
- */

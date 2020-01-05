@@ -28,8 +28,7 @@
     </div>
 
     <!-- navigation fragment for mainPage -->
-    <div th:fragment="navigationMainPageFragment()" class="navigationMainPageFragment">
-        <div class="navigation">
+    <div th:fragment="navigationMainPageFragment()" class="navigation">
             <h4>Special diet</h4>
                 <a href="/recipes/glutenFree">Gluten free</a>
                 <a href="/recipes/vegetarian">Vegetarian</a>
@@ -50,7 +49,6 @@
                 <a class="filterAddButton" href="/user/addNewRecipe">Add new recipe</a>
                 <a class="filterAddButton" href="/admin/adminArea">Go to admin page</a>
             </div>
-        </div>
     </div>
 
     <!-- navigation fragment for mainPage -->
@@ -60,7 +58,7 @@
     <!--------------- end of main page fragments ---------------------------------------------------------------------->
 
     <!-- addNewRecipeFragment -->
-    <div th:fragment="addNewRecipeFragment()" class="addNewRecipeFragment">
+    <div th:fragment="addNewRecipeFragment()"  class="subPageContainer">
         <h1>Add new recipe</h1>
         <form th:action="@{/user/addNewRecipe}" th:object="${newRecipe}" method="post">
             <div th:if="${param.error}">
@@ -142,7 +140,7 @@
     </div>
 
     <!-- adminArea -->
-    <div th:fragment="adminAreaFragment()" class="adminAreaFragment">
+    <div th:fragment="adminAreaFragment()"  class="subPageContainer">
         <div class="adminArea">
             <h1>Admin Area</h1>
             <h2>Delete recipe</h2>
@@ -164,8 +162,8 @@
 
 
     <!-- compareRecipesFragment -->
-    <div th:fragment="compareRecipesFragment()" class="compareRecipesFragment">
-        <h1>Vergleich Rezepte</h1>
+    <div th:fragment="compareRecipesFragment()" class="subPageContainer">
+        <h1>Compare recipes</h1>
         <div id="compareRecipesContainer">
             <div th:replace="thFragments.html :: recipeCompareFirstRowFragment"></div>
             <div th:each="recipe:${recipes}">
@@ -182,14 +180,14 @@
     </div>
 
     <!-- landingPageFragment -->
-    <div th:fragment="landingPageFragment()" class="landingPageFragment">
+    <div th:fragment="landingPageFragment()"  class="subPageContainer">
         <div class="container">
             <h1>Welcome to CookIt!</h1>
         </div>
     </div>
 
     <!-- loginFragment -->
-    <div th:fragment="loginFragment()" class="loginFragment">
+    <div th:fragment="loginFragment()"  class="subPageContainer">
         <div class="container">
 
             <div class="row">
@@ -234,7 +232,7 @@
     </div>
 
     <!-- searchRecipesFragment -->
-    <div th:fragment="searchRecipesFragment()" class="searchRecipesFragment">
+    <div th:fragment="searchRecipesFragment()"  class="subPageContainer">
 
         <h1>Search for recipes</h1>
         <form th:action="@{/recipes/searchRecipes}" th:object="${searchParams}" method="post">
@@ -261,7 +259,7 @@
     </div>
 
     <!-- signupFragment -->
-    <div th:fragment="signupFragment()" class="signupFragment">
+    <div th:fragment="signupFragment()"  class="subPageContainer">
 
         <div class="container">
             <div class="row">
@@ -328,7 +326,7 @@
     </div>
 
     <!-- singleRecipeFragment -->
-    <div th:fragment="singleRecipeFragment()" class="singleRecipeFragment">
+    <div th:fragment="singleRecipeFragment()"  class="subPageContainer">
         <div th:replace="thFragments.html :: singleRecipe(
             name=${recipe.recipeName},
             duration=${recipe.recipeDuration},
