@@ -11,24 +11,24 @@
     <div th:fragment="recipeTileFragment(name, description, duration, id)" class="recipeTileFragment">
         <h4 th:text="${name}" class="recipeName">Name as header</h4>
         <div class="recipeInformation">
-            <label>Duration: </label>
+            <label th:text = "#{duration.text}">Duration: </label>
             </label><label th:text="${duration}">Duration</label>
-            <label> min</label>
+            <label th:text = "#{min.text}"> min</label>
             <div>
-                <h6>Cooking Instruction: </h6>
+                <h6 th:text = "#{cookingInstruction.text}">Cooking Instruction: </h6>
                 <div th:text="${description}">Description</div>
             </div>
         </div>
-        <label>Compare: </label>
+        <label  th:text = "#{compareCheckButton.text}">Compare: </label>
         <input type="checkbox" name="compareCheckBox"/>
         <form th:action="@{/recipes/singleRecipe}" method="post">
-            <button class="goToRecipeButton" type="submit" th:name="recipeId" th:value="${id}">Show Recipe</button>
+            <button class="goToRecipeButton" type="submit" th:name="recipeId" th:value="${id}" th:text = "#{showRecipe.text}">Show Recipe</button>
         </form>
     </div>
 
     <!-- Fragments for dropDowns (for search and new recipes) -->
     <div th:fragment="courseDropdown(tags)" class="dropdown" id="courseDropdown">
-        <label for="searchCourseTags" class="control-label">Course</label>
+        <label for="searchCourseTags" class="control-label" th:text = "#{mealtype.text}">Course</label>
         <select id="searchCourseTags" name="Course" multiple size="6" th:field="*{searchCourseTags}" >
             <!--/*@thymesVar id="tag" type="ch.bfh.ti.cookingWebapp.persistence.model.Tag"*/-->
             <option th:each="tag:${tags}" th:value="${tag.id}" th:text="${tag.tagName}"/>
@@ -36,7 +36,7 @@
     </div>
 
     <div th:fragment="dietDropdown(tags)" class="dropdown" id="dietDropdown">
-        <label for="searchDietTags" class="control-label">Diet</label>
+        <label for="searchDietTags" class="control-label"  th:text = "#{specialdiet.text}">Diet</label>
         <select id="searchDietTags" name="Diet" multiple size="6" th:field="*{searchDietTags}" >
             <!--/*@thymesVar id="tag" type="ch.bfh.ti.cookingWebapp.persistence.model.Tag"*/-->
             <option th:each="tag:${tags}" th:value="${tag.id}" th:text="${tag.tagName}"/>
@@ -44,7 +44,7 @@
     </div>
 
     <div th:fragment="cuisineDropdown(tags)" class="dropdown" id="cuisineDropdown">
-        <label for="searchCuisineTags" class="control-label">Cuisine</label>
+        <label for="searchCuisineTags" class="control-label"  th:text = "#{cuisine.text}">Cuisine</label>
         <select id="searchCuisineTags" name="Cuisine" multiple size="6" th:field="*{searchCuisineTags}" >
             <!--/*@thymesVar id="tag" type="ch.bfh.ti.cookingWebapp.persistence.model.Tag"*/-->
             <option th:each="tag:${tags}" th:value="${tag.id}" th:text="${tag.tagName}"/>
@@ -52,7 +52,7 @@
     </div>
 
     <div th:fragment="courseDropdownForCreation(tags)" class="dropdown" id="courseCreationDropDown">
-        <label for="courseTags" class="control-label">Course</label>
+        <label for="courseTags" class="control-label"  th:text = "#{mealtype.text}">Course</label>
         <select id="courseTags" name="Course" multiple size="6" th:field="*{courseTags}" required>
             <!--/*@thymesVar id="tag" type="ch.bfh.ti.cookingWebapp.persistence.model.Tag"*/-->
             <option th:each="tag:${tags}" th:value="${tag.id}" th:text="${tag.tagName}"/>
@@ -60,7 +60,7 @@
     </div>
 
     <div th:fragment="dietDropdownForCreation(tags)" class="dropdown" id="dietCreationDropDown">
-        <label for="dietTags" class="control-label">Diet</label>
+        <label for="dietTags" class="control-label"  th:text = "#{specialdiet.text}">Diet</label>
         <select id="dietTags" name="Diet" multiple size="6" th:field="*{dietTags}" required>
             <!--/*@thymesVar id="tag" type="ch.bfh.ti.cookingWebapp.persistence.model.Tag"*/-->
             <option th:each="tag:${tags}" th:value="${tag.id}" th:text="${tag.tagName}"/>
@@ -68,7 +68,7 @@
     </div>
 
     <div th:fragment="cuisineDropdownForCreation(tags)" class="dropdown" id="cuisineCreationDropdown">
-        <label for="cuisineTags" class="control-label">Cuisine</label>
+        <label for="cuisineTags" class="control-label" th:text = "#{cuisine.text}">Cuisine</label>
         <select id="cuisineTags" name="Cuisine" multiple size="6" th:field="*{cuisineTags}" required>
             <!--/*@thymesVar id="tag" type="ch.bfh.ti.cookingWebapp.persistence.model.Tag"*/-->
             <option th:each="tag:${tags}" th:value="${tag.id}" th:text="${tag.tagName}"/>
@@ -76,7 +76,7 @@
     </div>
 
     <div th:fragment="ingredientDropdown(ingredients)" class="dropdown" id="ingredientCreationDropdown">
-        <label for="searchIngredients" class="control-label">Ingredient</label>
+        <label for="searchIngredients" class="control-label" th:text = "#{ingredient.text}">Ingredient</label>
         <select id="searchIngredients" name="Ingredient" multiple size="6" th:field="*{searchIngredients}">
             <!--/*@thymesVar id="ingredient" type="ch.bfh.ti.cookingWebapp.persistence.model.Ingredient"*/-->
             <option th:each="ingredient:${ingredients}" th:value="${ingredient.id}" th:text="${ingredient.ingredientName}"/>
@@ -84,7 +84,7 @@
     </div>
 
     <div th:fragment="ingredientDropdownForCreation(ingredients)" class="dropdown" id="ingredientDropdown">
-        <label for="ingredients" class="control-label">Ingredient</label>
+        <label for="ingredients" class="control-label"  th:text = "#{ingredient.text}">Ingredient</label>
         <select id="ingredients" name="Ingredient" multiple size="6" th:field="*{ingredients}" required>
             <!--/*@thymesVar id="ingredient" type="ch.bfh.ti.cookingWebapp.persistence.model.Ingredient"*/-->
             <option th:each="ingredient:${ingredients}" th:value="${ingredient.id}" th:text="${ingredient.ingredientName}"/>
@@ -100,13 +100,13 @@
     <div th:fragment="recipeCompareFirstRowFragment()"
          class="recipeCompareFragment" id="recipeCompareFirstRow">
         <div class="comparisonRecipeTitle">
-            <label>Recipe Name</label>
+            <label th:text = "#{recipeName.text}">Recipe Name</label>
         </div>
-        <div class="comparisonRecipeDuration">Duration</div>
-        <div class="comparisonRecipeInstruction">Description</div>
-        <div class="comparisonRecipeIngredients">Ingredients</div>
-        <div class="comparisonRecipeDiet">Diet</div>
-        <div class="comparisonRecipeCourse">Course</div>
+        <div class="comparisonRecipeDuration"  th:text = "#{duration.text}">Duration</div>
+        <div class="comparisonRecipeInstruction"  th:text = "#{cookingInstruction.text}">Description</div>
+        <div class="comparisonRecipeIngredients" th:text = "#{ingredients.text}">Ingredients</div>
+        <div class="comparisonRecipeDiet"  th:text = "#{specialdiet.text}">Diet</div>
+        <div class="comparisonRecipeCourse"  th:text = "#{mealtype.text}">Course</div>
     </div>
 
     <div th:fragment="recipeCompareFragment(name, duration, description, ingredients, specialDiet, course)"
@@ -128,21 +128,21 @@
     <div th:fragment="singleRecipe(name, duration, description, ingredients, specialDiet, course, tags)"
          class="singleRecipeFragment">
         <h1 th:text="${name}">Name as header</h1>
-        <label>Duration: </label><label th:text="${duration}">Duration</label><label> min</label>
-        <h3>Description</h3>
+        <label  th:text = "#{duration.text}">Duration: </label><label th:text="${duration}">Duration</label><label> min</label>
+        <h3 th:text = "#{cookingInstruction.text}">Description</h3>
         <div th:text="${description}">Description</div>
-        <h3>Ingredients</h3>
+        <h3  th:text = "#{ingredients.text}">Ingredients</h3>
         <table>
             <tr th:each="ingredient:${ingredients}">
                 <!--/*@thymesVar id="ingredient" type="ch.bfh.ti.cookingWebapp.persistence.model.Ingredient"*/-->
                 <td th:text="${ingredient.ingredientName}"></td>
             </tr>
         </table>
-        <h3>Special Diet</h3>
+        <h3 th:text = "#{specialdiet.text}">Special Diet</h3>
         <div th:text="${specialDiet}">Diet</div>
-        <h3>Course</h3>
+        <h3  th:text = "#{mealtype.text}">Course</h3>
         <div th:text="${course}">Course</div>
-        <h3>Tags</h3>
+        <h3  th:text = "#{tags.text}">Tags</h3>
         <table>
             <tr th:each="tag:${tags}">
                 <!--/*@thymesVar id="tag" type="ch.bfh.ti.cookingWebapp.persistence.model.Tag"*/-->
