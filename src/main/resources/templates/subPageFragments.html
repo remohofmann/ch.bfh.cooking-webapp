@@ -236,25 +236,25 @@
     <!-- searchRecipesFragment -->
     <div th:fragment="searchRecipesFragment()" class="searchRecipesFragment">
 
-
         <h1>Search for recipes</h1>
-        <div id="searchDropdownDiv">
-            <div th:replace="thFragments.html :: cuisineDropdown(tags=${tagCuisine})"></div>
-            <div th:replace="thFragments.html :: dietDropdown(tags=${tagDiet})"></div>
-            <div th:replace="thFragments.html :: courseDropdown(tags=${tagCourse})"></div>
-            <div th:replace="thFragments.html :: ingredientDropdown(ingredients=${ingredients})"></div>
-        </div>
-        <br/>
-        <button class="filterAddButton" id="filterRecipesButton">Filter recipes</button>
-
+        <form th:action="@{/recipes/searchRecipes}" th:object="${searchParams}" method="post">
+            <div id="searchDropdownDiv">
+                <div th:replace="thFragments.html :: cuisineDropdown(tags=${tagCuisine})"></div>
+                <div th:replace="thFragments.html :: dietDropdown(tags=${tagDiet})"></div>
+                <div th:replace="thFragments.html :: courseDropdown(tags=${tagCourse})"></div>
+                <div th:replace="thFragments.html :: ingredientDropdown(ingredients=${ingredients})"></div>
+            </div>
+            <br/>
+            <button type="submit" class="filterAddButton" id="filterRecipesButton">Filter recipes</button>
+        </form>
         <h1>Search results</h1>
         <div id="searchRecipesResults">
             <div th:each="recipe:${recipes}">
                 <div th:replace="thFragments.html :: recipeTileFragment(
-        name=${recipe.recipeName},
-        description=${recipe.recipeDescription},
-        duration=${recipe.recipeDuration},
-        id=${recipe.id})"></div>
+                    name=${recipe.recipeName},
+                    description=${recipe.recipeDescription},
+                    duration=${recipe.recipeDuration},
+                    id=${recipe.id})"></div>
             </div>
         </div>
 

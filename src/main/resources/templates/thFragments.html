@@ -28,26 +28,26 @@
 
     <!-- Fragments for dropDowns (for search and new recipes) -->
     <div th:fragment="courseDropdown(tags)" class="dropdown" id="courseDropdown">
-        <label>Course</label>
-        <select name="Course" multiple size="6">
+        <label for="searchCourseTags" class="control-label">Course</label>
+        <select id="searchCourseTags" name="Course" multiple size="6" th:field="*{searchCourseTags}" >
             <!--/*@thymesVar id="tag" type="ch.bfh.ti.cookingWebapp.persistence.model.Tag"*/-->
-            <option th:each="tag:${tags}" th:value="${tag.tagName}" th:text="${tag.tagName}"/>
+            <option th:each="tag:${tags}" th:value="${tag.id}" th:text="${tag.tagName}"/>
         </select>
     </div>
 
     <div th:fragment="dietDropdown(tags)" class="dropdown" id="dietDropdown">
-        <label>Special diet</label>
-        <select name="Special Diet" multiple size="6">
+        <label for="searchDietTags" class="control-label">Diet</label>
+        <select id="searchDietTags" name="Diet" multiple size="6" th:field="*{searchDietTags}" >
             <!--/*@thymesVar id="tag" type="ch.bfh.ti.cookingWebapp.persistence.model.Tag"*/-->
-            <option th:each="tag:${tags}" th:value="${tag.tagName}" th:text="${tag.tagName}"/>
+            <option th:each="tag:${tags}" th:value="${tag.id}" th:text="${tag.tagName}"/>
         </select>
     </div>
 
     <div th:fragment="cuisineDropdown(tags)" class="dropdown" id="cuisineDropdown">
-        <label>Cuisine</label>
-        <select name="Cuisine" multiple size="6">
+        <label for="searchCuisineTags" class="control-label">Cuisine</label>
+        <select id="searchCuisineTags" name="Cuisine" multiple size="6" th:field="*{searchCuisineTags}" >
             <!--/*@thymesVar id="tag" type="ch.bfh.ti.cookingWebapp.persistence.model.Tag"*/-->
-            <option th:each="tag:${tags}" th:value="${tag.tagName}" th:text="${tag.tagName}"/>
+            <option th:each="tag:${tags}" th:value="${tag.id}" th:text="${tag.tagName}"/>
         </select>
     </div>
 
@@ -76,10 +76,10 @@
     </div>
 
     <div th:fragment="ingredientDropdown(ingredients)" class="dropdown" id="ingredientCreationDropdown">
-        <label>Ingredient</label>
-        <select name="Ingredient" multiple size="6">
+        <label for="searchIngredients" class="control-label">Ingredient</label>
+        <select id="searchIngredients" name="Ingredient" multiple size="6" th:field="*{searchIngredients}">
             <!--/*@thymesVar id="ingredient" type="ch.bfh.ti.cookingWebapp.persistence.model.Ingredient"*/-->
-            <option th:each="ingredient:${ingredients}" th:value="${ingredient.ingredientName}" th:text="${ingredient.ingredientName}"/>
+            <option th:each="ingredient:${ingredients}" th:value="${ingredient.id}" th:text="${ingredient.ingredientName}"/>
         </select>
     </div>
 

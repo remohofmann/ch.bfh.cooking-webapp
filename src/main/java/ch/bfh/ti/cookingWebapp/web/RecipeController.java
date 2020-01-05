@@ -5,13 +5,18 @@ import ch.bfh.ti.cookingWebapp.persistence.service.IngredientServices;
 import ch.bfh.ti.cookingWebapp.persistence.service.RecipeServices;
 import ch.bfh.ti.cookingWebapp.persistence.model.Tag;
 import ch.bfh.ti.cookingWebapp.persistence.service.TagServices;
+import ch.bfh.ti.cookingWebapp.persistence.validator.IngredientDto;
+import ch.bfh.ti.cookingWebapp.persistence.validator.SearchRecipeDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /* USAGE:
 //    @GetMapping("/searchRecipes") // has to be like url
@@ -53,6 +58,32 @@ public class RecipeController {
     @GetMapping("/searchRecipes")
     public String getSearchRecipes(Model model){
         model.addAttribute("recipes", this.recipeServices.getAllRecipes());
+        model = addSearchRecipeAttributes(model);
+
+        return "searchRecipes";
+    }
+
+    @PostMapping("/searchRecipes")
+    public String postSearchRecipes(@ModelAttribute("searchParams") @Valid SearchRecipeDto searchRecipeDto,
+                                    Model model) {
+        List<Long> allTagIds = new ArrayList<>();
+        allTagIds.addAll(searchRecipeDto.getSearchCourseTags());
+        allTagIds.addAll(searchRecipeDto.getSearchCuisineTags());
+        allTagIds.addAll(searchRecipeDto.getSearchDietTags());
+        List<Long> ingredients = searchRecipeDto.getSearchIngredients();
+
+        if (allTagIds.isEmpty() && ingredients.isEmpty()) {
+            model.addAttribute("recipes", this.recipeServices.getAllRecipes());
+        }
+        if (allTagIds.isEmpty() && !ingredients.isEmpty()) {
+            model.addAttribute("recipes", this.recipeServices.getRecipesByIngredients(ingredients));
+        }
+        if (!allTagIds.isEmpty() && ingredients.isEmpty()) {
+            model.addAttribute("recipes", this.recipeServices.getRecipesByTags(allTagIds));
+        }
+        if (!allTagIds.isEmpty() && !ingredients.isEmpty()) {
+            model.addAttribute("recipes", this.recipeServices.getRecipesByIngredientsAndTags(ingredients, allTagIds));
+        }
         model = addSearchRecipeAttributes(model);
         return "searchRecipes";
     }
@@ -163,6 +194,7 @@ public class RecipeController {
         model.addAttribute("tagCuisine", this.tagServices.getTagsByType(TagType.CUISINE));
         model.addAttribute("tagCourse", this.tagServices.getTagsByType(TagType.COURSE));
         model.addAttribute("ingredients", this.ingredientServices.getAllIngredients());
+        model.addAttribute("searchParams", new SearchRecipeDto());
         return model;
     }
 

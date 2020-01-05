@@ -116,12 +116,12 @@ public class RecipeServices {
     }
 
     //Searches for Recipes by multiple tags.
-    public List<Recipe> getRecipesByTags(List<Tag> tags) {
+    public List<Recipe> getRecipesByTags(List<Long> tags) {
         List<Recipe> recipes = new ArrayList<>();
         List<RecipeTagCombination> recipeTags = getAllRecipeTagCombinations();
         for (RecipeTagCombination c:recipeTags) {
-            for (Tag t:tags){
-                if (c.getTagId().equals(t.getId())) {
+            for (Long t:tags){
+                if (c.getTagId().equals(t)) {
                     Recipe recipe = getRecipeById(c.getRecipeId());
                     if (!recipes.contains(recipe)){
                         recipes.add(recipe);
@@ -145,12 +145,12 @@ public class RecipeServices {
     }
 
     //Searches for Recipes by multiple Ingredients.
-    public List<Recipe> getRecipesByIngredients(List<Ingredient> ingredients) {
+    public List<Recipe> getRecipesByIngredients(List<Long> ingredients) {
         List<Recipe> recipes = new ArrayList<>();
         List<RecipeIngredientCombination> recipeIngredients = getAllRecipeIngredientCombinations();
         for (RecipeIngredientCombination c:recipeIngredients){
-            for (Ingredient i:ingredients){
-                if (c.getIngredientId().equals(i.getId())) {
+            for (Long i:ingredients){
+                if (c.getIngredientId().equals(i)) {
                     Recipe recipe = getRecipeById(c.getRecipeId());
                     if (!recipes.contains(recipe)){
                         recipes.add(recipe);
@@ -162,14 +162,14 @@ public class RecipeServices {
     }
 
     //Searches for Recipes by multiple Ingredients and Tags.
-    public List<Recipe> getRecipesByIngredients(List<Ingredient> ingredients,
-                                                List<Tag> tags) {
+    public List<Recipe> getRecipesByIngredientsAndTags(List<Long> ingredients,
+                                                List<Long> tags) {
         List<Recipe> recipes = new ArrayList<>();
         List<RecipeIngredientCombination> recipeIngredients = getAllRecipeIngredientCombinations();
         List<RecipeTagCombination> recipeTags = getAllRecipeTagCombinations();
         for (RecipeIngredientCombination c:recipeIngredients){
-            for (Ingredient i:ingredients){
-                if (c.getIngredientId().equals(i.getId())) {
+            for (Long i:ingredients){
+                if (c.getIngredientId().equals(i)) {
                     Recipe recipe = getRecipeById(c.getRecipeId());
                     if (!recipes.contains(recipe)){
                         recipes.add(recipe);
@@ -178,8 +178,8 @@ public class RecipeServices {
             }
         }
         for (RecipeTagCombination c:recipeTags) {
-            for (Tag t:tags){
-                if (c.getTagId().equals(t.getId())) {
+            for (Long t:tags){
+                if (c.getTagId().equals(t)) {
                     Recipe recipe = getRecipeById(c.getRecipeId());
                     if (!recipes.contains(recipe)){
                         recipes.add(recipe);
