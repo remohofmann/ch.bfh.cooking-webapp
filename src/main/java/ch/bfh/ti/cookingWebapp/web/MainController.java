@@ -10,12 +10,12 @@ public class MainController {
 
     @RequestMapping("/main_page")
     public String mainPage(Model model) {
-        return "main_page";
+        return "landingPage";
     }
 
     @RequestMapping("/")
     public String landingPage(Model model) {
-        return "main_page";
+        return "landingPage";
     }
 
     @RequestMapping("/landingPage")
@@ -38,6 +38,7 @@ public class MainController {
     @RequestMapping("/main_pageOld")
     public String mainPageOld(Model model) {return "main_pageOld"; }
 
-
+    @RequestMapping("/termsAndConditions")
+    public String termsAndConditions() {return "termsAndConditions"; }
 
 }

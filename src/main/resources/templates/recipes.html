@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Cooking Webapp</title>
-    <link href="/static/css/site.css" th:href="@{/css/site.css}" rel="stylesheet"/>
+    <link href="/static/css/site.css" th:href="@{/css/main_page.css}" rel="stylesheet"/>
 </head>
 <body>
 <table>
@@ -23,7 +23,8 @@
         <div th:replace="thFragments.html :: recipeTileFragment(
         name=${recipe.recipeName},
         description=${recipe.recipeDescription},
-        duration=${recipe.recipeDuration})"></div>
+        duration=${recipe.recipeDuration},
+        id=${recipe.id})"></div>
     </tr>
 
 </table>

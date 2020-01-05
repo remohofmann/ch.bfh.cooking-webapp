@@ -92,6 +92,22 @@ public class RecipeServices {
         return ingredients;
     }
 
+    //Searches tagCombinations for recipe ID
+    public List<RecipeTagCombination> getTagsCombinationsForRecipeId(Long recipeId){
+        List<RecipeTagCombination> recipeTags = getAllRecipeTagCombinations();
+        recipeTags.removeIf(t -> !(t.getRecipeId().equals(recipeId)));
+
+        return recipeTags;
+    }
+
+    //Searches ingredientCombinations for recipe ID
+    public List<RecipeIngredientCombination> getIngredientCombinationsForRecipeId(Long recipeId){
+        List<RecipeIngredientCombination> recipeIngredients = getAllRecipeIngredientCombinations();
+        recipeIngredients.removeIf(c -> !(c.getRecipeId().equals(recipeId)));
+
+        return recipeIngredients;
+    }
+
     //Searches tags for recipe ID
     public List<Tag> getTagsForRecipeId(Long recipeId){
         List<RecipeTagCombination> recipeTags = getAllRecipeTagCombinations();
@@ -218,6 +234,19 @@ public class RecipeServices {
         for(Long i: ingredients){
             RecipeIngredientCombination combination = new RecipeIngredientCombination(recipeId, i);
             recipeIngredientRepository.save(combination);
+        }
+    }
+
+    // ADMIN command -> Deletes Recipe and ALL Ingredient and Tag associations.
+    public void deleteRecipe(Long recipeId) {
+        this.recipeRepository.deleteById(recipeId);
+        List<RecipeIngredientCombination> recipeIngredients = getIngredientCombinationsForRecipeId(recipeId);
+        for (RecipeIngredientCombination i: recipeIngredients) {
+            this.recipeIngredientRepository.deleteById(i.getId());
+        }
+        List<RecipeIngredientCombination> recipeTags = getIngredientCombinationsForRecipeId(recipeId);
+        for (RecipeIngredientCombination t: recipeTags) {
+            this.recipeTagRepository.deleteById(t.getId());
         }
     }
 }

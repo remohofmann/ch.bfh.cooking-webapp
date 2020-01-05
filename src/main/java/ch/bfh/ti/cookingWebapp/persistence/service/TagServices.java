@@ -1,5 +1,6 @@
 package ch.bfh.ti.cookingWebapp.persistence.service;
 
+import ch.bfh.ti.cookingWebapp.persistence.model.Option;
 import ch.bfh.ti.cookingWebapp.persistence.model.Recipe;
 import ch.bfh.ti.cookingWebapp.persistence.model.Tag;
 import ch.bfh.ti.cookingWebapp.persistence.model.TagType;
@@ -42,8 +43,10 @@ public class TagServices {
         return tag.orElse(null);
     }
 
-    public void addTag(String tagName) {
-        Tag tag = new Tag(tagName);
+    public void addTag(String tagName, long tagType) {
+        Tag tag = new Tag();
+        tag.setTagName(tagName);
+        tag.setType(tagType);
         this.tagRepository.save(tag);
     }
 
@@ -56,5 +59,14 @@ public class TagServices {
             }
         }
         return tags;
+    }
+
+    public List<Option> getOptionList() {
+        List<Option> options = new ArrayList<>();
+        options.add(new Option(TagType.COURSE.tagNumber(), TagType.COURSE.type()));
+        options.add(new Option(TagType.CUISINE.tagNumber(), TagType.CUISINE.type()));
+        options.add(new Option(TagType.DIET.tagNumber(), TagType.DIET.type()));
+
+        return options;
     }
 }
