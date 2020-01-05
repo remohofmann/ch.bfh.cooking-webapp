@@ -11,7 +11,7 @@
     <!-- Upper fragment for mainPage -->
     <div th:fragment="mainPageUpperFragment()" class="mainPageUpperFragment">
 
-        <header>cookit</header>
+        <header th:text = "#{welcomeToCookit.text}">cookit</header>
         <section class = "menu">
             <!--   <div class="menuContent"><a th:href="@{searchRecipes}" id="search">search</a></div> -->
             <div class="menuContent"><a id="searchRecipes" href="/recipes/searchRecipes">search recipes</a></div>
