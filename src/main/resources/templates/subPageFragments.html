@@ -147,10 +147,10 @@
             <h1>Admin Area</h1>
             <h2>Delete recipe</h2>
             <div class="adminDiv">
-                <button class="goToRecipeButton">Delete recipe</button>
                 <select name="Recipes" multiple size="6">
                     <option th:each="recipe:${recipes}" th:value="${recipe.recipeName}" th:text="${recipe.recipeName}"/>
                 </select>
+                <button class="goToRecipeButton">Delete recipe</button>
             </div>
 
             <h2>Add tag</h2>

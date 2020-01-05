@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
-  <title>title</title>
+  <title>Compare recipes</title>
   <meta charset="utf-8">
   <link href="/static/css/main_page.css" th:href="@{/css/main_page.css}" rel="stylesheet"/>
 </head>
@@ -10,10 +10,10 @@
 
   <div th:replace="subPageFragments.html :: mainPageUpperFragment"></div>
 
-  <section class="middleSection">
+  <div class="middleSection">
     <div th:replace="subPageFragments.html :: navigationMainPageFragment"></div>
     <div class="subPageContainer" th:replace="subPageFragments.html :: compareRecipesFragment"></div>
-  </section>
+  </div>
   <div th:replace="subPageFragments.html :: mainPageFooterFragment"></div>
 
 

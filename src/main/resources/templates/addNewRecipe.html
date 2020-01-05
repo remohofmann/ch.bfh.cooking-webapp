@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Add Recipe</title>
+  <title>Add new recipe</title>
   <meta charset="utf-8">
   <link th:href="@{/css/main_page.css}" rel="stylesheet"/>
   <script type="text/javascript">
@@ -15,10 +15,10 @@
 
   <div th:replace="subPageFragments.html :: mainPageUpperFragment"></div>
 
-  <section class="middleSection">
+  <div class="middleSection">
     <div th:replace="subPageFragments.html :: navigationMainPageFragment"></div>
     <div class="subPageContainer" th:replace="subPageFragments.html :: addNewRecipeFragment"></div>
-  </section>
+  </div>
   <div th:replace="subPageFragments.html :: mainPageFooterFragment"></div>
 
 </body>
