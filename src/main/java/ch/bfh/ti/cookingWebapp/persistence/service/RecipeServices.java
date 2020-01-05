@@ -239,14 +239,16 @@ public class RecipeServices {
 
     // ADMIN command -> Deletes Recipe and ALL Ingredient and Tag associations.
     public void deleteRecipe(Long recipeId) {
-        this.recipeRepository.deleteById(recipeId);
+        List<RecipeTagCombination> recipeTags = getTagsCombinationsForRecipeId(recipeId);
+        for (RecipeTagCombination t: recipeTags) {
+            this.recipeTagRepository.deleteById(t.getId());
+        }
+        this.recipeTagRepository.flush();
         List<RecipeIngredientCombination> recipeIngredients = getIngredientCombinationsForRecipeId(recipeId);
         for (RecipeIngredientCombination i: recipeIngredients) {
             this.recipeIngredientRepository.deleteById(i.getId());
         }
-        List<RecipeIngredientCombination> recipeTags = getIngredientCombinationsForRecipeId(recipeId);
-        for (RecipeIngredientCombination t: recipeTags) {
-            this.recipeTagRepository.deleteById(t.getId());
-        }
+        this.recipeIngredientRepository.flush();
+        this.recipeRepository.deleteById(recipeId);
     }
 }
