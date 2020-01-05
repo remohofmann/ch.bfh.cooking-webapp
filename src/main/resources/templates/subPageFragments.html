@@ -11,13 +11,15 @@
     <!-- Upper fragment for mainPage -->
     <div th:fragment="mainPageUpperFragment()" class="mainPageUpperFragment">
 
-        <header th:text = "#{cookit.text}">cookit</header>
+        <header>cookit</header>
         <section class = "menu">
             <!--   <div class="menuContent"><a th:href="@{searchRecipes}" id="search">search</a></div> -->
-            <div class="menuContent"><a id="searchRecipes" href="/recipes/searchRecipes" th:text = "#{searchRecipes.text}">search recipes</a></div>
-            <div class="menuContent" sec:authorize="isAnonymous()"><a id="userlogin" href="/login" th:text = "#{login.text}">login</a></div>
-            <div class="menuContent" sec:authorize="isAnonymous()"><a id="signup" href="/signup" th:text = "#{signup.text}">sign up</a></div>
-            <div class="menuContent"><a id="compare" href="/recipes/compareRecipes" th:text = "#{compareRecipes.text}">compare</a></div>
+            <div class="menuContent"><a id="searchRecipes" href="/recipes/searchRecipes">search recipes</a></div>
+            <div class="menuContent" sec:authorize="isAnonymous()"><a id="userlogin" href="/login">login</a></div>
+            <div class="menuContent" sec:authorize="isAnonymous()"><a id="signup" href="/signup">sign up</a></div>
+            <div class="menuContent" sec:authorize="isAuthenticated()"><a id="addRecipe" href="/user/addNewRecipe">Add recipe</a></div>
+            <div class="menuContent"><a id="compare" href="/recipes/compareRecipes">compare</a></div>
+            <div class="menuContent" sec:authorize="hasAuthority('ADMIN')"><a id="adminPage" href="/admin/adminArea">Admin Page</a></div>
             <div class="menuContent">
                 <a id="DE">DE</a>
                 <a id="FR">FR</a>
@@ -29,28 +31,25 @@
 
     <!-- navigation fragment for mainPage -->
     <div th:fragment="navigationMainPageFragment()" class="navigation">
-        <h4 th:text = "#{specialdiet.text}">Special diet</h4>
+        <h4>Special diet</h4>
             <a href="/recipes/glutenFree">Gluten free</a>
             <a href="/recipes/vegetarian">Vegetarian</a>
             <a href="/recipes/paleo">Paleo</a>
             <a href="/recipes/vegan">Vegan</a>
-        <h4 th:text = "#{mealtype.text}">Meal type / course</h4>
+        <h4>Meal type / course</h4>
             <a href="/recipes/breakfast">Breakfast</a>
             <a href="/recipes/lunch">Lunch</a>
             <a href="/recipes/dinner">Dinner</a>
-        <h4 th:text = "#{cuisine.text}">Cuisine</h4>
+        <h4>Cuisine</h4>
             <a href="/recipes/indian">Indian</a>
             <a href="/recipes/swiss">Swiss</a>
             <a href="/recipes/chinese">Chinese</a>
-        <div id="addNewRecipeDiv" sec:authorize="isAuthenticated()">
-            <a class="filterAddButton" href="/user/addNewRecipe"  th:text = "#{addrecipe.text}">Add recipe</a>
-        </div>
-        <div id="adminPageDiv" sec:authorize="hasRole('ADMIN')">
-            <a class="filterAddButton" href="/admin/adminArea"  th:text = "#{goToAdminPage.text}">Go to admin page</a>
-        </div>
+        <h4>Comparison list</h4>
+            <a href="">Recipe 1</a>
+            <a href="">Recipe 2</a>
         <div id="logoutDiv" sec:authorize="isAuthenticated()">
             <form th:action="@{/logout}" method="post">
-                <button class="filterAddButton" type="submit"  th:text = "#{logout.text}">Logout</button>
+                <button class="filterAddButton" type="submit">Logout</button>
             </form>
         </div>
     </div>
@@ -63,13 +62,13 @@
 
     <!-- addNewRecipeFragment -->
     <div th:fragment="addNewRecipeFragment()"  class="subPageContainer">
-        <h1  th:text = "#{addrecipe.text}">Add new recipe</h1>
+        <h1>Add new recipe</h1>
         <form th:action="@{/user/addNewRecipe}" th:object="${newRecipe}" method="post">
             <div th:if="${param.error}">
-                <div class="alert alert-danger" th:text = "#{missingInputParameter.text}">Missing input parameters</div>
+                <div class="alert alert-danger">Missing input parameters</div>
             </div>
             <div th:if="${param.success}">
-                <div class="alert alert-info" th:text = "#{successfullyCreated.text}">Successfully created</div>
+                <div class="alert alert-info">Successfully created</div>
             </div>
 
             <p class="error-message" th:if="${#fields.hasGlobalErrors()}" th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation error</p>
@@ -107,26 +106,46 @@
                 <div th:replace="thFragments.html :: dietDropdownForCreation(tags=${tagDiet})"></div>
                 <p class="error-message" th:each="error: ${#fields.errors('dietTags')}" th:text="${error}">Validation error</p>
             </div>
-            <button type="submit" class="btn btn-success" id="addNewRecipeButton" th:text = "#{addrecipe.text}">Add new recipe</button>
+            <button type="submit" class="btn btn-success" id="addNewRecipeButton">Add new recipe</button>
         </form>
-
+<!--        <div id="addNewRecipeContent">-->
+<!--            <div class="newRecipeInput">-->
+<!--                <label>Recipe name</label>-->
+<!--                <input id="nameIput" pattern="[A-Za-z]{1,20}" required>-->
+<!--            </div>-->
+<!--            <div class="newRecipeInput">-->
+<!--                <label>Duration in minutes</label>-->
+<!--                <input id="durationInput" type="number" min="1" required>-->
+<!--            </div>-->
+<!--            <div class="newRecipeInput">-->
+<!--                <textarea pattern=".{1,500}" required>Recipe description</textarea>-->
+<!--            </div>-->
+<!--            <div id="searchDropdownDiv">-->
+<!--                <div th:replace="thFragments.html :: cuisineDropdown(tags=${tagCuisine})"></div>-->
+<!--                <div th:replace="thFragments.html :: dietDropdown(tags=${tagDiet})"></div>-->
+<!--                <div th:replace="thFragments.html :: courseDropdown(tags=${tagCourse})"></div>-->
+<!--                <div th:replace="thFragments.html :: ingredientDropdown(ingredients=${ingredients})"></div>-->
+<!--            </div>-->
         <div class="newRecipeInput">
             <form th:action="@{/user/addNewIngredient}" th:object="${newIngredient}" method="post">
                 <div class="form-group" th:classappend="${#fields.hasErrors('ingredientName')}? 'has-error':''">
-                    <label for="ingredientName" class="control-label"  th:text = "#{addNewIngredient.text}">Add new Ingredient</label>
+                    <label for="ingredientName" class="control-label">Add new Ingredient</label>
                     <input id="ingredientName" class="form-control" th:field="*{ingredientName}" pattern="[A-Za-z]{1,20}" required>
                     <p class="error-message" th:each="error: ${#fields.errors('ingredientName')}" th:text="${error}">Validation error</p>
                 </div>
-                <button type="submit" id="addIngredientButton"  th:text = "#{addNewIngredient.text}">Add ingredient</button>
+                <button type="submit" id="addIngredientButton">Add ingredient</button>
             </form>
         </div>
+<!--        </div>-->
+
+<!--        <button id="addNewRecipeButton">Add new recipe</button>-->
 
     </div>
 
     <!-- adminArea -->
     <div th:fragment="adminAreaFragment()"  class="subPageContainer">
         <div class="adminArea">
-            <h1 th:text = "#{goToAdminPage.text}">Admin Area</h1>
+            <h1>Admin Area</h1>
             <div th:if="${param.tagNotSaved}">
                 <div class="alert alert-danger">Tag with this Name already exists</div>
             </div>
@@ -139,33 +158,33 @@
             <div th:if="${param.recipeDeleted}">
                 <div class="alert alert-info">Successfully deleted Recipe</div>
             </div>
-            <h2 th:text = "#{deleteRecipe.text}">Delete recipe</h2>
+            <h2>Delete recipe</h2>
             <form th:action="@{/admin/deleteRecipe}" method="post">
                 <select name="Recipes" size="6" th:name="recipeId" required>
                     <option th:each="recipe:${recipes}" th:value="${recipe.id}" th:text="${recipe.recipeName}"/>
                 </select>
-                <button type=submit class="goToRecipeButton" id="deleteRecipeButton"  th:text = "#{deleteRecipe.text}">Delete recipe</button>
+                <button type=submit class="goToRecipeButton" id="deleteRecipeButton">Delete recipe</button>
             </form>
 
-            <h2  th:text = "#{deleteUser.text}">Delete user</h2>
+            <h2>Delete user</h2>
             <form th:action="@{/admin/deleteUser}" method="post">
                 <div class="adminDiv">
                     <select name="Recipes" size="6" th:name="userId" required>
                         <option th:each="user:${users}" th:value="${user.id}" th:text="${user.username}"/>
                     </select>
-                    <button type="submit" class="goToRecipeButton" id="deleteUserButton"  th:text = "#{deleteUser.text}">Delete user</button>
+                    <button type="submit" class="goToRecipeButton" id="deleteUserButton">Delete user</button>
                 </div>
             </form>
-            <h2 th:text = "#{addTag.text}">Add tag</h2>
+            <h2>Add tag</h2>
             <form th:action="@{/admin/addTag}" th:object="${newTag}" method="post">
                 <div class="adminDiv">
-                    <label for="tagName" class="control-label" th:text = "#{enterNewTag.text}">Enter new tag</label>
+                    <label for="tagName" class="control-label">Enter new tag</label>
                     <input id="tagName" class="form-control" th:field="*{tagName}" type="text" name="Enter new tag" pattern="[A-Za-z]{1,20}" required/>
                     <label for="options" class="control-label">Tag Type</label>
                     <select id="options" name="Types" size="3" th:field="*{tagType}" required/>
                         <option th:each="option:${options}" th:value="${option.id}" th:text="${option.optionName}" />
                     </select>
-                    <button type=submit class="goToRecipeButton" id="addNewTagButton" th:text = "#{addTag.text}">Add new tag</button>
+                    <button type=submit class="goToRecipeButton" id="addNewTagButton">Add new tag</button>
                 </div>
             </form>
         </div>
@@ -174,7 +193,7 @@
 
     <!-- compareRecipesFragment -->
     <div th:fragment="compareRecipesFragment()" class="subPageContainer">
-        <h1 th:text = "#{compareRecipes.text}">Compare recipes</h1>
+        <h1>Compare recipes</h1>
         <div id="compareRecipesContainer">
             <div th:replace="thFragments.html :: recipeCompareFirstRowFragment"></div>
             <div th:each="recipe:${recipes}">
@@ -193,7 +212,7 @@
     <!-- landingPageFragment -->
     <div th:fragment="landingPageFragment()"  class="subPageContainer">
         <div class="container">
-            <h1 th:text = "#{welcomeToCookit.text}">Welcome to CookIt!</h1>
+            <h1>Welcome to CookIt!</h1>
         </div>
     </div>
 
@@ -203,7 +222,7 @@
 
             <div class="row">
                 <div class="loginColumn">
-                    <h1  th:text = "#{login.text}">Login page</h1>
+                    <h1>Login page</h1>
                     <form th:action="@{/login}" method="post">
                         <div th:if="${param.error}">
                             <!-- <div class="alert alert-danger">Invalid username or
@@ -247,7 +266,7 @@
     <!-- searchRecipesFragment -->
     <div th:fragment="searchRecipesFragment()"  class="subPageContainer">
 
-        <h1 th:text = "#{searchRecipes.text}">Search for recipes</h1>
+        <h1>Search for recipes</h1>
         <form th:action="@{/recipes/searchRecipes}" th:object="${searchParams}" method="post">
             <div id="searchDropdownDiv">
                 <div th:replace="thFragments.html :: cuisineDropdown(tags=${tagCuisine})"></div>
@@ -258,7 +277,7 @@
             <br/>
             <button type="submit" class="filterAddButton" id="filterRecipesButton">Filter recipes</button>
         </form>
-        <h1  th:text = "#{searchresults.text}">Search results</h1>
+        <h1>Search results</h1>
         <div id="searchRecipesResults">
             <div th:each="recipe:${recipes}">
                 <div th:replace="thFragments.html :: recipeTileFragment(
@@ -283,7 +302,7 @@
                         <div class="alert alert-info">You've successfully registered CookIt!</div>
                     </div>
 
-                    <h1 th:text = "#{registration.text}">Registration</h1>
+                    <h1>Registration</h1>
 
                     <form th:action="@{/signup}" th:object="${user}" method="post">
 
@@ -291,37 +310,37 @@
                         </p>
 
                         <div class="form-group" th:classappend="${#fields.hasErrors('userName')}? 'has-error':''">
-                            <label for="userName" class="control-label" th:text = "#{username.text}">Username</label>
+                            <label for="userName" class="control-label">Username</label>
                             <input id="userName" class="form-control" th:field="*{userName}" />
                             <p class="error-message" th:each="error: ${#fields.errors('userName')}" th:text="${error}">Validation error</p>
                         </div>
                         <div class="form-group" th:classappend="${#fields.hasErrors('firstName')}? 'has-error':''">
-                            <label for="firstName" class="control-label" th:text = "#{firstName.text}">First name</label>
+                            <label for="firstName" class="control-label">First name</label>
                             <input id="firstName" class="form-control" th:field="*{firstName}" />
                             <p class="error-message" th:each="error: ${#fields.errors('firstName')}" th:text="${error}">Validation error</p>
                         </div>
                         <div class="form-group" th:classappend="${#fields.hasErrors('lastName')}? 'has-error':''">
-                            <label for="lastName" class="control-label" th:text = "#{lastName.text}">Last name</label>
+                            <label for="lastName" class="control-label">Last name</label>
                             <input id="lastName" class="form-control" th:field="*{lastName}" />
                             <p class="error-message" th:each="error : ${#fields.errors('lastName')}" th:text="${error}">Validation error</p>
                         </div>
                         <div class="form-group" th:classappend="${#fields.hasErrors('email')}? 'has-error':''">
-                            <label for="email" class="control-label" th:text = "#{email.text}">E-mail</label>
+                            <label for="email" class="control-label">E-mail</label>
                             <input id="email" class="form-control" th:field="*{email}" />
                             <p class="error-message" th:each="error : ${#fields.errors('email')}" th:text="${error}">Validation error
                             </p>
                         </div>
                         <div class="form-group" th:classappend="${#fields.hasErrors('confirmEmail')}? 'has-error':''">
-                            <label for="confirmEmail" class="control-label"  th:text = "#{confirmEmail.text}">Confirm
+                            <label for="confirmEmail" class="control-label">Confirm
                                 e-mail</label> <input id="confirmEmail" class="form-control" th:field="*{confirmEmail}" />
                             <p class="error-message" th:each="error : ${#fields.errors('confirmEmail')}" th:text="${error}">Validation error</p>
                         </div>
                         <div class="form-group" th:classappend="${#fields.hasErrors('password')}? 'has-error':''">
-                            <label for="password" class="control-label"  th:text = "#{pw.text}">Password</label> <input id="password" class="form-control" type="password" th:field="*{password}" />
+                            <label for="password" class="control-label">Password</label> <input id="password" class="form-control" type="password" th:field="*{password}" />
                             <p class="error-message" th:each="error : ${#fields.errors('password')}" th:text="${error}">Validation error</p>
                         </div>
                         <div class="form-group" th:classappend="${#fields.hasErrors('confirmPassword')}? 'has-error':''">
-                            <label for="confirmPassword" class="control-label"  th:text = "#{confirmPw.text}">Confirm
+                            <label for="confirmPassword" class="control-label">Confirm
                                 password</label> <input id="confirmPassword" class="form-control" type="password" th:field="*{confirmPassword}" />
                             <p class="error-message" th:each="error : ${#fields.errors('confirmPassword')}" th:text="${error}">Validation error</p>
                         </div>
@@ -333,8 +352,8 @@
                             </p>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="goToRecipeButton"  th:text = "#{register.text}">Register</button>
-                            <span  th:text = "#{alreadyRegistered.text}">Already registered? <a href="/" th:href="@{/login}" th:text = "#{loginHere.text}">Login here</a></span>
+                            <button type="submit" class="goToRecipeButton">Register</button>
+                            <span>Already registered? <a href="/" th:href="@{/login}">Login here</a></span>
                         </div>
 
                     </form>

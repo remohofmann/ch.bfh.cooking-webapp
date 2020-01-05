@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -35,7 +36,10 @@ public class UserServiceImpl implements UserService {
         user.setFirstName(userDto.getFirstName());
         user.setLastName(userDto.getLastName());
         user.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
-        user.setRoles(getUserSet());
+        Set<Role> userSet = new HashSet<>();
+        Role role = roleRepository.findByName("USER");
+        userSet.add(role);
+        user.setRoles(userSet);
         userRepository.save(user);
     }
 
@@ -81,7 +85,9 @@ public class UserServiceImpl implements UserService {
 
     //ADMIN commands
     public List<User> getAllUsers() {
-        return userRepository.findAll();
+        List<User> users = userRepository.findAll();
+        users.removeIf(u -> u.getUsername().equals("admin"));
+        return users;
     }
 
     public void deleteUser(long userId) {
